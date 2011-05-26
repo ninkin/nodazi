@@ -9,8 +9,12 @@
 #import <UIKit/UIKit.h>
 
 
-@interface SettingViewController : UIViewController {
-    
+@interface SettingViewController : UIViewController
+<UITableViewDelegate, UITableViewDataSource>
+{
+    NSArray *listSettings;
 }
+
+@property (nonatomic, retain) NSArray *listSettings;
 
 @end
