@@ -18,6 +18,15 @@
 		2F24A70C138E54C000B34B3D /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F24A70B138E54C000B34B3D /* SecondViewController.m */; };
 		2F24A70F138E54C000B34B3D /* FirstView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F24A70D138E54C000B34B3D /* FirstView.xib */; };
 		2F24A712138E54C000B34B3D /* SecondView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F24A710138E54C000B34B3D /* SecondView.xib */; };
+		2F24A719138E5B7900B34B3D /* Black-Camera-Symbol-48.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F24A718138E5B7900B34B3D /* Black-Camera-Symbol-48.png */; };
+		2F24A71D138E5D9800B34B3D /* Calender-48.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F24A71A138E5D9800B34B3D /* Calender-48.png */; };
+		2F24A71E138E5D9800B34B3D /* Shopping-Cart-48.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F24A71B138E5D9800B34B3D /* Shopping-Cart-48.png */; };
+		2F24A71F138E5D9800B34B3D /* Wrench-48.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F24A71C138E5D9800B34B3D /* Wrench-48.png */; };
+		2F24A723138E5F4900B34B3D /* Book-48.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F24A722138E5F4900B34B3D /* Book-48.png */; };
+		2F24A72B138E60C300B34B3D /* ExpenseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F24A729138E60C300B34B3D /* ExpenseViewController.m */; };
+		2F24A72C138E60C300B34B3D /* ExpenseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F24A72A138E60C300B34B3D /* ExpenseView.xib */; };
+		2FA0E228138E6E24006D7714 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FA0E226138E6E24006D7714 /* SettingViewController.m */; };
+		2FA0E229138E6E24006D7714 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FA0E227138E6E24006D7714 /* SettingViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,19 +34,30 @@
 		2F24A6F2138E54BF00B34B3D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2F24A6F4138E54BF00B34B3D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2F24A6F6138E54BF00B34B3D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		2F24A6FA138E54BF00B34B3D /* Nodazi-Info.plist */ = {isa = PBXFileReference; path = "Nodazi-Info.plist"; sourceTree = "<group>"; };
+		2F24A6FA138E54BF00B34B3D /* Nodazi-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Nodazi-Info.plist"; sourceTree = "<group>"; };
 		2F24A6FC138E54BF00B34B3D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		2F24A6FE138E54BF00B34B3D /* Nodazi-Prefix.pch */ = {isa = PBXFileReference; path = "Nodazi-Prefix.pch"; sourceTree = "<group>"; };
+		2F24A6FE138E54BF00B34B3D /* Nodazi-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Nodazi-Prefix.pch"; sourceTree = "<group>"; };
 		2F24A6FF138E54BF00B34B3D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		2F24A701138E54BF00B34B3D /* NodaziAppDelegate.h */ = {isa = PBXFileReference; path = NodaziAppDelegate.h; sourceTree = "<group>"; };
+		2F24A701138E54BF00B34B3D /* NodaziAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NodaziAppDelegate.h; sourceTree = "<group>"; };
 		2F24A702138E54BF00B34B3D /* NodaziAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NodaziAppDelegate.m; sourceTree = "<group>"; };
 		2F24A705138E54C000B34B3D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
-		2F24A707138E54C000B34B3D /* FirstViewController.h */ = {isa = PBXFileReference; path = FirstViewController.h; sourceTree = "<group>"; };
+		2F24A707138E54C000B34B3D /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
 		2F24A708138E54C000B34B3D /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		2F24A70A138E54C000B34B3D /* SecondViewController.h */ = {isa = PBXFileReference; path = SecondViewController.h; sourceTree = "<group>"; };
+		2F24A70A138E54C000B34B3D /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		2F24A70B138E54C000B34B3D /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		2F24A70E138E54C000B34B3D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FirstView.xib; sourceTree = "<group>"; };
 		2F24A711138E54C000B34B3D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SecondView.xib; sourceTree = "<group>"; };
+		2F24A718138E5B7900B34B3D /* Black-Camera-Symbol-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Black-Camera-Symbol-48.png"; sourceTree = "<group>"; };
+		2F24A71A138E5D9800B34B3D /* Calender-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Calender-48.png"; sourceTree = "<group>"; };
+		2F24A71B138E5D9800B34B3D /* Shopping-Cart-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Shopping-Cart-48.png"; sourceTree = "<group>"; };
+		2F24A71C138E5D9800B34B3D /* Wrench-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Wrench-48.png"; sourceTree = "<group>"; };
+		2F24A722138E5F4900B34B3D /* Book-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Book-48.png"; sourceTree = "<group>"; };
+		2F24A728138E60C300B34B3D /* ExpenseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpenseViewController.h; sourceTree = "<group>"; };
+		2F24A729138E60C300B34B3D /* ExpenseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenseViewController.m; sourceTree = "<group>"; };
+		2F24A72A138E60C300B34B3D /* ExpenseView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpenseView.xib; sourceTree = "<group>"; };
+		2FA0E225138E6E24006D7714 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		2FA0E226138E6E24006D7714 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		2FA0E227138E6E24006D7714 /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +104,7 @@
 		2F24A6F8138E54BF00B34B3D /* Nodazi */ = {
 			isa = PBXGroup;
 			children = (
+				2F24A721138E5DC300B34B3D /* Icons */,
 				2F24A701138E54BF00B34B3D /* NodaziAppDelegate.h */,
 				2F24A702138E54BF00B34B3D /* NodaziAppDelegate.m */,
 				2F24A704138E54C000B34B3D /* MainWindow.xib */,
@@ -91,6 +112,12 @@
 				2F24A708138E54C000B34B3D /* FirstViewController.m */,
 				2F24A70A138E54C000B34B3D /* SecondViewController.h */,
 				2F24A70B138E54C000B34B3D /* SecondViewController.m */,
+				2FA0E225138E6E24006D7714 /* SettingViewController.h */,
+				2FA0E226138E6E24006D7714 /* SettingViewController.m */,
+				2FA0E227138E6E24006D7714 /* SettingViewController.xib */,
+				2F24A728138E60C300B34B3D /* ExpenseViewController.h */,
+				2F24A729138E60C300B34B3D /* ExpenseViewController.m */,
+				2F24A72A138E60C300B34B3D /* ExpenseView.xib */,
 				2F24A70D138E54C000B34B3D /* FirstView.xib */,
 				2F24A710138E54C000B34B3D /* SecondView.xib */,
 				2F24A6F9138E54BF00B34B3D /* Supporting Files */,
@@ -107,6 +134,18 @@
 				2F24A6FF138E54BF00B34B3D /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2F24A721138E5DC300B34B3D /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				2F24A722138E5F4900B34B3D /* Book-48.png */,
+				2F24A71A138E5D9800B34B3D /* Calender-48.png */,
+				2F24A71B138E5D9800B34B3D /* Shopping-Cart-48.png */,
+				2F24A71C138E5D9800B34B3D /* Wrench-48.png */,
+				2F24A718138E5B7900B34B3D /* Black-Camera-Symbol-48.png */,
+			);
+			name = Icons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +202,13 @@
 				2F24A706138E54C000B34B3D /* MainWindow.xib in Resources */,
 				2F24A70F138E54C000B34B3D /* FirstView.xib in Resources */,
 				2F24A712138E54C000B34B3D /* SecondView.xib in Resources */,
+				2F24A719138E5B7900B34B3D /* Black-Camera-Symbol-48.png in Resources */,
+				2F24A71D138E5D9800B34B3D /* Calender-48.png in Resources */,
+				2F24A71E138E5D9800B34B3D /* Shopping-Cart-48.png in Resources */,
+				2F24A71F138E5D9800B34B3D /* Wrench-48.png in Resources */,
+				2F24A723138E5F4900B34B3D /* Book-48.png in Resources */,
+				2F24A72C138E60C300B34B3D /* ExpenseView.xib in Resources */,
+				2FA0E229138E6E24006D7714 /* SettingViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +223,8 @@
 				2F24A703138E54BF00B34B3D /* NodaziAppDelegate.m in Sources */,
 				2F24A709138E54C000B34B3D /* FirstViewController.m in Sources */,
 				2F24A70C138E54C000B34B3D /* SecondViewController.m in Sources */,
+				2F24A72B138E60C300B34B3D /* ExpenseViewController.m in Sources */,
+				2FA0E228138E6E24006D7714 /* SettingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +307,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Nodazi/Nodazi-Prefix.pch";
 				INFOPLIST_FILE = "Nodazi/Nodazi-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -272,6 +321,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Nodazi/Nodazi-Prefix.pch";
 				INFOPLIST_FILE = "Nodazi/Nodazi-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
@@ -297,6 +347,7 @@
 				2F24A717138E54C000B34B3D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
