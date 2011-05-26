@@ -1,0 +1,304 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2F24A6F3138E54BF00B34B3D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F24A6F2138E54BF00B34B3D /* UIKit.framework */; };
+		2F24A6F5138E54BF00B34B3D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F24A6F4138E54BF00B34B3D /* Foundation.framework */; };
+		2F24A6F7138E54BF00B34B3D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F24A6F6138E54BF00B34B3D /* CoreGraphics.framework */; };
+		2F24A6FD138E54BF00B34B3D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2F24A6FB138E54BF00B34B3D /* InfoPlist.strings */; };
+		2F24A700138E54BF00B34B3D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F24A6FF138E54BF00B34B3D /* main.m */; };
+		2F24A703138E54BF00B34B3D /* NodaziAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F24A702138E54BF00B34B3D /* NodaziAppDelegate.m */; };
+		2F24A706138E54C000B34B3D /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F24A704138E54C000B34B3D /* MainWindow.xib */; };
+		2F24A709138E54C000B34B3D /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F24A708138E54C000B34B3D /* FirstViewController.m */; };
+		2F24A70C138E54C000B34B3D /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F24A70B138E54C000B34B3D /* SecondViewController.m */; };
+		2F24A70F138E54C000B34B3D /* FirstView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F24A70D138E54C000B34B3D /* FirstView.xib */; };
+		2F24A712138E54C000B34B3D /* SecondView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F24A710138E54C000B34B3D /* SecondView.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2F24A6EE138E54BF00B34B3D /* Nodazi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nodazi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F24A6F2138E54BF00B34B3D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2F24A6F4138E54BF00B34B3D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2F24A6F6138E54BF00B34B3D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2F24A6FA138E54BF00B34B3D /* Nodazi-Info.plist */ = {isa = PBXFileReference; path = "Nodazi-Info.plist"; sourceTree = "<group>"; };
+		2F24A6FC138E54BF00B34B3D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2F24A6FE138E54BF00B34B3D /* Nodazi-Prefix.pch */ = {isa = PBXFileReference; path = "Nodazi-Prefix.pch"; sourceTree = "<group>"; };
+		2F24A6FF138E54BF00B34B3D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2F24A701138E54BF00B34B3D /* NodaziAppDelegate.h */ = {isa = PBXFileReference; path = NodaziAppDelegate.h; sourceTree = "<group>"; };
+		2F24A702138E54BF00B34B3D /* NodaziAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NodaziAppDelegate.m; sourceTree = "<group>"; };
+		2F24A705138E54C000B34B3D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		2F24A707138E54C000B34B3D /* FirstViewController.h */ = {isa = PBXFileReference; path = FirstViewController.h; sourceTree = "<group>"; };
+		2F24A708138E54C000B34B3D /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		2F24A70A138E54C000B34B3D /* SecondViewController.h */ = {isa = PBXFileReference; path = SecondViewController.h; sourceTree = "<group>"; };
+		2F24A70B138E54C000B34B3D /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		2F24A70E138E54C000B34B3D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FirstView.xib; sourceTree = "<group>"; };
+		2F24A711138E54C000B34B3D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SecondView.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2F24A6EB138E54BF00B34B3D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F24A6F3138E54BF00B34B3D /* UIKit.framework in Frameworks */,
+				2F24A6F5138E54BF00B34B3D /* Foundation.framework in Frameworks */,
+				2F24A6F7138E54BF00B34B3D /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2F24A6E3138E54BF00B34B3D = {
+			isa = PBXGroup;
+			children = (
+				2F24A6F8138E54BF00B34B3D /* Nodazi */,
+				2F24A6F1138E54BF00B34B3D /* Frameworks */,
+				2F24A6EF138E54BF00B34B3D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2F24A6EF138E54BF00B34B3D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2F24A6EE138E54BF00B34B3D /* Nodazi.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2F24A6F1138E54BF00B34B3D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2F24A6F2138E54BF00B34B3D /* UIKit.framework */,
+				2F24A6F4138E54BF00B34B3D /* Foundation.framework */,
+				2F24A6F6138E54BF00B34B3D /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2F24A6F8138E54BF00B34B3D /* Nodazi */ = {
+			isa = PBXGroup;
+			children = (
+				2F24A701138E54BF00B34B3D /* NodaziAppDelegate.h */,
+				2F24A702138E54BF00B34B3D /* NodaziAppDelegate.m */,
+				2F24A704138E54C000B34B3D /* MainWindow.xib */,
+				2F24A707138E54C000B34B3D /* FirstViewController.h */,
+				2F24A708138E54C000B34B3D /* FirstViewController.m */,
+				2F24A70A138E54C000B34B3D /* SecondViewController.h */,
+				2F24A70B138E54C000B34B3D /* SecondViewController.m */,
+				2F24A70D138E54C000B34B3D /* FirstView.xib */,
+				2F24A710138E54C000B34B3D /* SecondView.xib */,
+				2F24A6F9138E54BF00B34B3D /* Supporting Files */,
+			);
+			path = Nodazi;
+			sourceTree = "<group>";
+		};
+		2F24A6F9138E54BF00B34B3D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2F24A6FA138E54BF00B34B3D /* Nodazi-Info.plist */,
+				2F24A6FB138E54BF00B34B3D /* InfoPlist.strings */,
+				2F24A6FE138E54BF00B34B3D /* Nodazi-Prefix.pch */,
+				2F24A6FF138E54BF00B34B3D /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2F24A6ED138E54BF00B34B3D /* Nodazi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2F24A715138E54C000B34B3D /* Build configuration list for PBXNativeTarget "Nodazi" */;
+			buildPhases = (
+				2F24A6EA138E54BF00B34B3D /* Sources */,
+				2F24A6EB138E54BF00B34B3D /* Frameworks */,
+				2F24A6EC138E54BF00B34B3D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Nodazi;
+			productName = Nodazi;
+			productReference = 2F24A6EE138E54BF00B34B3D /* Nodazi.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2F24A6E5138E54BF00B34B3D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "서울대학교";
+			};
+			buildConfigurationList = 2F24A6E8138E54BF00B34B3D /* Build configuration list for PBXProject "Nodazi" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2F24A6E3138E54BF00B34B3D;
+			productRefGroup = 2F24A6EF138E54BF00B34B3D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2F24A6ED138E54BF00B34B3D /* Nodazi */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2F24A6EC138E54BF00B34B3D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F24A6FD138E54BF00B34B3D /* InfoPlist.strings in Resources */,
+				2F24A706138E54C000B34B3D /* MainWindow.xib in Resources */,
+				2F24A70F138E54C000B34B3D /* FirstView.xib in Resources */,
+				2F24A712138E54C000B34B3D /* SecondView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2F24A6EA138E54BF00B34B3D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F24A700138E54BF00B34B3D /* main.m in Sources */,
+				2F24A703138E54BF00B34B3D /* NodaziAppDelegate.m in Sources */,
+				2F24A709138E54C000B34B3D /* FirstViewController.m in Sources */,
+				2F24A70C138E54C000B34B3D /* SecondViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2F24A6FB138E54BF00B34B3D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F24A6FC138E54BF00B34B3D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2F24A704138E54C000B34B3D /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F24A705138E54C000B34B3D /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		2F24A70D138E54C000B34B3D /* FirstView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F24A70E138E54C000B34B3D /* en */,
+			);
+			name = FirstView.xib;
+			sourceTree = "<group>";
+		};
+		2F24A710138E54C000B34B3D /* SecondView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F24A711138E54C000B34B3D /* en */,
+			);
+			name = SecondView.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2F24A713138E54C000B34B3D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		2F24A714138E54C000B34B3D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		2F24A716138E54C000B34B3D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Nodazi/Nodazi-Prefix.pch";
+				INFOPLIST_FILE = "Nodazi/Nodazi-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		2F24A717138E54C000B34B3D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Nodazi/Nodazi-Prefix.pch";
+				INFOPLIST_FILE = "Nodazi/Nodazi-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2F24A6E8138E54BF00B34B3D /* Build configuration list for PBXProject "Nodazi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F24A713138E54C000B34B3D /* Debug */,
+				2F24A714138E54C000B34B3D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2F24A715138E54C000B34B3D /* Build configuration list for PBXNativeTarget "Nodazi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F24A716138E54C000B34B3D /* Debug */,
+				2F24A717138E54C000B34B3D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2F24A6E5138E54BF00B34B3D /* Project object */;
+}
