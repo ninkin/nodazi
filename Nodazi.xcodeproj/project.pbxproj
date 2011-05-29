@@ -30,6 +30,7 @@
 		2FA0E22B138E754E006D7714 /* Show Tooltip Table Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FA0E22A138E754E006D7714 /* Show Tooltip Table Cell.xib */; };
 		2FA0E22E138E7D90006D7714 /* SettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FA0E22D138E7D90006D7714 /* SettingCell.m */; };
 		2FE34FD9139288420035D58E /* calendar_blank.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FE34FD8139288420035D58E /* calendar_blank.png */; };
+		AC44C69F1392A2200078E586 /* Add-32.png in Resources */ = {isa = PBXBuildFile; fileRef = AC44C69E1392A2200078E586 /* Add-32.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,7 +66,7 @@
 		2FA0E22C138E7D90006D7714 /* SettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingCell.h; sourceTree = "<group>"; };
 		2FA0E22D138E7D90006D7714 /* SettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingCell.m; sourceTree = "<group>"; };
 		2FE34FD8139288420035D58E /* calendar_blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar_blank.png; sourceTree = "<group>"; };
-		ACADC0A8139203D8002F57F8 /* Add-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Add-32.png"; path = "../../../Downloads/Add-32.png"; sourceTree = "<group>"; };
+		AC44C69E1392A2200078E586 /* Add-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Add-32.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,7 +152,7 @@
 		2F24A721138E5DC300B34B3D /* Icons */ = {
 			isa = PBXGroup;
 			children = (
-				ACADC0A8139203D8002F57F8 /* Add-32.png */,
+				AC44C69E1392A2200078E586 /* Add-32.png */,
 				2F24A722138E5F4900B34B3D /* Book-48.png */,
 				2F24A71A138E5D9800B34B3D /* Calender-48.png */,
 				2F24A71B138E5D9800B34B3D /* Shopping-Cart-48.png */,
@@ -224,6 +225,7 @@
 				2FA0E229138E6E24006D7714 /* SettingView.xib in Resources */,
 				2FA0E22B138E754E006D7714 /* Show Tooltip Table Cell.xib in Resources */,
 				2FE34FD9139288420035D58E /* calendar_blank.png in Resources */,
+				AC44C69F1392A2200078E586 /* Add-32.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
