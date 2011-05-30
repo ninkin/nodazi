@@ -10,14 +10,24 @@
 
 
 @implementation SecondViewController
-
-/*
+@synthesize numberField;
+@synthesize productField;
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
+    
+    
     [super viewDidLoad];
 }
-*/
+
+- (IBAction)productFieldDoneEditing:(id)sender{
+    [sender resignFirstResponder];
+}
+
+- (IBAction)backgoundTouched:(id)sender{
+    [numberField resignFirstResponder];
+    [productField resignFirstResponder];
+}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -46,6 +56,8 @@
 
 - (void)dealloc
 {
+    [productField release];
+    [numberField release];
     [super dealloc];
 }
 

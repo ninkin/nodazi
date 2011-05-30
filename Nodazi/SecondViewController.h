@@ -10,7 +10,12 @@
 
 
 @interface SecondViewController : UIViewController {
-    
+    UITextField *productField;
+    UITextField *numberField;
 }
 
+@property (nonatomic, retain) IBOutlet UITextField *productField;
+@property (nonatomic, retain) IBOutlet UITextField *numberField;
+- (IBAction)backgoundTouched:(id)sender;
+- (IBAction)productFieldDoneEditing:(id)sender;
 @end

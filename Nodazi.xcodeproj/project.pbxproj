@@ -31,6 +31,8 @@
 		2FA0E22E138E7D90006D7714 /* SettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FA0E22D138E7D90006D7714 /* SettingCell.m */; };
 		2FE34FD9139288420035D58E /* calendar_blank.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FE34FD8139288420035D58E /* calendar_blank.png */; };
 		AC44C69F1392A2200078E586 /* Add-32.png in Resources */ = {isa = PBXBuildFile; fileRef = AC44C69E1392A2200078E586 /* Add-32.png */; };
+		ACEC1C4513933F74009DD4EA /* PlannerMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACEC1C4313933F74009DD4EA /* PlannerMainView.m */; };
+		ACEC1C4613933F74009DD4EA /* PlannerMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACEC1C4413933F74009DD4EA /* PlannerMainView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +69,9 @@
 		2FA0E22D138E7D90006D7714 /* SettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingCell.m; sourceTree = "<group>"; };
 		2FE34FD8139288420035D58E /* calendar_blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar_blank.png; sourceTree = "<group>"; };
 		AC44C69E1392A2200078E586 /* Add-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Add-32.png"; sourceTree = "<group>"; };
+		ACEC1C4213933F74009DD4EA /* PlannerMainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlannerMainView.h; sourceTree = "<group>"; };
+		ACEC1C4313933F74009DD4EA /* PlannerMainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlannerMainView.m; sourceTree = "<group>"; };
+		ACEC1C4413933F74009DD4EA /* PlannerMainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlannerMainView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +123,9 @@
 				2F24A701138E54BF00B34B3D /* NodaziAppDelegate.h */,
 				2F24A702138E54BF00B34B3D /* NodaziAppDelegate.m */,
 				2F24A704138E54C000B34B3D /* MainWindow.xib */,
+				ACEC1C4213933F74009DD4EA /* PlannerMainView.h */,
+				ACEC1C4313933F74009DD4EA /* PlannerMainView.m */,
+				ACEC1C4413933F74009DD4EA /* PlannerMainView.xib */,
 				2F24A707138E54C000B34B3D /* FirstViewController.h */,
 				2F24A708138E54C000B34B3D /* FirstViewController.m */,
 				2F24A70A138E54C000B34B3D /* SecondViewController.h */,
@@ -226,6 +234,7 @@
 				2FA0E22B138E754E006D7714 /* Show Tooltip Table Cell.xib in Resources */,
 				2FE34FD9139288420035D58E /* calendar_blank.png in Resources */,
 				AC44C69F1392A2200078E586 /* Add-32.png in Resources */,
+				ACEC1C4613933F74009DD4EA /* PlannerMainView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +252,7 @@
 				2F24A72B138E60C300B34B3D /* ExpenseViewController.m in Sources */,
 				2FA0E228138E6E24006D7714 /* SettingViewController.m in Sources */,
 				2FA0E22E138E7D90006D7714 /* SettingCell.m in Sources */,
+				ACEC1C4513933F74009DD4EA /* PlannerMainView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

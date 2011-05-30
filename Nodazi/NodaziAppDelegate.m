@@ -12,9 +12,8 @@
 
 
 @synthesize window=_window;
-
+@synthesize navController;
 @synthesize tabBarController=_tabBarController;
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
@@ -67,6 +66,7 @@
 {
     [_window release];
     [_tabBarController release];
+    [navController release];
     [super dealloc];
 }
 
