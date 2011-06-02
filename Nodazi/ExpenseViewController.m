@@ -105,6 +105,7 @@
     
     NSUInteger row = [indexPath row];
     [cell.textLabel setText:[self.listExpenses objectAtIndex:row]];
+    [cell.detailTextLabel setText:@"20,000원"];
     
     return cell;
 }
