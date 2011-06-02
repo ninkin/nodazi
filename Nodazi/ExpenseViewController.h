@@ -10,7 +10,14 @@
 
 
 @interface ExpenseViewController : UIViewController {
+    UILabel *labelMonth;
+    UILabel *labelDay;
+    UILabel *labelTotalExpense;
     
 }
+
+@property (nonatomic, retain) IBOutlet UILabel *labelMonth;
+@property (nonatomic, retain) IBOutlet UILabel *labelDay;
+@property (nonatomic, retain) IBOutlet UILabel *labelTotalExpense;
 
 @end

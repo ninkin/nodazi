@@ -11,6 +11,10 @@
 
 @implementation ExpenseViewController
 
+@synthesize labelMonth;
+@synthesize labelDay;
+@synthesize labelTotalExpense;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -23,6 +27,9 @@
 - (void)dealloc
 {
     [super dealloc];
+    
+    [labelMonth release];
+    [labelDay release];
 }
 
 - (void)didReceiveMemoryWarning
@@ -39,6 +46,20 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    NSCalendar *calendarCurrent = [NSCalendar currentCalendar];
+    NSDate *today = [NSDate date];
+    NSDateComponents *date = [calendarCurrent components: (NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:today];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MMMM"];
+    NSString *strMonth = [dateFormatter stringFromDate:today];
+    
+    NSInteger day = [date day];
+    NSString *strDay = [NSString stringWithFormat:@"%ld", day]; 
+
+    [labelMonth setText:strMonth];
+    [labelDay setText:strDay];
 }
 
 - (void)viewDidUnload
@@ -46,6 +67,9 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    [[labelMonth text] release];
+    [[labelDay text] release];
+    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
