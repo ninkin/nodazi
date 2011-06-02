@@ -14,6 +14,8 @@
 @synthesize labelMonth;
 @synthesize labelDay;
 @synthesize labelTotalExpense;
+@synthesize listExpenses;
+@synthesize listTotal;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -60,6 +62,10 @@
 
     [labelMonth setText:strMonth];
     [labelDay setText:strDay];
+    
+    //
+    NSArray *testArray = [[NSArray alloc] initWithObjects:@"First", @"Second", @"3rd", nil];
+    self.listExpenses = testArray;
 }
 
 - (void)viewDidUnload
@@ -76,6 +82,31 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (NSInteger)tableView:(UITableView *)tableView 
+ numberOfRowsInSection:(NSInteger)section
+{
+    return [self.listExpenses count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView 
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *cellIdentifier = @"CellIdentifier";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1
+                                       reuseIdentifier:cellIdentifier]
+                autorelease];
+    }
+    
+    NSUInteger row = [indexPath row];
+    [cell.textLabel setText:[self.listExpenses objectAtIndex:row]];
+    
+    return cell;
 }
 
 @end
