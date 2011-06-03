@@ -29,6 +29,7 @@
 		2FA0E229138E6E24006D7714 /* SettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FA0E227138E6E24006D7714 /* SettingView.xib */; };
 		2FA0E22B138E754E006D7714 /* Show Tooltip Table Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FA0E22A138E754E006D7714 /* Show Tooltip Table Cell.xib */; };
 		2FA0E22E138E7D90006D7714 /* SettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FA0E22D138E7D90006D7714 /* SettingCell.m */; };
+		2FDC144A1398BA51007B1723 /* AddNewRecordView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FDC14491398BA51007B1723 /* AddNewRecordView.xib */; };
 		2FE34FD9139288420035D58E /* calendar_blank.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FE34FD8139288420035D58E /* calendar_blank.png */; };
 		AC44C69F1392A2200078E586 /* Add-32.png in Resources */ = {isa = PBXBuildFile; fileRef = AC44C69E1392A2200078E586 /* Add-32.png */; };
 		ACEC1C4513933F74009DD4EA /* PlannerMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACEC1C4313933F74009DD4EA /* PlannerMainView.m */; };
@@ -67,6 +68,7 @@
 		2FA0E22A138E754E006D7714 /* Show Tooltip Table Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "Show Tooltip Table Cell.xib"; path = "../Show Tooltip Table Cell.xib"; sourceTree = "<group>"; };
 		2FA0E22C138E7D90006D7714 /* SettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingCell.h; sourceTree = "<group>"; };
 		2FA0E22D138E7D90006D7714 /* SettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingCell.m; sourceTree = "<group>"; };
+		2FDC14491398BA51007B1723 /* AddNewRecordView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddNewRecordView.xib; sourceTree = "<group>"; };
 		2FE34FD8139288420035D58E /* calendar_blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar_blank.png; sourceTree = "<group>"; };
 		AC44C69E1392A2200078E586 /* Add-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Add-32.png"; sourceTree = "<group>"; };
 		ACEC1C4213933F74009DD4EA /* PlannerMainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlannerMainView.h; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				2F24A70D138E54C000B34B3D /* FirstView.xib */,
 				2F24A710138E54C000B34B3D /* SecondView.xib */,
 				2F24A6F9138E54BF00B34B3D /* Supporting Files */,
+				2FDC14491398BA51007B1723 /* AddNewRecordView.xib */,
 			);
 			path = Nodazi;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				2FE34FD9139288420035D58E /* calendar_blank.png in Resources */,
 				AC44C69F1392A2200078E586 /* Add-32.png in Resources */,
 				ACEC1C4613933F74009DD4EA /* PlannerMainView.xib in Resources */,
+				2FDC144A1398BA51007B1723 /* AddNewRecordView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
