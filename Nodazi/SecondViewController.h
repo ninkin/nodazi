@@ -18,4 +18,5 @@
 @property (nonatomic, retain) IBOutlet UITextField *numberField;
 - (IBAction)backgoundTouched:(id)sender;
 - (IBAction)productFieldDoneEditing:(id)sender;
+- (IBAction)findStorePushed:(id)sender;
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "SecondViewController.h"
-
+#import "PlannerMainView.h"
 
 @implementation SecondViewController
 @synthesize numberField;
@@ -19,7 +19,11 @@
     
     [super viewDidLoad];
 }
-
+- (IBAction)findStorePushed:(id)sender{
+    PlannerMainView *plannerMain = [[PlannerMainView alloc  ]init];
+    [self.navigationController pushViewController:plannerMain animated:YES];
+    
+}
 - (IBAction)productFieldDoneEditing:(id)sender{
     [sender resignFirstResponder];
 }
