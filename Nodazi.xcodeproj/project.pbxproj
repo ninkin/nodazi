@@ -33,6 +33,7 @@
 		AC44C69F1392A2200078E586 /* Add-32.png in Resources */ = {isa = PBXBuildFile; fileRef = AC44C69E1392A2200078E586 /* Add-32.png */; };
 		ACEC1C4513933F74009DD4EA /* PlannerMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACEC1C4313933F74009DD4EA /* PlannerMainView.m */; };
 		ACEC1C4613933F74009DD4EA /* PlannerMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACEC1C4413933F74009DD4EA /* PlannerMainView.xib */; };
+		BCE024511399ECAC00ED7003 /* Show Tooltip Table Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCE024501399ECAC00ED7003 /* Show Tooltip Table Cell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		ACEC1C4213933F74009DD4EA /* PlannerMainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlannerMainView.h; sourceTree = "<group>"; };
 		ACEC1C4313933F74009DD4EA /* PlannerMainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlannerMainView.m; sourceTree = "<group>"; };
 		ACEC1C4413933F74009DD4EA /* PlannerMainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlannerMainView.xib; sourceTree = "<group>"; };
+		BCE024501399ECAC00ED7003 /* Show Tooltip Table Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Show Tooltip Table Cell.xib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 		2F24A6F8138E54BF00B34B3D /* Nodazi */ = {
 			isa = PBXGroup;
 			children = (
+				BCE024501399ECAC00ED7003 /* Show Tooltip Table Cell.xib */,
 				2FE34FD8139288420035D58E /* calendar_blank.png */,
 				2F24A721138E5DC300B34B3D /* Icons */,
 				2F24A701138E54BF00B34B3D /* NodaziAppDelegate.h */,
@@ -235,6 +238,7 @@
 				AC44C69F1392A2200078E586 /* Add-32.png in Resources */,
 				ACEC1C4613933F74009DD4EA /* PlannerMainView.xib in Resources */,
 				2FDC144A1398BA51007B1723 /* AddNewRecordView.xib in Resources */,
+				BCE024511399ECAC00ED7003 /* Show Tooltip Table Cell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
