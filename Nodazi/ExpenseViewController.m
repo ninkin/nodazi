@@ -16,6 +16,7 @@
 @synthesize labelTotalExpense;
 @synthesize listExpenses;
 @synthesize listTotal;
+@synthesize addNew;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -108,6 +109,16 @@
     [cell.detailTextLabel setText:@"20,000원"];
     
     return cell;
+}
+
+- (IBAction)buttonAddNewPressed:(id)sender
+{
+    if (self.addNew == nil) {
+        AddNewRecordVIewController *newCtrlr = [[AddNewRecordVIewController alloc] initWithNibName:@"AddNewRecordView" bundle:[NSBundle mainBundle]];
+        self.addNew = newCtrlr;
+    }
+    
+    [self.navigationController pushViewController:addNew animated:YES];
 }
 
 @end

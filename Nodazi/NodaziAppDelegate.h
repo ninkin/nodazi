@@ -11,10 +11,11 @@
 @interface NodaziAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate> {
 
     IBOutlet UINavigationController *navController;
-    
+    IBOutlet UINavigationController *_expenseNavCtrlr;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UINavigationController *navController;
+@property (nonatomic, retain) IBOutlet UINavigationController *_expenseNavCtrlr;
 @property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
 @end
