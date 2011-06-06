@@ -10,7 +10,10 @@
 
 
 @interface AddNewRecordVIewController : UIViewController {
+    IBOutlet UIButton *buttonDate;
     
 }
+
+@property (nonatomic, retain) IBOutlet UIButton *buttonDate;
 
 @end

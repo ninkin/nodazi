@@ -11,6 +11,8 @@
 
 @implementation AddNewRecordVIewController
 
+@synthesize buttonDate;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -42,13 +44,18 @@
 }
 */
 
-/*
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSDate *today = [NSDate date];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"YYYY/MM/dd"];
+    NSString *strDate = [dateFormatter stringFromDate:today];
+    
+    [buttonDate setTitle:strDate forState:UIControlStateNormal];
 }
-*/
 
 - (void)viewDidUnload
 {
