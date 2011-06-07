@@ -12,6 +12,8 @@
 @implementation SecondViewController
 @synthesize numberField;
 @synthesize productField;
+@synthesize milkname;
+@synthesize milkqt;
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
@@ -31,6 +33,10 @@
 - (IBAction)backgoundTouched:(id)sender{
     [numberField resignFirstResponder];
     [productField resignFirstResponder];
+}
+- (IBAction)showFakeItem:(id)sender{
+    [milkname setHidden:FALSE];
+    [milkqt setHidden:FALSE];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
