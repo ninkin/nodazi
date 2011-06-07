@@ -34,7 +34,11 @@
 		AC44C69F1392A2200078E586 /* Add-32.png in Resources */ = {isa = PBXBuildFile; fileRef = AC44C69E1392A2200078E586 /* Add-32.png */; };
 		ACEC1C4513933F74009DD4EA /* PlannerMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACEC1C4313933F74009DD4EA /* PlannerMainView.m */; };
 		ACEC1C4613933F74009DD4EA /* PlannerMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACEC1C4413933F74009DD4EA /* PlannerMainView.xib */; };
-		BCE024511399ECAC00ED7003 /* Show Tooltip Table Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCE024501399ECAC00ED7003 /* Show Tooltip Table Cell.xib */; };
+		BC9416EE139DF63F0022DEE2 /* Start-up Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC9416ED139DF63F0022DEE2 /* Start-up Screen.xib */; };
+		BC9416F8139DFDFE0022DEE2 /* Reset All Data.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC9416F5139DFDFE0022DEE2 /* Reset All Data.xib */; };
+		BC9416F9139DFDFE0022DEE2 /* Monthly Start Date.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC9416F6139DFDFE0022DEE2 /* Monthly Start Date.xib */; };
+		BC9416FA139DFDFE0022DEE2 /* Enable Password.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC9416F7139DFDFE0022DEE2 /* Enable Password.xib */; };
+		BCE024511399ECAC00ED7003 /* Show Tooltip.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCE024501399ECAC00ED7003 /* Show Tooltip.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,7 +80,11 @@
 		ACEC1C4213933F74009DD4EA /* PlannerMainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlannerMainView.h; sourceTree = "<group>"; };
 		ACEC1C4313933F74009DD4EA /* PlannerMainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlannerMainView.m; sourceTree = "<group>"; };
 		ACEC1C4413933F74009DD4EA /* PlannerMainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlannerMainView.xib; sourceTree = "<group>"; };
-		BCE024501399ECAC00ED7003 /* Show Tooltip Table Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Show Tooltip Table Cell.xib"; sourceTree = "<group>"; };
+		BC9416ED139DF63F0022DEE2 /* Start-up Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "Start-up Screen.xib"; path = "Nodazi/Start-up Screen.xib"; sourceTree = "<group>"; };
+		BC9416F5139DFDFE0022DEE2 /* Reset All Data.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "Reset All Data.xib"; path = "Nodazi/Reset All Data.xib"; sourceTree = "<group>"; };
+		BC9416F6139DFDFE0022DEE2 /* Monthly Start Date.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "Monthly Start Date.xib"; path = "Nodazi/Monthly Start Date.xib"; sourceTree = "<group>"; };
+		BC9416F7139DFDFE0022DEE2 /* Enable Password.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "Enable Password.xib"; path = "Nodazi/Enable Password.xib"; sourceTree = "<group>"; };
+		BCE024501399ECAC00ED7003 /* Show Tooltip.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "Show Tooltip.xib"; path = "Nodazi/Show Tooltip.xib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +131,7 @@
 		2F24A6F8138E54BF00B34B3D /* Nodazi */ = {
 			isa = PBXGroup;
 			children = (
-				BCE024501399ECAC00ED7003 /* Show Tooltip Table Cell.xib */,
+				BC9416EB139DF5ED0022DEE2 /* Settings */,
 				2FE34FD8139288420035D58E /* calendar_blank.png */,
 				2F24A721138E5DC300B34B3D /* Icons */,
 				2F24A701138E54BF00B34B3D /* NodaziAppDelegate.h */,
@@ -176,6 +184,19 @@
 				2F24A718138E5B7900B34B3D /* Black-Camera-Symbol-48.png */,
 			);
 			name = Icons;
+			sourceTree = "<group>";
+		};
+		BC9416EB139DF5ED0022DEE2 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				BC9416F5139DFDFE0022DEE2 /* Reset All Data.xib */,
+				BC9416F6139DFDFE0022DEE2 /* Monthly Start Date.xib */,
+				BC9416F7139DFDFE0022DEE2 /* Enable Password.xib */,
+				BCE024501399ECAC00ED7003 /* Show Tooltip.xib */,
+				BC9416ED139DF63F0022DEE2 /* Start-up Screen.xib */,
+			);
+			name = Settings;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,7 +264,11 @@
 				AC44C69F1392A2200078E586 /* Add-32.png in Resources */,
 				ACEC1C4613933F74009DD4EA /* PlannerMainView.xib in Resources */,
 				2FDC144A1398BA51007B1723 /* AddNewRecordView.xib in Resources */,
-				BCE024511399ECAC00ED7003 /* Show Tooltip Table Cell.xib in Resources */,
+				BCE024511399ECAC00ED7003 /* Show Tooltip.xib in Resources */,
+				BC9416EE139DF63F0022DEE2 /* Start-up Screen.xib in Resources */,
+				BC9416F8139DFDFE0022DEE2 /* Reset All Data.xib in Resources */,
+				BC9416F9139DFDFE0022DEE2 /* Monthly Start Date.xib in Resources */,
+				BC9416FA139DFDFE0022DEE2 /* Enable Password.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

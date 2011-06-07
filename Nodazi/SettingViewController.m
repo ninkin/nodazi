@@ -24,6 +24,7 @@
 
 - (void)dealloc
 {
+    listSettings = nil;
     [super dealloc];
 }
 
@@ -41,12 +42,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    NSDictionary *row1 = [[NSDictionary alloc] initWithObjectsAndKeys:@"Show Tooltip", @"Name", nil];
-    
-    NSArray *array = [[NSArray alloc] initWithObjects:row1, nil];
-    self.listSettings = array;
-    [row1 release];
-    [array release];
+    self.listSettings = [[[NSArray alloc] initWithObjects:@"Show Tooltip Table Cell", @"Start-up Screen", @"Monthly Start Date", @"Enable Password", @"Reset All Data", nil] autorelease];
 }
 
 - (void)viewDidUnload
@@ -76,7 +72,7 @@
     SettingCell *cell = (SettingCell *)[tableView
                                         dequeueReusableCellWithIdentifier:SettingCellIdentifier];
     if (cell == nil) {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"Show Tooltip Table Cell"
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:[self.listSettings objectAtIndex:indexPath.row]
                                                      owner:self options:nil];
         for (id oneObject in nib) {
             if ([oneObject isKindOfClass: [SettingCell class]])
