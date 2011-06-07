@@ -11,9 +11,14 @@
 
 @interface AddNewRecordVIewController : UIViewController {
     IBOutlet UIButton *buttonDate;
+    UITextField *textPlace;
     
 }
 
 @property (nonatomic, retain) IBOutlet UIButton *buttonDate;
+@property (nonatomic, retain) UITextField *textPlace;
+
+- (IBAction)textPlaceReturn:(id)sender;
+- (IBAction)backgroundTouched:(id)sender;
 
 @end

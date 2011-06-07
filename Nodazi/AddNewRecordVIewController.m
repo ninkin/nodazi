@@ -12,6 +12,7 @@
 @implementation AddNewRecordVIewController
 
 @synthesize buttonDate;
+@synthesize textPlace;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -68,6 +69,17 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (IBAction)textPlaceReturn:(id)sender
+{
+    [sender resignFirstResponder];
+}
+
+- (IBAction)backgroundTouched:(id)sender
+{
+#pragma mark - it doesn't work!
+    [self.textPlace resignFirstResponder];
 }
 
 @end
