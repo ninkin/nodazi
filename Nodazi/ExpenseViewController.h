@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "AddNewRecordVIewController.h"
 
 @interface ExpenseViewController : UIViewController 
 <UITableViewDelegate, UITableViewDataSource>
@@ -21,6 +21,8 @@
     
     // for showing total expenses
     NSArray *listTotal;
+    
+    AddNewRecordVIewController *addNew;
 }
 
 @property (nonatomic, retain) IBOutlet UILabel *labelMonth;
@@ -28,5 +30,8 @@
 @property (nonatomic, retain) IBOutlet UILabel *labelTotalExpense;
 @property (nonatomic, retain) NSArray *listExpenses;
 @property (nonatomic, retain) NSArray *listTotal;
+@property (nonatomic, retain) AddNewRecordVIewController *addNew;
+
+- (IBAction) buttonAddNewPressed: (id) sender;
 
 @end
