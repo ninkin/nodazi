@@ -30,6 +30,7 @@
 		2FA0E22B138E754E006D7714 /* Show Tooltip Table Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FA0E22A138E754E006D7714 /* Show Tooltip Table Cell.xib */; };
 		2FA0E22E138E7D90006D7714 /* SettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FA0E22D138E7D90006D7714 /* SettingCell.m */; };
 		2FE34FD9139288420035D58E /* calendar_blank.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FE34FD8139288420035D58E /* calendar_blank.png */; };
+		AC1960BA139E5EA5009536FC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC1960B9139E5EA5009536FC /* MapKit.framework */; };
 		AC44C69F1392A2200078E586 /* Add-32.png in Resources */ = {isa = PBXBuildFile; fileRef = AC44C69E1392A2200078E586 /* Add-32.png */; };
 		ACEC1C4513933F74009DD4EA /* PlannerMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACEC1C4313933F74009DD4EA /* PlannerMainView.m */; };
 		ACEC1C4613933F74009DD4EA /* PlannerMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACEC1C4413933F74009DD4EA /* PlannerMainView.xib */; };
@@ -68,6 +69,7 @@
 		2FA0E22C138E7D90006D7714 /* SettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingCell.h; sourceTree = "<group>"; };
 		2FA0E22D138E7D90006D7714 /* SettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingCell.m; sourceTree = "<group>"; };
 		2FE34FD8139288420035D58E /* calendar_blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar_blank.png; sourceTree = "<group>"; };
+		AC1960B9139E5EA5009536FC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		AC44C69E1392A2200078E586 /* Add-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Add-32.png"; sourceTree = "<group>"; };
 		ACEC1C4213933F74009DD4EA /* PlannerMainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlannerMainView.h; sourceTree = "<group>"; };
 		ACEC1C4313933F74009DD4EA /* PlannerMainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlannerMainView.m; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC1960BA139E5EA5009536FC /* MapKit.framework in Frameworks */,
 				2F24A6F3138E54BF00B34B3D /* UIKit.framework in Frameworks */,
 				2F24A6F5138E54BF00B34B3D /* Foundation.framework in Frameworks */,
 				2F24A6F7138E54BF00B34B3D /* CoreGraphics.framework in Frameworks */,
@@ -91,6 +94,7 @@
 		2F24A6E3138E54BF00B34B3D = {
 			isa = PBXGroup;
 			children = (
+				AC1960B9139E5EA5009536FC /* MapKit.framework */,
 				2F24A6F8138E54BF00B34B3D /* Nodazi */,
 				2F24A6F1138E54BF00B34B3D /* Frameworks */,
 				2F24A6EF138E54BF00B34B3D /* Products */,

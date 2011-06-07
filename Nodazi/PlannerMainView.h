@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
-
-@interface PlannerMainView : UIViewController {
-    
+@interface PlannerMainView : UIViewController <MKMapViewDelegate> {
+    IBOutlet MKMapView *myMapView;
 }
 
+@property (nonatomic, retain) IBOutlet MKMapView *myMapView;
+- (void)displayMYMap;
 @end
