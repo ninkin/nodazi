@@ -9,20 +9,25 @@
 #import <UIKit/UIKit.h>
 
 
-@interface SecondViewController : UIViewController {
+@interface SecondViewController : UIViewController
+<UITableViewDelegate, UITableViewDataSource>
+{
     UITextField *productField;
     UITextField *numberField;
-    UILabel *milkname;
-    UILabel *milkqt;
+    
+    NSMutableArray *listToBuy;
+    
+    UITableView *tableToBuy;
 }
 
 @property (nonatomic, retain) IBOutlet UITextField *productField;
 @property (nonatomic, retain) IBOutlet UITextField *numberField;
-@property (nonatomic, retain) IBOutlet UILabel *milkname;
-@property (nonatomic, retain) IBOutlet UILabel *milkqt;
+@property (nonatomic, retain) IBOutlet NSMutableArray *listToBuy;
+@property (nonatomic, retain) IBOutlet UITableView *tableToBuy;
 
 - (IBAction)backgoundTouched:(id)sender;
 - (IBAction)productFieldDoneEditing:(id)sender;
 - (IBAction)findStorePushed:(id)sender;
 - (IBAction)showFakeItem:(id)sender;
+
 @end

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AddNewRecordVIewController.h"
+#import "ExpenditureCalendarViewController.h"
 
 @interface ExpenseViewController : UIViewController 
 <UITableViewDelegate, UITableViewDataSource>
@@ -17,21 +18,24 @@
     UILabel *labelTotalExpense;
     
     // for list of expenses
-    NSArray *listExpenses;
+    NSMutableArray *listExpenses;
     
     // for showing total expenses
     NSArray *listTotal;
     
     AddNewRecordVIewController *addNew;
+    ExpenditureCalendarViewController *expCal;
 }
 
 @property (nonatomic, retain) IBOutlet UILabel *labelMonth;
 @property (nonatomic, retain) IBOutlet UILabel *labelDay;
 @property (nonatomic, retain) IBOutlet UILabel *labelTotalExpense;
-@property (nonatomic, retain) NSArray *listExpenses;
+@property (nonatomic, retain) NSMutableArray *listExpenses;
 @property (nonatomic, retain) NSArray *listTotal;
 @property (nonatomic, retain) AddNewRecordVIewController *addNew;
+@property (nonatomic, retain) ExpenditureCalendarViewController *expCal;
 
-- (IBAction) buttonAddNewPressed: (id) sender;
+- (IBAction)buttonAddNewPressed:(id)sender;
+- (IBAction)buttonCalendarPressed:(id)sender;
 
 @end

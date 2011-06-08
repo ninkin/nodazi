@@ -12,17 +12,22 @@
 @implementation SecondViewController
 @synthesize numberField;
 @synthesize productField;
-@synthesize milkname;
-@synthesize milkqt;
+@synthesize listToBuy;
+@synthesize tableToBuy;
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
-    
-    
     [super viewDidLoad];
+    NSDictionary *item = [NSDictionary dictionaryWithObjectsAndKeys:@"Banana Pancake", @"Name", @"2", @"Qty", nil];
+    NSMutableArray *marray = [NSMutableArray arrayWithObjects:item, nil];
+    self.listToBuy = marray;
+    
 }
+
 - (IBAction)findStorePushed:(id)sender{
     PlannerMainView *plannerMain = [[PlannerMainView alloc  ]init];
+    plannerMain.title = @"Result";
     [self.navigationController pushViewController:plannerMain animated:YES];
     
 }
@@ -34,9 +39,17 @@
     [numberField resignFirstResponder];
     [productField resignFirstResponder];
 }
-- (IBAction)showFakeItem:(id)sender{
-    [milkname setHidden:FALSE];
-    [milkqt setHidden:FALSE];
+
+- (IBAction)showFakeItem:(id)sender
+{
+    NSDictionary *item = [NSDictionary dictionaryWithObjectsAndKeys:
+                          [productField text],
+                          @"Name",
+                          [numberField text],
+                          @"Qty",
+                          nil];
+    [self.listToBuy addObject:item];
+    [self.tableToBuy reloadData];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -69,6 +82,32 @@
     [productField release];
     [numberField release];
     [super dealloc];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView 
+ numberOfRowsInSection:(NSInteger)section
+{
+    return [self.listToBuy count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView 
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *cellIdentifier = @"CellIdentifier";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1
+                                       reuseIdentifier:cellIdentifier]
+                autorelease];
+    }
+    
+    NSUInteger row = [indexPath row];
+    [cell.textLabel setText:[[self.listToBuy objectAtIndex:row] objectForKey:@"Name"]];
+    [cell.detailTextLabel setText:[[self.listToBuy objectAtIndex:row] objectForKey:@"Qty"]];
+    
+    return cell;
 }
 
 @end

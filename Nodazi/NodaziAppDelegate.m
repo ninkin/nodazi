@@ -23,6 +23,9 @@
     self.window.rootViewController = self.tabBarController;
     //[self.window addSubview:_expenseNavCtrlr.view];
     [self.window makeKeyAndVisible];
+    
+    [self.tabBarController setSelectedIndex:2];
+    
     return YES;
 }
 
