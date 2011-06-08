@@ -33,13 +33,13 @@
 
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
-
     myMapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
     myMapView.showsUserLocation = TRUE;
     
-    [NSThread detachNewThreadSelector:@selector(displayMYMap) toTarget:self withObject:nil];
-    /*MKCoordinateRegion region;
+    //[NSThread detachNewThreadSelector:@selector(displayMYMap) toTarget:self withObject:nil];
+    MKCoordinateRegion region;
     MKCoordinateSpan span;
     span.latitudeDelta = 0.2;
     span.longitudeDelta = 0.2;
@@ -54,8 +54,9 @@
     
     [myMapView setRegion:region animated:TRUE];
     [myMapView regionThatFits:region];
-
-     */
+    
+    
+     
     //myMapView.delegate = self;
     
     //[self.view addSubview:myMapView];

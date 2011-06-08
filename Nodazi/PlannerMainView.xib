@@ -48,6 +48,7 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{40, 226}, {240, 128}}</string>
 						<reference key="NSSuperview" ref="479406003"/>
+						<reference key="NSNextKeyView"/>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -70,7 +71,13 @@
 							<boolean value="NO" key="IBUIIsAccessibilityElement"/>
 						</object>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText">Go to the GS-Mart. They sells MILK 1L at 2000 won.</string>
+						<bool key="IBUIEditable">NO</bool>
+						<string type="base64-UTF8" key="IBUIText">TGV0J3MgZ28gdG8gQ1NFIE1hcnQuCuKAqFRvdGFsIDogMjE1MCBXb24KZm9yIE1pbGsgMUwgeCAxA</string>
+						<object class="NSFont" key="IBUIFont">
+							<string key="NSName">Helvetica</string>
+							<double key="NSSize">17</double>
+							<int key="NSfFlags">16</int>
+						</object>
 						<object class="IBUITextInputTraits" key="IBUITextInputTraits">
 							<int key="IBUIAutocapitalizationType">2</int>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
