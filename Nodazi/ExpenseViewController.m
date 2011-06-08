@@ -126,7 +126,7 @@
 - (IBAction)buttonCalendarPressed:(id)sender
 {
     if (self.expCal == nil) {
-        ExpenditureCalendarViewController *newCtrlr = [[AddNewRecordVIewController alloc] initWithNibName:@"ExpenditureCalendarView" bundle:[NSBundle mainBundle]];
+        ExpenditureCalendarViewController *newCtrlr = [[ExpenditureCalendarViewController alloc] initWithNibName:@"ExpenditureCalendarView" bundle:[NSBundle mainBundle]];
         newCtrlr.title = @"Calendar";
         self.expCal = newCtrlr;
     }

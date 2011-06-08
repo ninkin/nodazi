@@ -7,9 +7,12 @@
 //
 
 #import "ExpenditureCalendarViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 
 @implementation ExpenditureCalendarViewController
+
+@synthesize calendarDays;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -42,13 +45,21 @@
 }
 */
 
-/*
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSUInteger count = 0;
+    for (UIButton *button in calendarDays) {
+        button.layer.borderColor = [UIColor grayColor].CGColor;
+        button.layer.borderWidth = 0.5f;
+        button.layer.cornerRadius = 0.0f;
+        
+        if(count++ < 25)
+            button.backgroundColor = [UIColor colorWithRed:1.0f green:0.0f blue:0.0f alpha:(rand()%100*0.85f/100.0f)];
+    }
 }
-*/
 
 - (void)viewDidUnload
 {

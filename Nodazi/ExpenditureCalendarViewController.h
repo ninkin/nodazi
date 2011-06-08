@@ -10,7 +10,9 @@
 
 
 @interface ExpenditureCalendarViewController : UIViewController {
-    
+    NSArray *calendarDays;
 }
+
+@property (nonatomic, retain) IBOutletCollection(UIButton) NSArray *calendarDays;
 
 @end
