@@ -17,6 +17,7 @@
 @synthesize listExpenses;
 @synthesize listTotal;
 @synthesize addNew;
+@synthesize expCal;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -115,10 +116,22 @@
 {
     if (self.addNew == nil) {
         AddNewRecordVIewController *newCtrlr = [[AddNewRecordVIewController alloc] initWithNibName:@"AddNewRecordView" bundle:[NSBundle mainBundle]];
+        newCtrlr.title = @"Add New Record";
         self.addNew = newCtrlr;
     }
     
     [self.navigationController pushViewController:addNew animated:YES];
+}
+
+- (IBAction)buttonCalendarPressed:(id)sender
+{
+    if (self.expCal == nil) {
+        ExpenditureCalendarViewController *newCtrlr = [[AddNewRecordVIewController alloc] initWithNibName:@"ExpenditureCalendarView" bundle:[NSBundle mainBundle]];
+        newCtrlr.title = @"Calendar";
+        self.expCal = newCtrlr;
+    }
+    
+    [self.navigationController pushViewController:expCal animated:YES];
 }
 
 @end

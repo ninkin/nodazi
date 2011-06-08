@@ -31,6 +31,8 @@
 		2FA0E22E138E7D90006D7714 /* SettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FA0E22D138E7D90006D7714 /* SettingCell.m */; };
 		2FDC144A1398BA51007B1723 /* AddNewRecordView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FDC14491398BA51007B1723 /* AddNewRecordView.xib */; };
 		2FE34FD9139288420035D58E /* calendar_blank.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FE34FD8139288420035D58E /* calendar_blank.png */; };
+		2FEA03D2139F850A00B76391 /* ExpenditureCalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FEA03D1139F850A00B76391 /* ExpenditureCalendarView.xib */; };
+		2FEA03D9139F8A4700B76391 /* ExpenditureCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FEA03D8139F8A4700B76391 /* ExpenditureCalendarViewController.m */; };
 		AC1960BA139E5EA5009536FC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC1960B9139E5EA5009536FC /* MapKit.framework */; };
 		AC44C69F1392A2200078E586 /* Add-32.png in Resources */ = {isa = PBXBuildFile; fileRef = AC44C69E1392A2200078E586 /* Add-32.png */; };
 		ACEC1C4513933F74009DD4EA /* PlannerMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACEC1C4313933F74009DD4EA /* PlannerMainView.m */; };
@@ -77,6 +79,9 @@
 		2FA0E22D138E7D90006D7714 /* SettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingCell.m; sourceTree = "<group>"; };
 		2FDC14491398BA51007B1723 /* AddNewRecordView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddNewRecordView.xib; sourceTree = "<group>"; };
 		2FE34FD8139288420035D58E /* calendar_blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar_blank.png; sourceTree = "<group>"; };
+		2FEA03D1139F850A00B76391 /* ExpenditureCalendarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpenditureCalendarView.xib; sourceTree = "<group>"; };
+		2FEA03D7139F8A4700B76391 /* ExpenditureCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpenditureCalendarViewController.h; sourceTree = "<group>"; };
+		2FEA03D8139F8A4700B76391 /* ExpenditureCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenditureCalendarViewController.m; sourceTree = "<group>"; };
 		AC1960B9139E5EA5009536FC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		AC44C69E1392A2200078E586 /* Add-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Add-32.png"; sourceTree = "<group>"; };
 		ACEC1C4213933F74009DD4EA /* PlannerMainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlannerMainView.h; sourceTree = "<group>"; };
@@ -162,6 +167,9 @@
 				2FDC14491398BA51007B1723 /* AddNewRecordView.xib */,
 				2F120435139CD3CB00C9096B /* AddNewRecordVIewController.h */,
 				2F120436139CD3CB00C9096B /* AddNewRecordVIewController.m */,
+				2FEA03D1139F850A00B76391 /* ExpenditureCalendarView.xib */,
+				2FEA03D7139F8A4700B76391 /* ExpenditureCalendarViewController.h */,
+				2FEA03D8139F8A4700B76391 /* ExpenditureCalendarViewController.m */,
 			);
 			path = Nodazi;
 			sourceTree = "<group>";
@@ -273,6 +281,7 @@
 				BC9416F8139DFDFE0022DEE2 /* Reset All Data.xib in Resources */,
 				BC9416F9139DFDFE0022DEE2 /* Monthly Start Date.xib in Resources */,
 				BC9416FA139DFDFE0022DEE2 /* Enable Password.xib in Resources */,
+				2FEA03D2139F850A00B76391 /* ExpenditureCalendarView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +301,7 @@
 				2FA0E22E138E7D90006D7714 /* SettingCell.m in Sources */,
 				ACEC1C4513933F74009DD4EA /* PlannerMainView.m in Sources */,
 				2F120437139CD3CB00C9096B /* AddNewRecordVIewController.m in Sources */,
+				2FEA03D9139F8A4700B76391 /* ExpenditureCalendarViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

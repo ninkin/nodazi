@@ -23,6 +23,7 @@
 }
 - (IBAction)findStorePushed:(id)sender{
     PlannerMainView *plannerMain = [[PlannerMainView alloc  ]init];
+    plannerMain.title = @"Result";
     [self.navigationController pushViewController:plannerMain animated:YES];
     
 }
