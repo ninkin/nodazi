@@ -66,8 +66,11 @@
     [labelDay setText:strDay];
     
     //
-    NSArray *testArray = [[NSArray alloc] initWithObjects:@"First", @"Second", @"3rd", nil];
-    self.listExpenses = testArray;
+    NSDictionary *item1 = [NSDictionary dictionaryWithObjectsAndKeys:@"Baja Chicken Sandwich", @"Name", @"1", @"Qty", @"$6.99", @"Price", nil];
+    NSDictionary *item2 = [NSDictionary dictionaryWithObjectsAndKeys:@"Dige Sand", @"Name", @"2", @"Qty", @"$1.49", @"Price", nil];
+    NSDictionary *item3 = [NSDictionary dictionaryWithObjectsAndKeys:@"Banana Pancake", @"Name", @"1", @"Qty", @"$2.99", @"Price", nil];
+    NSMutableArray *marray = [NSMutableArray arrayWithObjects:item1, item2, item3, nil];
+    self.listExpenses = marray;
 }
 
 - (void)viewDidUnload
@@ -106,8 +109,11 @@
     }
     
     NSUInteger row = [indexPath row];
-    [cell.textLabel setText:[self.listExpenses objectAtIndex:row]];
-    [cell.detailTextLabel setText:@"20,000원"];
+    [cell.textLabel setText:[[self.listExpenses objectAtIndex:row] objectForKey:@"Name"]];
+    NSString *price = [[self.listExpenses objectAtIndex:row] objectForKey:@"Price"];
+    NSString *qty = [[self.listExpenses objectAtIndex:row] objectForKey:@"Qty"];
+    NSString *total = [NSString stringWithFormat:@"%@*%@", qty, price];
+    [cell.detailTextLabel setText:total];
     
     return cell;
 }

@@ -18,7 +18,7 @@
     UILabel *labelTotalExpense;
     
     // for list of expenses
-    NSArray *listExpenses;
+    NSMutableArray *listExpenses;
     
     // for showing total expenses
     NSArray *listTotal;
@@ -30,7 +30,7 @@
 @property (nonatomic, retain) IBOutlet UILabel *labelMonth;
 @property (nonatomic, retain) IBOutlet UILabel *labelDay;
 @property (nonatomic, retain) IBOutlet UILabel *labelTotalExpense;
-@property (nonatomic, retain) NSArray *listExpenses;
+@property (nonatomic, retain) NSMutableArray *listExpenses;
 @property (nonatomic, retain) NSArray *listTotal;
 @property (nonatomic, retain) AddNewRecordVIewController *addNew;
 @property (nonatomic, retain) ExpenditureCalendarViewController *expCal;
