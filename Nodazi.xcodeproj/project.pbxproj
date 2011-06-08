@@ -37,6 +37,8 @@
 		2FEA03D9139F8A4700B76391 /* ExpenditureCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FEA03D8139F8A4700B76391 /* ExpenditureCalendarViewController.m */; };
 		AC1960BA139E5EA5009536FC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC1960B9139E5EA5009536FC /* MapKit.framework */; };
 		AC44C69F1392A2200078E586 /* Add-32.png in Resources */ = {isa = PBXBuildFile; fileRef = AC44C69E1392A2200078E586 /* Add-32.png */; };
+		AC889DEE139FB2D80072DFC5 /* star-0.png in Resources */ = {isa = PBXBuildFile; fileRef = AC889DED139FB2D80072DFC5 /* star-0.png */; };
+		AC889DF1139FB2E20072DFC5 /* star-4.png in Resources */ = {isa = PBXBuildFile; fileRef = AC889DF0139FB2E20072DFC5 /* star-4.png */; };
 		ACEC1C4513933F74009DD4EA /* PlannerMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACEC1C4313933F74009DD4EA /* PlannerMainView.m */; };
 		ACEC1C4613933F74009DD4EA /* PlannerMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACEC1C4413933F74009DD4EA /* PlannerMainView.xib */; };
 		BC9416EE139DF63F0022DEE2 /* Start-up Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC9416ED139DF63F0022DEE2 /* Start-up Screen.xib */; };
@@ -88,6 +90,8 @@
 		2FEA03D8139F8A4700B76391 /* ExpenditureCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenditureCalendarViewController.m; sourceTree = "<group>"; };
 		AC1960B9139E5EA5009536FC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		AC44C69E1392A2200078E586 /* Add-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Add-32.png"; sourceTree = "<group>"; };
+		AC889DED139FB2D80072DFC5 /* star-0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-0.png"; sourceTree = "<group>"; };
+		AC889DF0139FB2E20072DFC5 /* star-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-4.png"; sourceTree = "<group>"; };
 		ACEC1C4213933F74009DD4EA /* PlannerMainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlannerMainView.h; sourceTree = "<group>"; };
 		ACEC1C4313933F74009DD4EA /* PlannerMainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlannerMainView.m; sourceTree = "<group>"; };
 		ACEC1C4413933F74009DD4EA /* PlannerMainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlannerMainView.xib; sourceTree = "<group>"; };
@@ -195,6 +199,8 @@
 		2F24A721138E5DC300B34B3D /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				AC889DED139FB2D80072DFC5 /* star-0.png */,
+				AC889DF0139FB2E20072DFC5 /* star-4.png */,
 				AC44C69E1392A2200078E586 /* Add-32.png */,
 				2F24A722138E5F4900B34B3D /* Book-48.png */,
 				2F24A71A138E5D9800B34B3D /* Calender-48.png */,
@@ -290,6 +296,8 @@
 				BC9416FA139DFDFE0022DEE2 /* Enable Password.xib in Resources */,
 				2FEA03D2139F850A00B76391 /* ExpenditureCalendarView.xib in Resources */,
 				2F85DE59139FA23C0038A86B /* blank_postit.png in Resources */,
+				AC889DEE139FB2D80072DFC5 /* star-0.png in Resources */,
+				AC889DF1139FB2E20072DFC5 /* star-4.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
