@@ -15,7 +15,7 @@
 		2F24A700138E54BF00B34B3D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F24A6FF138E54BF00B34B3D /* main.m */; };
 		2F24A703138E54BF00B34B3D /* NodaziAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F24A702138E54BF00B34B3D /* NodaziAppDelegate.m */; };
 		2F24A706138E54C000B34B3D /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F24A704138E54C000B34B3D /* MainWindow.xib */; };
-		2F24A709138E54C000B34B3D /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F24A708138E54C000B34B3D /* FirstViewController.m */; };
+		2F24A709138E54C000B34B3D /* FirstViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2F24A708138E54C000B34B3D /* FirstViewController.mm */; };
 		2F24A70C138E54C000B34B3D /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F24A70B138E54C000B34B3D /* SecondViewController.m */; };
 		2F24A70F138E54C000B34B3D /* FirstView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F24A70D138E54C000B34B3D /* FirstView.xib */; };
 		2F24A712138E54C000B34B3D /* SecondView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F24A710138E54C000B34B3D /* SecondView.xib */; };
@@ -35,6 +35,33 @@
 		2FE34FD9139288420035D58E /* calendar_blank.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FE34FD8139288420035D58E /* calendar_blank.png */; };
 		2FEA03D2139F850A00B76391 /* ExpenditureCalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FEA03D1139F850A00B76391 /* ExpenditureCalendarView.xib */; };
 		2FEA03D9139F8A4700B76391 /* ExpenditureCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FEA03D8139F8A4700B76391 /* ExpenditureCalendarViewController.m */; };
+		41241A4E139FBDD400CF38F3 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 41241A49139FBDD400CF38F3 /* UIImage+Alpha.m */; };
+		41241A4F139FBDD400CF38F3 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 41241A4B139FBDD400CF38F3 /* UIImage+Resize.m */; };
+		41241A50139FBDD400CF38F3 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 41241A4D139FBDD400CF38F3 /* UIImage+RoundedCorner.m */; };
+		41241A57139FBDE800CF38F3 /* OverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41241A52139FBDE800CF38F3 /* OverlayView.m */; };
+		41241A58139FBDE800CF38F3 /* ScanButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 41241A54139FBDE800CF38F3 /* ScanButton.m */; };
+		41241A59139FBDE800CF38F3 /* ZoomableImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 41241A56139FBDE800CF38F3 /* ZoomableImage.m */; };
+		41241A5B139FBE0C00CF38F3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41241A5A139FBE0C00CF38F3 /* AudioToolbox.framework */; };
+		41241A5D139FBE0E00CF38F3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41241A5C139FBE0E00CF38F3 /* AVFoundation.framework */; };
+		41241A5F139FBE1300CF38F3 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41241A5E139FBE1300CF38F3 /* CoreMedia.framework */; };
+		41241A61139FBE1900CF38F3 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41241A60139FBE1900CF38F3 /* CoreVideo.framework */; };
+		41241A6F139FBE3200CF38F3 /* libtesseract_api.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41241A63139FBE3200CF38F3 /* libtesseract_api.a */; };
+		41241A70139FBE3200CF38F3 /* libtesseract_ccstruct.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41241A64139FBE3200CF38F3 /* libtesseract_ccstruct.a */; };
+		41241A71139FBE3200CF38F3 /* libtesseract_ccutil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41241A65139FBE3200CF38F3 /* libtesseract_ccutil.a */; };
+		41241A72139FBE3200CF38F3 /* libtesseract_classify.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41241A66139FBE3200CF38F3 /* libtesseract_classify.a */; };
+		41241A73139FBE3200CF38F3 /* libtesseract_cutil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41241A67139FBE3200CF38F3 /* libtesseract_cutil.a */; };
+		41241A74139FBE3200CF38F3 /* libtesseract_dict.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41241A68139FBE3200CF38F3 /* libtesseract_dict.a */; };
+		41241A75139FBE3200CF38F3 /* libtesseract_image.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41241A69139FBE3200CF38F3 /* libtesseract_image.a */; };
+		41241A76139FBE3200CF38F3 /* libtesseract_main.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41241A6A139FBE3200CF38F3 /* libtesseract_main.a */; };
+		41241A77139FBE3200CF38F3 /* libtesseract_textord.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41241A6B139FBE3200CF38F3 /* libtesseract_textord.a */; };
+		41241A78139FBE3200CF38F3 /* libtesseract_training.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41241A6C139FBE3200CF38F3 /* libtesseract_training.a */; };
+		41241A79139FBE3200CF38F3 /* libtesseract_viewer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41241A6D139FBE3200CF38F3 /* libtesseract_viewer.a */; };
+		41241A7A139FBE3200CF38F3 /* libtesseract_wordrec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41241A6E139FBE3200CF38F3 /* libtesseract_wordrec.a */; };
+		41E1F62313A0E52600DBB98E /* libopencv_core.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41E1F62013A0E52600DBB98E /* libopencv_core.a */; };
+		41E1F62413A0E52600DBB98E /* libopencv_imgproc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41E1F62113A0E52600DBB98E /* libopencv_imgproc.a */; };
+		41E1F62513A0E52600DBB98E /* libopencv_objdetect.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41E1F62213A0E52600DBB98E /* libopencv_objdetect.a */; };
+		41E1F62713A0E64D00DBB98E /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41E1F62613A0E64D00DBB98E /* Accelerate.framework */; };
+		41E1F65213A0E95A00DBB98E /* tessdata-svn in Resources */ = {isa = PBXBuildFile; fileRef = 41E1F65113A0E95A00DBB98E /* tessdata-svn */; };
 		AC1960BA139E5EA5009536FC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC1960B9139E5EA5009536FC /* MapKit.framework */; };
 		AC44C69F1392A2200078E586 /* Add-32.png in Resources */ = {isa = PBXBuildFile; fileRef = AC44C69E1392A2200078E586 /* Add-32.png */; };
 		AC889DEE139FB2D80072DFC5 /* star-0.png in Resources */ = {isa = PBXBuildFile; fileRef = AC889DED139FB2D80072DFC5 /* star-0.png */; };
@@ -63,7 +90,7 @@
 		2F24A702138E54BF00B34B3D /* NodaziAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NodaziAppDelegate.m; sourceTree = "<group>"; };
 		2F24A705138E54C000B34B3D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		2F24A707138E54C000B34B3D /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		2F24A708138E54C000B34B3D /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		2F24A708138E54C000B34B3D /* FirstViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = FirstViewController.mm; sourceTree = "<group>"; };
 		2F24A70A138E54C000B34B3D /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		2F24A70B138E54C000B34B3D /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		2F24A70E138E54C000B34B3D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FirstView.xib; sourceTree = "<group>"; };
@@ -88,6 +115,42 @@
 		2FEA03D1139F850A00B76391 /* ExpenditureCalendarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpenditureCalendarView.xib; sourceTree = "<group>"; };
 		2FEA03D7139F8A4700B76391 /* ExpenditureCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpenditureCalendarViewController.h; sourceTree = "<group>"; };
 		2FEA03D8139F8A4700B76391 /* ExpenditureCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenditureCalendarViewController.m; sourceTree = "<group>"; };
+		41241A48139FBDD400CF38F3 /* UIImage+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Alpha.h"; path = "UIImageCategory/UIImage+Alpha.h"; sourceTree = "<group>"; };
+		41241A49139FBDD400CF38F3 /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Alpha.m"; path = "UIImageCategory/UIImage+Alpha.m"; sourceTree = "<group>"; };
+		41241A4A139FBDD400CF38F3 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Resize.h"; path = "UIImageCategory/UIImage+Resize.h"; sourceTree = "<group>"; };
+		41241A4B139FBDD400CF38F3 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Resize.m"; path = "UIImageCategory/UIImage+Resize.m"; sourceTree = "<group>"; };
+		41241A4C139FBDD400CF38F3 /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+RoundedCorner.h"; path = "UIImageCategory/UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
+		41241A4D139FBDD400CF38F3 /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+RoundedCorner.m"; path = "UIImageCategory/UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
+		41241A51139FBDE800CF38F3 /* OverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverlayView.h; sourceTree = "<group>"; };
+		41241A52139FBDE800CF38F3 /* OverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverlayView.m; sourceTree = "<group>"; };
+		41241A53139FBDE800CF38F3 /* ScanButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanButton.h; sourceTree = "<group>"; };
+		41241A54139FBDE800CF38F3 /* ScanButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanButton.m; sourceTree = "<group>"; };
+		41241A55139FBDE800CF38F3 /* ZoomableImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomableImage.h; sourceTree = "<group>"; };
+		41241A56139FBDE800CF38F3 /* ZoomableImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoomableImage.m; sourceTree = "<group>"; };
+		41241A5A139FBE0C00CF38F3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		41241A5C139FBE0E00CF38F3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		41241A5E139FBE1300CF38F3 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		41241A60139FBE1900CF38F3 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		41241A62139FBE2000CF38F3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		41241A63139FBE3200CF38F3 /* libtesseract_api.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtesseract_api.a; path = Nodazi/tesseract/lib/libtesseract_api.a; sourceTree = "<group>"; };
+		41241A64139FBE3200CF38F3 /* libtesseract_ccstruct.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtesseract_ccstruct.a; path = Nodazi/tesseract/lib/libtesseract_ccstruct.a; sourceTree = "<group>"; };
+		41241A65139FBE3200CF38F3 /* libtesseract_ccutil.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtesseract_ccutil.a; path = Nodazi/tesseract/lib/libtesseract_ccutil.a; sourceTree = "<group>"; };
+		41241A66139FBE3200CF38F3 /* libtesseract_classify.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtesseract_classify.a; path = Nodazi/tesseract/lib/libtesseract_classify.a; sourceTree = "<group>"; };
+		41241A67139FBE3200CF38F3 /* libtesseract_cutil.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtesseract_cutil.a; path = Nodazi/tesseract/lib/libtesseract_cutil.a; sourceTree = "<group>"; };
+		41241A68139FBE3200CF38F3 /* libtesseract_dict.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtesseract_dict.a; path = Nodazi/tesseract/lib/libtesseract_dict.a; sourceTree = "<group>"; };
+		41241A69139FBE3200CF38F3 /* libtesseract_image.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtesseract_image.a; path = Nodazi/tesseract/lib/libtesseract_image.a; sourceTree = "<group>"; };
+		41241A6A139FBE3200CF38F3 /* libtesseract_main.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtesseract_main.a; path = Nodazi/tesseract/lib/libtesseract_main.a; sourceTree = "<group>"; };
+		41241A6B139FBE3200CF38F3 /* libtesseract_textord.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtesseract_textord.a; path = Nodazi/tesseract/lib/libtesseract_textord.a; sourceTree = "<group>"; };
+		41241A6C139FBE3200CF38F3 /* libtesseract_training.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtesseract_training.a; path = Nodazi/tesseract/lib/libtesseract_training.a; sourceTree = "<group>"; };
+		41241A6D139FBE3200CF38F3 /* libtesseract_viewer.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtesseract_viewer.a; path = Nodazi/tesseract/lib/libtesseract_viewer.a; sourceTree = "<group>"; };
+		41241A6E139FBE3200CF38F3 /* libtesseract_wordrec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtesseract_wordrec.a; path = Nodazi/tesseract/lib/libtesseract_wordrec.a; sourceTree = "<group>"; };
+		41241A7B139FBE3B00CF38F3 /* baseapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = baseapi.h; path = tesseract/h/baseapi.h; sourceTree = "<group>"; };
+		41241A7C139FBE3B00CF38F3 /* thresholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = thresholder.h; path = tesseract/h/thresholder.h; sourceTree = "<group>"; };
+		41E1F62013A0E52600DBB98E /* libopencv_core.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_core.a; path = opencv_device/lib/libopencv_core.a; sourceTree = "<group>"; };
+		41E1F62113A0E52600DBB98E /* libopencv_imgproc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_imgproc.a; path = opencv_device/lib/libopencv_imgproc.a; sourceTree = "<group>"; };
+		41E1F62213A0E52600DBB98E /* libopencv_objdetect.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_objdetect.a; path = opencv_device/lib/libopencv_objdetect.a; sourceTree = "<group>"; };
+		41E1F62613A0E64D00DBB98E /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		41E1F65113A0E95A00DBB98E /* tessdata-svn */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "tessdata-svn"; path = "tesseract/tessdata-svn"; sourceTree = "<group>"; };
 		AC1960B9139E5EA5009536FC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		AC44C69E1392A2200078E586 /* Add-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Add-32.png"; sourceTree = "<group>"; };
 		AC889DED139FB2D80072DFC5 /* star-0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-0.png"; sourceTree = "<group>"; };
@@ -107,11 +170,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41E1F62713A0E64D00DBB98E /* Accelerate.framework in Frameworks */,
 				2F85DE54139F9AD10038A86B /* QuartzCore.framework in Frameworks */,
+				41241A61139FBE1900CF38F3 /* CoreVideo.framework in Frameworks */,
+				41241A5F139FBE1300CF38F3 /* CoreMedia.framework in Frameworks */,
+				41241A5D139FBE0E00CF38F3 /* AVFoundation.framework in Frameworks */,
+				41241A5B139FBE0C00CF38F3 /* AudioToolbox.framework in Frameworks */,
 				AC1960BA139E5EA5009536FC /* MapKit.framework in Frameworks */,
 				2F24A6F3138E54BF00B34B3D /* UIKit.framework in Frameworks */,
 				2F24A6F5138E54BF00B34B3D /* Foundation.framework in Frameworks */,
 				2F24A6F7138E54BF00B34B3D /* CoreGraphics.framework in Frameworks */,
+				41241A6F139FBE3200CF38F3 /* libtesseract_api.a in Frameworks */,
+				41241A70139FBE3200CF38F3 /* libtesseract_ccstruct.a in Frameworks */,
+				41241A71139FBE3200CF38F3 /* libtesseract_ccutil.a in Frameworks */,
+				41241A72139FBE3200CF38F3 /* libtesseract_classify.a in Frameworks */,
+				41241A73139FBE3200CF38F3 /* libtesseract_cutil.a in Frameworks */,
+				41241A74139FBE3200CF38F3 /* libtesseract_dict.a in Frameworks */,
+				41241A75139FBE3200CF38F3 /* libtesseract_image.a in Frameworks */,
+				41241A76139FBE3200CF38F3 /* libtesseract_main.a in Frameworks */,
+				41241A77139FBE3200CF38F3 /* libtesseract_textord.a in Frameworks */,
+				41241A78139FBE3200CF38F3 /* libtesseract_training.a in Frameworks */,
+				41241A79139FBE3200CF38F3 /* libtesseract_viewer.a in Frameworks */,
+				41241A7A139FBE3200CF38F3 /* libtesseract_wordrec.a in Frameworks */,
+				41E1F62313A0E52600DBB98E /* libopencv_core.a in Frameworks */,
+				41E1F62413A0E52600DBB98E /* libopencv_imgproc.a in Frameworks */,
+				41E1F62513A0E52600DBB98E /* libopencv_objdetect.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,8 +204,6 @@
 		2F24A6E3138E54BF00B34B3D = {
 			isa = PBXGroup;
 			children = (
-				2F85DE53139F9AD10038A86B /* QuartzCore.framework */,
-				AC1960B9139E5EA5009536FC /* MapKit.framework */,
 				2F24A6F8138E54BF00B34B3D /* Nodazi */,
 				2F24A6F1138E54BF00B34B3D /* Frameworks */,
 				2F24A6EF138E54BF00B34B3D /* Products */,
@@ -140,6 +221,27 @@
 		2F24A6F1138E54BF00B34B3D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				41E1F62613A0E64D00DBB98E /* Accelerate.framework */,
+				41241A62139FBE2000CF38F3 /* QuartzCore.framework */,
+				41241A60139FBE1900CF38F3 /* CoreVideo.framework */,
+				41241A5E139FBE1300CF38F3 /* CoreMedia.framework */,
+				41241A5C139FBE0E00CF38F3 /* AVFoundation.framework */,
+				41241A5A139FBE0C00CF38F3 /* AudioToolbox.framework */,
+				2F85DE53139F9AD10038A86B /* QuartzCore.framework */,
+				AC1960B9139E5EA5009536FC /* MapKit.framework */,
+				41E1F61F13A0E50500DBB98E /* Libraries */,
+				41241A63139FBE3200CF38F3 /* libtesseract_api.a */,
+				41241A64139FBE3200CF38F3 /* libtesseract_ccstruct.a */,
+				41241A65139FBE3200CF38F3 /* libtesseract_ccutil.a */,
+				41241A66139FBE3200CF38F3 /* libtesseract_classify.a */,
+				41241A67139FBE3200CF38F3 /* libtesseract_cutil.a */,
+				41241A68139FBE3200CF38F3 /* libtesseract_dict.a */,
+				41241A69139FBE3200CF38F3 /* libtesseract_image.a */,
+				41241A6A139FBE3200CF38F3 /* libtesseract_main.a */,
+				41241A6B139FBE3200CF38F3 /* libtesseract_textord.a */,
+				41241A6C139FBE3200CF38F3 /* libtesseract_training.a */,
+				41241A6D139FBE3200CF38F3 /* libtesseract_viewer.a */,
+				41241A6E139FBE3200CF38F3 /* libtesseract_wordrec.a */,
 				2F24A6F2138E54BF00B34B3D /* UIKit.framework */,
 				2F24A6F4138E54BF00B34B3D /* Foundation.framework */,
 				2F24A6F6138E54BF00B34B3D /* CoreGraphics.framework */,
@@ -150,6 +252,21 @@
 		2F24A6F8138E54BF00B34B3D /* Nodazi */ = {
 			isa = PBXGroup;
 			children = (
+				41E1F65113A0E95A00DBB98E /* tessdata-svn */,
+				41241A7B139FBE3B00CF38F3 /* baseapi.h */,
+				41241A7C139FBE3B00CF38F3 /* thresholder.h */,
+				41241A51139FBDE800CF38F3 /* OverlayView.h */,
+				41241A52139FBDE800CF38F3 /* OverlayView.m */,
+				41241A53139FBDE800CF38F3 /* ScanButton.h */,
+				41241A54139FBDE800CF38F3 /* ScanButton.m */,
+				41241A55139FBDE800CF38F3 /* ZoomableImage.h */,
+				41241A56139FBDE800CF38F3 /* ZoomableImage.m */,
+				41241A48139FBDD400CF38F3 /* UIImage+Alpha.h */,
+				41241A49139FBDD400CF38F3 /* UIImage+Alpha.m */,
+				41241A4A139FBDD400CF38F3 /* UIImage+Resize.h */,
+				41241A4B139FBDD400CF38F3 /* UIImage+Resize.m */,
+				41241A4C139FBDD400CF38F3 /* UIImage+RoundedCorner.h */,
+				41241A4D139FBDD400CF38F3 /* UIImage+RoundedCorner.m */,
 				2F85DE58139FA23C0038A86B /* blank_postit.png */,
 				BC9416EB139DF5ED0022DEE2 /* Settings */,
 				2FE34FD8139288420035D58E /* calendar_blank.png */,
@@ -161,7 +278,7 @@
 				ACEC1C4313933F74009DD4EA /* PlannerMainView.m */,
 				ACEC1C4413933F74009DD4EA /* PlannerMainView.xib */,
 				2F24A707138E54C000B34B3D /* FirstViewController.h */,
-				2F24A708138E54C000B34B3D /* FirstViewController.m */,
+				2F24A708138E54C000B34B3D /* FirstViewController.mm */,
 				2F24A70A138E54C000B34B3D /* SecondViewController.h */,
 				2F24A70B138E54C000B34B3D /* SecondViewController.m */,
 				2FA0E225138E6E24006D7714 /* SettingViewController.h */,
@@ -209,6 +326,16 @@
 				2F24A718138E5B7900B34B3D /* Black-Camera-Symbol-48.png */,
 			);
 			name = Icons;
+			sourceTree = "<group>";
+		};
+		41E1F61F13A0E50500DBB98E /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				41E1F62013A0E52600DBB98E /* libopencv_core.a */,
+				41E1F62113A0E52600DBB98E /* libopencv_imgproc.a */,
+				41E1F62213A0E52600DBB98E /* libopencv_objdetect.a */,
+			);
+			name = Libraries;
 			sourceTree = "<group>";
 		};
 		BC9416EB139DF5ED0022DEE2 /* Settings */ = {
@@ -298,6 +425,7 @@
 				2F85DE59139FA23C0038A86B /* blank_postit.png in Resources */,
 				AC889DEE139FB2D80072DFC5 /* star-0.png in Resources */,
 				AC889DF1139FB2E20072DFC5 /* star-4.png in Resources */,
+				41E1F65213A0E95A00DBB98E /* tessdata-svn in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,7 +438,7 @@
 			files = (
 				2F24A700138E54BF00B34B3D /* main.m in Sources */,
 				2F24A703138E54BF00B34B3D /* NodaziAppDelegate.m in Sources */,
-				2F24A709138E54C000B34B3D /* FirstViewController.m in Sources */,
+				2F24A709138E54C000B34B3D /* FirstViewController.mm in Sources */,
 				2F24A70C138E54C000B34B3D /* SecondViewController.m in Sources */,
 				2F24A72B138E60C300B34B3D /* ExpenseViewController.m in Sources */,
 				2FA0E228138E6E24006D7714 /* SettingViewController.m in Sources */,
@@ -318,6 +446,12 @@
 				ACEC1C4513933F74009DD4EA /* PlannerMainView.m in Sources */,
 				2F120437139CD3CB00C9096B /* AddNewRecordVIewController.m in Sources */,
 				2FEA03D9139F8A4700B76391 /* ExpenditureCalendarViewController.m in Sources */,
+				41241A4E139FBDD400CF38F3 /* UIImage+Alpha.m in Sources */,
+				41241A4F139FBDD400CF38F3 /* UIImage+Resize.m in Sources */,
+				41241A50139FBDD400CF38F3 /* UIImage+RoundedCorner.m in Sources */,
+				41241A57139FBDE800CF38F3 /* OverlayView.m in Sources */,
+				41241A58139FBDE800CF38F3 /* ScanButton.m in Sources */,
+				41241A59139FBDE800CF38F3 /* ZoomableImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,8 +534,26 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Nodazi/Nodazi-Prefix.pch";
+				"HEADER_SEARCH_PATHS[sdk=iphoneos*][arch=*]" = "\"$(SRCROOT)/opencv_device/include\"";
+				"HEADER_SEARCH_PATHS[sdk=iphonesimulator*][arch=*]" = "\"$(SRCROOT)/opencv_simulator/include\"";
 				INFOPLIST_FILE = "Nodazi/Nodazi-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Nodazi/tesseract/lib\"",
+				);
+				"LIBRARY_SEARCH_PATHS[sdk=iphoneos*][arch=*]" = (
+					"$(inherited)",
+					"\"$(SRCROOT)/opencv_device/lib\"",
+				);
+				"LIBRARY_SEARCH_PATHS[sdk=iphonesimulator*][arch=*]" = (
+					"$(inherited)",
+					"\"$(SRCROOT)/opencv_simulator/lib\"",
+				);
+				OTHER_LDFLAGS = (
+					"-lstdc++",
+					"-lz",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "B8588473-22B7-47C9-8BB4-C83D8B6FA4DE";
 				WRAPPER_EXTENSION = app;
@@ -416,8 +568,26 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Nodazi/Nodazi-Prefix.pch";
+				"HEADER_SEARCH_PATHS[sdk=iphoneos*][arch=*]" = "\"$(SRCROOT)/opencv_device/include\"";
+				"HEADER_SEARCH_PATHS[sdk=iphonesimulator*][arch=*]" = "\"$(SRCROOT)/opencv_simulator/include\"";
 				INFOPLIST_FILE = "Nodazi/Nodazi-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Nodazi/tesseract/lib\"",
+				);
+				"LIBRARY_SEARCH_PATHS[sdk=iphoneos*][arch=*]" = (
+					"$(inherited)",
+					"\"$(SRCROOT)/opencv_device/lib\"",
+				);
+				"LIBRARY_SEARCH_PATHS[sdk=iphonesimulator*][arch=*]" = (
+					"$(inherited)",
+					"\"$(SRCROOT)/opencv_simulator/lib\"",
+				);
+				OTHER_LDFLAGS = (
+					"-lstdc++",
+					"-lz",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "B8588473-22B7-47C9-8BB4-C83D8B6FA4DE";
 				VALIDATE_PRODUCT = YES;
