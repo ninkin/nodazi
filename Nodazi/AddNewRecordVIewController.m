@@ -13,6 +13,11 @@
 
 @synthesize buttonDate;
 @synthesize textPlace;
+@synthesize buttonStar1;
+@synthesize buttonStar2;
+@synthesize buttonStar3;
+@synthesize buttonStar4;
+@synthesize buttonStar5;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -55,6 +60,11 @@
     NSString *strDate = [dateFormatter stringFromDate:today];
     
     [buttonDate setTitle:strDate forState:UIControlStateNormal];
+    
+    starRating = 3; // default
+    [buttonStar1 setImage:[UIImage imageNamed:@"star-4.png"] forState:UIControlStateNormal];
+    [buttonStar2 setImage:[UIImage imageNamed:@"star-4.png"] forState:UIControlStateNormal];
+    [buttonStar3 setImage:[UIImage imageNamed:@"star-4.png"] forState:UIControlStateNormal];
 }
 
 - (void)viewDidUnload
@@ -80,5 +90,116 @@
 #pragma mark - it doesn't work!
     [self.textPlace resignFirstResponder];
 }
+
+- (IBAction)star1Touched:(id)sender
+{
+    if(starRating > 0)
+    {
+        // OFF
+        [buttonStar1 setImage:[UIImage imageNamed:@"star-0.png"] forState:UIControlStateNormal];
+        [buttonStar2 setImage:[UIImage imageNamed:@"star-0.png"] forState:UIControlStateNormal];
+        [buttonStar3 setImage:[UIImage imageNamed:@"star-0.png"] forState:UIControlStateNormal];
+        [buttonStar4 setImage:[UIImage imageNamed:@"star-0.png"] forState:UIControlStateNormal];
+        [buttonStar5 setImage:[UIImage imageNamed:@"star-0.png"] forState:UIControlStateNormal];
+        starRating = 0;
+    }
+    else
+    {
+        // ON: 1
+        [buttonStar1 setImage:[UIImage imageNamed:@"star-4.png"] forState:UIControlStateNormal];
+        starRating = 1;
+    }
+}
+
+- (IBAction)star2Touched:(id)sender
+{
+    if(starRating > 1)
+    {
+        // OFF
+        [buttonStar1 setImage:[UIImage imageNamed:@"star-4.png"] forState:UIControlStateNormal];
+        [buttonStar2 setImage:[UIImage imageNamed:@"star-0.png"] forState:UIControlStateNormal];
+        [buttonStar3 setImage:[UIImage imageNamed:@"star-0.png"] forState:UIControlStateNormal];
+        [buttonStar4 setImage:[UIImage imageNamed:@"star-0.png"] forState:UIControlStateNormal];
+        [buttonStar5 setImage:[UIImage imageNamed:@"star-0.png"] forState:UIControlStateNormal];
+        starRating = 1;
+    }
+    else
+    {
+        // ON: 2
+        [buttonStar1 setImage:[UIImage imageNamed:@"star-4.png"] forState:UIControlStateNormal];
+        [buttonStar2 setImage:[UIImage imageNamed:@"star-4.png"] forState:UIControlStateNormal];
+        starRating = 2;
+    }
+}
+
+- (IBAction)star3Touched:(id)sender
+{
+    if(starRating > 2)
+    {
+        // OFF
+        [buttonStar1 setImage:[UIImage imageNamed:@"star-4.png"] forState:UIControlStateNormal];
+        [buttonStar2 setImage:[UIImage imageNamed:@"star-4.png"] forState:UIControlStateNormal];
+        [buttonStar3 setImage:[UIImage imageNamed:@"star-0.png"] forState:UIControlStateNormal];
+        [buttonStar4 setImage:[UIImage imageNamed:@"star-0.png"] forState:UIControlStateNormal];
+        [buttonStar5 setImage:[UIImage imageNamed:@"star-0.png"] forState:UIControlStateNormal];
+        starRating = 2;
+    }
+    else
+    {
+        // ON: 3
+        [buttonStar1 setImage:[UIImage imageNamed:@"star-4.png"] forState:UIControlStateNormal];
+        [buttonStar2 setImage:[UIImage imageNamed:@"star-4.png"] forState:UIControlStateNormal];
+        [buttonStar3 setImage:[UIImage imageNamed:@"star-4.png"] forState:UIControlStateNormal];
+        starRating = 3;
+    }
+}
+
+- (IBAction)star4Touched:(id)sender
+{
+    if(starRating > 3)
+    {
+        // OFF
+        [buttonStar1 setImage:[UIImage imageNamed:@"star-4.png"] forState:UIControlStateNormal];
+        [buttonStar2 setImage:[UIImage imageNamed:@"star-4.png"] forState:UIControlStateNormal];
+        [buttonStar3 setImage:[UIImage imageNamed:@"star-4.png"] forState:UIControlStateNormal];
+        [buttonStar4 setImage:[UIImage imageNamed:@"star-0.png"] forState:UIControlStateNormal];
+        [buttonStar5 setImage:[UIImage imageNamed:@"star-0.png"] forState:UIControlStateNormal];
+        starRating = 3;
+    }
+    else
+    {
+        // ON: 4
+        [buttonStar1 setImage:[UIImage imageNamed:@"star-4.png"] forState:UIControlStateNormal];
+        [buttonStar2 setImage:[UIImage imageNamed:@"star-4.png"] forState:UIControlStateNormal];
+        [buttonStar3 setImage:[UIImage imageNamed:@"star-4.png"] forState:UIControlStateNormal];
+        [buttonStar4 setImage:[UIImage imageNamed:@"star-4.png"] forState:UIControlStateNormal];
+        starRating = 4;
+    }
+}
+
+- (IBAction)star5Touched:(id)sender
+{
+    if(starRating > 4)
+    {
+        // OFF
+        [buttonStar1 setImage:[UIImage imageNamed:@"star-4.png"] forState:UIControlStateNormal];
+        [buttonStar2 setImage:[UIImage imageNamed:@"star-4.png"] forState:UIControlStateNormal];
+        [buttonStar3 setImage:[UIImage imageNamed:@"star-4.png"] forState:UIControlStateNormal];
+        [buttonStar4 setImage:[UIImage imageNamed:@"star-4.png"] forState:UIControlStateNormal];
+        [buttonStar5 setImage:[UIImage imageNamed:@"star-0.png"] forState:UIControlStateNormal];
+        starRating = 4;
+    }
+    else
+    {
+        // ON: 1
+        [buttonStar1 setImage:[UIImage imageNamed:@"star-4.png"] forState:UIControlStateNormal];
+        [buttonStar2 setImage:[UIImage imageNamed:@"star-4.png"] forState:UIControlStateNormal];
+        [buttonStar3 setImage:[UIImage imageNamed:@"star-4.png"] forState:UIControlStateNormal];
+        [buttonStar4 setImage:[UIImage imageNamed:@"star-4.png"] forState:UIControlStateNormal];
+        [buttonStar5 setImage:[UIImage imageNamed:@"star-4.png"] forState:UIControlStateNormal];
+        starRating = 5;
+    }
+}
+
 
 @end
