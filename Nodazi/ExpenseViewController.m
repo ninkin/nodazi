@@ -7,6 +7,7 @@
 //
 
 #import "ExpenseViewController.h"
+#import "NodaziAppDelegate.h"
 
 
 @implementation ExpenseViewController
@@ -53,14 +54,13 @@
     
     NSCalendar *calendarCurrent = [NSCalendar currentCalendar];
     NSDate *today = [NSDate date];
-    NSDateComponents *date = [calendarCurrent components: (NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:today];
+    date = [calendarCurrent components: (NSMonthCalendarUnit | NSDayCalendarUnit | NSYearCalendarUnit) fromDate:today];
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"MMMM"];
     NSString *strMonth = [dateFormatter stringFromDate:today];
     
-    NSInteger day = [date day];
-    NSString *strDay = [NSString stringWithFormat:@"%ld", day]; 
+    NSString *strDay = [NSString stringWithFormat:@"%ld", [date day]]; 
 
     [labelMonth setText:strMonth];
     [labelDay setText:strDay];
@@ -71,6 +71,24 @@
     NSDictionary *item3 = [NSDictionary dictionaryWithObjectsAndKeys:@"Banana Pancake", @"Name", @"1", @"Qty", @"$2.99", @"Price", nil];
     NSMutableArray *marray = [NSMutableArray arrayWithObjects:item1, item2, item3, nil];
     self.listExpenses = marray;
+    
+    // Monthly expense
+    NSString *query = [NSString stringWithFormat:@"SELECT sum(price) FROM mytable WHERE year = %d AND month = %d AND day = %d", [date year], [date month], [date day]];
+    sqlite3_stmt *statement;
+    double monthlyTotal = 0.0;
+    
+    int sqlite3_err = sqlite3_prepare_v2([((NodaziAppDelegate *)[[UIApplication sharedApplication] delegate]) getDB], [query UTF8String], -1, &statement, NULL);
+    
+    if(sqlite3_err == SQLITE_OK)
+    {
+        while (sqlite3_step(statement) == SQLITE_ROW) {
+            monthlyTotal = sqlite3_column_double(statement, 0);
+        }
+    }
+    sqlite3_finalize(statement);
+    
+    NSString *monthly = [NSString stringWithFormat:@"$%.2f", monthlyTotal];
+    labelTotalExpense.text = monthly;
 }
 
 - (void)viewDidUnload

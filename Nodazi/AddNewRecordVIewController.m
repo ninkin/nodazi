@@ -221,8 +221,12 @@
     char *error = NULL;
     
     /* 사용자가 입력한 값을 DB에 추가한다 */
-    NSString *query = [NSString stringWithFormat:@"INSERT INTO mytable VALUES ('%d, %d, %d, %@, %@, %d, %f')", year, month, day, [textPlace text], itemName, [itemQty intValue], [itemPrice floatValue]];
-    sqlite3_exec([((NodaziAppDelegate *)[[UIApplication sharedApplication] delegate]) getDB], [query UTF8String], NULL, 0, &error);
+    NSString *query = [NSString stringWithFormat:@"INSERT INTO mytable VALUES (%d, %d, %d, '%@', '%@', %d, %f)", year, month, day, [textPlace text], itemName, [itemQty intValue], [itemPrice floatValue]];
+    int err = sqlite3_exec([((NodaziAppDelegate *)[[UIApplication sharedApplication] delegate]) getDB], [query UTF8String], NULL, NULL, &error);
+    
+    if (err != 0) {
+        NSLog(@"sqlite3_exec error(%d).", err);
+    }
 }
 
 @end

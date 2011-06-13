@@ -17,6 +17,8 @@
     UILabel *labelDay;
     UILabel *labelTotalExpense;
     
+    NSDateComponents *date;
+    
     // for list of expenses
     NSMutableArray *listExpenses;
     
