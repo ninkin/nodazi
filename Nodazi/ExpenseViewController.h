@@ -25,6 +25,8 @@
     // for showing total expenses
     NSArray *listTotal;
     
+    UITableView *tableBuyRecord;
+    
     AddNewRecordVIewController *addNew;
     ExpenditureCalendarViewController *expCal;
 }
@@ -34,6 +36,7 @@
 @property (nonatomic, retain) IBOutlet UILabel *labelTotalExpense;
 @property (nonatomic, retain) NSMutableArray *listExpenses;
 @property (nonatomic, retain) NSArray *listTotal;
+@property (nonatomic, retain) IBOutlet UITableView *tableBuyRecord;
 @property (nonatomic, retain) AddNewRecordVIewController *addNew;
 @property (nonatomic, retain) ExpenditureCalendarViewController *expCal;
 

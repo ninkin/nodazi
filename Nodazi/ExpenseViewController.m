@@ -17,6 +17,7 @@
 @synthesize labelTotalExpense;
 @synthesize listExpenses;
 @synthesize listTotal;
+@synthesize tableBuyRecord;
 @synthesize addNew;
 @synthesize expCal;
 
@@ -66,14 +67,14 @@
     [labelDay setText:strDay];
     
     //
-    NSDictionary *item1 = [NSDictionary dictionaryWithObjectsAndKeys:@"Baja Chicken Sandwich", @"Name", @"1", @"Qty", @"$6.99", @"Price", nil];
-    NSDictionary *item2 = [NSDictionary dictionaryWithObjectsAndKeys:@"Dige Sand", @"Name", @"2", @"Qty", @"$1.49", @"Price", nil];
-    NSDictionary *item3 = [NSDictionary dictionaryWithObjectsAndKeys:@"Banana Pancake", @"Name", @"1", @"Qty", @"$2.99", @"Price", nil];
-    NSMutableArray *marray = [NSMutableArray arrayWithObjects:item1, item2, item3, nil];
-    self.listExpenses = marray;
+//    NSDictionary *item1 = [NSDictionary dictionaryWithObjectsAndKeys:@"Baja Chicken Sandwich", @"Name", @"1", @"Qty", @"$6.99", @"Price", nil];
+//    NSDictionary *item2 = [NSDictionary dictionaryWithObjectsAndKeys:@"Dige Sand", @"Name", @"2", @"Qty", @"$1.49", @"Price", nil];
+//    NSDictionary *item3 = [NSDictionary dictionaryWithObjectsAndKeys:@"Banana Pancake", @"Name", @"1", @"Qty", @"$2.99", @"Price", nil];
+//    NSMutableArray *marray = [NSMutableArray arrayWithObjects:item1, item2, item3, nil];
+//    self.listExpenses = marray;
     
     // Monthly expense
-    NSString *query = [NSString stringWithFormat:@"SELECT sum(price) FROM mytable WHERE year = %d AND month = %d AND day = %d", [date year], [date month], [date day]];
+    NSString *query = [NSString stringWithFormat:@"SELECT sum(price) FROM mytable WHERE year = %d AND month = %d", [date year], [date month]];
     sqlite3_stmt *statement;
     double monthlyTotal = 0.0;
     
@@ -89,6 +90,33 @@
     
     NSString *monthly = [NSString stringWithFormat:@"$%.2f", monthlyTotal];
     labelTotalExpense.text = monthly;
+    
+    // Buy record
+    self.listExpenses = [[NSMutableArray alloc]initWithCapacity:10];
+    
+    NSString *query2 = [NSString stringWithFormat:@"SELECT name, qty, price FROM mytable WHERE year = %d AND month = %d AND day = %d", [date year], [date month], [date day]];
+    sqlite3_stmt *statement2;
+    
+    sqlite3_err = sqlite3_prepare_v2([((NodaziAppDelegate *)[[UIApplication sharedApplication] delegate]) getDB], [query2 UTF8String], -1, &statement2, NULL);
+    
+    if(sqlite3_err == SQLITE_OK)
+    {
+        while (sqlite3_step(statement2) == SQLITE_ROW) {
+            NSString *itemName = [[NSString alloc] initWithUTF8String:(char *)sqlite3_column_text(statement2, 0)];
+            int itemQty = sqlite3_column_int(statement2, 1);
+            double itemPrice = sqlite3_column_double(statement2, 2);
+            
+            NSDictionary *item = [NSDictionary dictionaryWithObjectsAndKeys:
+                                  itemName, @"Name",
+                                  [NSString stringWithFormat:@"%i", itemQty], @"Qty", 
+                                  [NSString stringWithFormat:@"%.2f", itemPrice], @"Price", 
+                                  nil];
+            
+            [self.listExpenses addObject:item];
+        }
+    }
+    sqlite3_finalize(statement2);
+    
 }
 
 - (void)viewDidUnload
@@ -127,7 +155,9 @@
     }
     
     NSUInteger row = [indexPath row];
-    [cell.textLabel setText:[[self.listExpenses objectAtIndex:row] objectForKey:@"Name"]];
+    [cell.textLabel setText:
+                              ([[[self.listExpenses objectAtIndex:row] objectForKey:@"Name"] substringToIndex:15])
+    ];
     NSString *price = [[self.listExpenses objectAtIndex:row] objectForKey:@"Price"];
     NSString *qty = [[self.listExpenses objectAtIndex:row] objectForKey:@"Qty"];
     NSString *total = [NSString stringWithFormat:@"%@*%@", qty, price];
