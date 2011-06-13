@@ -7,7 +7,8 @@
 //
 
 #import "AddNewRecordVIewController.h"
-
+#import <sqlite3.h>
+#import "NodaziAppDelegate.h"
 
 @implementation AddNewRecordVIewController
 
@@ -18,6 +19,9 @@
 @synthesize buttonStar3;
 @synthesize buttonStar4;
 @synthesize buttonStar5;
+@synthesize textItemName;
+@synthesize textItemQty;
+@synthesize textItemPrice;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -56,10 +60,17 @@
     NSDate *today = [NSDate date];
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"YYYY/MM/dd"];
-    NSString *strDate = [dateFormatter stringFromDate:today];
+    [dateFormatter setDateFormat:@"YYYY-MM-dd"];
+    strDate = [dateFormatter stringFromDate:today];
     
     [buttonDate setTitle:strDate forState:UIControlStateNormal];
+    
+    NSCalendar *calendarCurrent = [NSCalendar currentCalendar];
+    NSDateComponents *date = [calendarCurrent components: (NSMonthCalendarUnit | NSDayCalendarUnit | NSYearCalendarUnit) fromDate:today];
+    day = [date day];
+    month = [date month];
+    year = [date year];
+    
     
     starRating = 3; // default
     [buttonStar1 setImage:[UIImage imageNamed:@"star-4.png"] forState:UIControlStateNormal];
@@ -201,5 +212,17 @@
     }
 }
 
+- (IBAction)buttonAddTouched:(id)sender
+{
+    NSString *itemName = [textItemName text];
+    NSString *itemQty = [textItemQty text];
+    NSString *itemPrice = [textItemPrice text];
+    
+    char *error = NULL;
+    
+    /* 사용자가 입력한 값을 DB에 추가한다 */
+    NSString *query = [NSString stringWithFormat:@"INSERT INTO mytable VALUES ('%d, %d, %d, %@, %@, %d, %f')", year, month, day, [textPlace text], itemName, [itemQty intValue], [itemPrice floatValue]];
+    sqlite3_exec([((NodaziAppDelegate *)[[UIApplication sharedApplication] delegate]) getDB], [query UTF8String], NULL, 0, &error);
+}
 
 @end

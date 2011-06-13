@@ -8,6 +8,7 @@
 
 #import "NodaziAppDelegate.h"
 
+
 @implementation NodaziAppDelegate
 
 
@@ -26,6 +27,45 @@
     
     [self.tabBarController setSelectedIndex:2];
     
+    // SQLite3
+    // 어플리케이션 패스를 구한다
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *path = [documentsDirectory stringByAppendingPathComponent:@"nodazi.db"];
+    
+    /* 데이터베이스를 오픈한다 */
+    if(sqlite3_open([path UTF8String], &db) == SQLITE_OK) 
+    {
+        char *error = NULL;
+        NSString *query = [NSString stringWithFormat:@"SELECT count(*) from mytable"];
+        
+        /* mytable을 쿼리해보고 오류가 있으면 mytable을 생성한다. */
+        if (sqlite3_exec(db, [query UTF8String], NULL, 0, &error) != SQLITE_OK) {
+            sqlite3_free(error);
+            
+            /* 테이블 생성 */
+            if (sqlite3_exec(
+                             db, 
+                             "CREATE TABLE mytable ('year' INT not null, 'month' INT not null, 'day' INT not null, 'place' VARCHAR(255), 'name' VARCHAR(255), 'qty' INT, 'price' REAL not null)",
+                             NULL, 
+                             0, 
+                             &error
+                             ) != SQLITE_OK)
+            {
+                NSLog(@"TABLE CREATE ERROR: %s", error);
+                sqlite3_free(error);
+            }    
+        }
+    }
+    else 
+    {
+        /* DB 오픈 에러 */
+        sqlite3_close(db);
+        db = NULL;
+        
+        NSLog(@"DB OPEN ERROR: '%s'", sqlite3_errmsg(db));    
+    }
+
     return YES;
 }
 
@@ -66,6 +106,11 @@
      Save data if appropriate.
      See also applicationDidEnterBackground:.
      */
+    if(db)
+    {
+        sqlite3_close(db);
+    }
+
 }
 
 - (void)dealloc
@@ -90,5 +135,10 @@
 {
 }
 */
+
+- (sqlite3 *)getDB
+{
+    return db;
+}
 
 @end
