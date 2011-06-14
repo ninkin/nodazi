@@ -380,7 +380,19 @@ NSLock *myLock = nil;
         if (range.length != 0)
             nViewTag = 1;
         
+        range = [string rangeOfString:@"4_2"];
+        if (range.length != 0)
+            nViewTag = 1;
+        
+        range = [string rangeOfString:@"20"];
+        if (range.length != 0)
+            nViewTag = 1;
+        
         range = [string rangeOfString:@"99"];
+        if (range.length != 0)
+            nViewTag = 2;
+        
+        range = [string rangeOfString:@"3_9"];
         if (range.length != 0)
             nViewTag = 2;
         
