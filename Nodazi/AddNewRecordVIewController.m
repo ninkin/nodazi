@@ -139,7 +139,11 @@
     
     [buttonDate setTitle:strDate forState:UIControlStateNormal];
 
-    
+    NSCalendar *calendarCurrent = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendarCurrent components: (NSMonthCalendarUnit | NSDayCalendarUnit | NSYearCalendarUnit) fromDate:theday];
+    year = [components year];
+    month = [components month];
+    day = [components day];
 }
 
 - (IBAction)star1Touched:(id)sender

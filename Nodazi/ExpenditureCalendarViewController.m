@@ -61,7 +61,8 @@
     [buttonYearMonth setTitle:strYearMonth forState:UIControlStateNormal];
     
     NSCalendar *calendarCurrent = [NSCalendar currentCalendar];
-    NSDateComponents *date = [calendarCurrent components: (NSMonthCalendarUnit | NSDayCalendarUnit | NSYearCalendarUnit | NSWeekdayCalendarUnit) fromDate:[((NodaziAppDelegate *)[[UIApplication sharedApplication] delegate]) basicDate]];
+    NSDateComponents *date = [calendarCurrent components: (NSMonthCalendarUnit | NSDayCalendarUnit | NSYearCalendarUnit | NSWeekdayCalendarUnit) fromDate:basicDate];
+    int today = [date day];
     [date setDay:1];
     NSDate *firstDay = [calendarCurrent dateFromComponents:date];
     NSDateComponents *firstDayComponents = [calendarCurrent components:NSWeekdayCalendarUnit fromDate:firstDay];
@@ -104,14 +105,75 @@
         }
         
         // Selected (Basic) day
-        if (button.tag - startingDayOffset + 1 == [date day])
+        if (button.tag - startingDayOffset + 1 == today)
         {
             button.layer.borderColor = [UIColor blueColor].CGColor;
             button.layer.borderWidth = 1.0f;
             button.layer.cornerRadius = 0.0f;
             button.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:1.0 alpha:0.5];
             
-            selectedDay = [date day];
+            selectedDay = today;
+            buttonSelectedDay = button;
+        }
+    }
+    
+    dailyExpenditure = daily;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    NSDate *basicDate = [((NodaziAppDelegate *)[[UIApplication sharedApplication] delegate]) basicDate];
+    NSCalendar *calendarCurrent = [NSCalendar currentCalendar];
+    NSDateComponents *date = [calendarCurrent components: (NSMonthCalendarUnit | NSDayCalendarUnit | NSYearCalendarUnit | NSWeekdayCalendarUnit) fromDate:basicDate];
+    NSRange daysInMonth = [calendarCurrent rangeOfUnit:NSDayCalendarUnit inUnit:NSMonthCalendarUnit forDate:basicDate];
+    
+    int today = [date day];
+    
+    NSMutableDictionary *daily = [[NSMutableDictionary alloc] init];
+    
+    for (UIButton *button in calendarDays)
+    {
+        if (button.tag < startingDayOffset || button.tag >= startingDayOffset + daysInMonth.length)
+        {
+            [button setHidden:YES];
+        }
+        else
+        {
+            [button setHidden:NO];
+            
+            button.layer.borderColor = [UIColor grayColor].CGColor;
+            
+            NSString *query = [NSString stringWithFormat:@"SELECT sum(price * qty) FROM mytable WHERE year = %d AND month = %d AND day = %d", [date year], [date month], button.tag - startingDayOffset + 1];
+            sqlite3_stmt *statement;
+            
+            int sqlite3_err = sqlite3_prepare_v2([((NodaziAppDelegate *)[[UIApplication sharedApplication] delegate]) getDB], [query UTF8String], -1, &statement, NULL);
+            
+            NSNumber *itemPrice;
+            if(sqlite3_err == SQLITE_OK)
+            {
+                while (sqlite3_step(statement) == SQLITE_ROW) {
+                    itemPrice = [NSNumber numberWithDouble:sqlite3_column_double(statement, 0)];
+                }
+            }
+            sqlite3_finalize(statement);
+            
+            button.backgroundColor = [UIColor colorWithRed:1.0f green:0.0f blue:0.0f 
+                                                     alpha:(([itemPrice intValue]%100)*0.85f/100.0f)];
+            
+            [daily setObject:itemPrice forKey:[NSNumber numberWithInt:(button.tag - startingDayOffset + 1)]];
+        }
+        
+        // Selected (Basic) day
+        if (button.tag - startingDayOffset + 1 == today)
+        {
+            button.layer.borderColor = [UIColor blueColor].CGColor;
+            button.layer.borderWidth = 1.0f;
+            button.layer.cornerRadius = 0.0f;
+            button.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:1.0 alpha:0.5];
+            
+            selectedDay = today;
             buttonSelectedDay = button;
         }
     }
@@ -136,8 +198,9 @@
 {
     // remove color of previous selected day
     buttonSelectedDay.layer.borderWidth = 0.0;
+    int redAlpha = [[dailyExpenditure objectForKey:[NSNumber numberWithInt:(buttonSelectedDay.tag - startingDayOffset + 1)]] intValue];
     buttonSelectedDay.backgroundColor = [UIColor colorWithRed:1.0f green:0.0f blue:0.0f 
-                                                        alpha:([[dailyExpenditure objectForKey:[NSNumber numberWithInt:(buttonSelectedDay.tag - startingDayOffset + 1)]] floatValue]/100.0*0.85f/100.0f)];;
+                                                        alpha:((redAlpha%100)*0.85/100.0)];
     
     buttonSelectedDay = (UIButton *)sender;
     buttonSelectedDay.layer.borderColor = [UIColor blueColor].CGColor;
