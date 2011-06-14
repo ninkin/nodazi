@@ -63,6 +63,7 @@
 		41E1F62513A0E52600DBB98E /* libopencv_objdetect.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41E1F62213A0E52600DBB98E /* libopencv_objdetect.a */; };
 		41E1F62713A0E64D00DBB98E /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41E1F62613A0E64D00DBB98E /* Accelerate.framework */; };
 		41E1F65213A0E95A00DBB98E /* tessdata-svn in Resources */ = {isa = PBXBuildFile; fileRef = 41E1F65113A0E95A00DBB98E /* tessdata-svn */; };
+		41F7432D13A74B740080EC19 /* MKMapView+ZoomLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F7432C13A74B740080EC19 /* MKMapView+ZoomLevel.m */; };
 		AC1960BA139E5EA5009536FC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC1960B9139E5EA5009536FC /* MapKit.framework */; };
 		AC44C69F1392A2200078E586 /* Add-32.png in Resources */ = {isa = PBXBuildFile; fileRef = AC44C69E1392A2200078E586 /* Add-32.png */; };
 		AC889DEE139FB2D80072DFC5 /* star-0.png in Resources */ = {isa = PBXBuildFile; fileRef = AC889DED139FB2D80072DFC5 /* star-0.png */; };
@@ -156,6 +157,8 @@
 		41E1F62213A0E52600DBB98E /* libopencv_objdetect.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_objdetect.a; path = opencv_device/lib/libopencv_objdetect.a; sourceTree = "<group>"; };
 		41E1F62613A0E64D00DBB98E /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		41E1F65113A0E95A00DBB98E /* tessdata-svn */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "tessdata-svn"; path = "tesseract/tessdata-svn"; sourceTree = "<group>"; };
+		41F7432B13A74B740080EC19 /* MKMapView+ZoomLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKMapView+ZoomLevel.h"; sourceTree = "<group>"; };
+		41F7432C13A74B740080EC19 /* MKMapView+ZoomLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKMapView+ZoomLevel.m"; sourceTree = "<group>"; };
 		AC1960B9139E5EA5009536FC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		AC44C69E1392A2200078E586 /* Add-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Add-32.png"; sourceTree = "<group>"; };
 		AC889DED139FB2D80072DFC5 /* star-0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-0.png"; sourceTree = "<group>"; };
@@ -165,7 +168,7 @@
 		ACB5CB8513A7327900A93A83 /* SettingStartUp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingStartUp.h; sourceTree = "<group>"; };
 		ACB5CB8613A7327900A93A83 /* SettingStartUp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingStartUp.m; sourceTree = "<group>"; };
 		ACB5CB8813A7329800A93A83 /* SettingStartup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingStartup.xib; sourceTree = "<group>"; };
-		ACEC1C4213933F74009DD4EA /* FoundStore.h */ = {isa = PBXFileReference; fileEncoding = 4; path = FoundStore.h; sourceTree = "<group>"; };
+		ACEC1C4213933F74009DD4EA /* FoundStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundStore.h; sourceTree = "<group>"; };
 		ACEC1C4313933F74009DD4EA /* FoundStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundStore.m; sourceTree = "<group>"; };
 		ACEC1C4413933F74009DD4EA /* FoundStore.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoundStore.xib; sourceTree = "<group>"; };
 		BC9416ED139DF63F0022DEE2 /* Start-up Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "Start-up Screen.xib"; path = "Nodazi/Start-up Screen.xib"; sourceTree = "<group>"; };
@@ -315,6 +318,8 @@
 				2FEA03D1139F850A00B76391 /* ExpenditureCalendarView.xib */,
 				2FEA03D7139F8A4700B76391 /* ExpenditureCalendarViewController.h */,
 				2FEA03D8139F8A4700B76391 /* ExpenditureCalendarViewController.m */,
+				41F7432B13A74B740080EC19 /* MKMapView+ZoomLevel.h */,
+				41F7432C13A74B740080EC19 /* MKMapView+ZoomLevel.m */,
 			);
 			path = Nodazi;
 			sourceTree = "<group>";
@@ -472,6 +477,7 @@
 				41241A59139FBDE800CF38F3 /* ZoomableImage.m in Sources */,
 				ACB5CB8313A5C8C600A93A83 /* StoreLocationView.m in Sources */,
 				ACB5CB8713A7327900A93A83 /* SettingStartUp.m in Sources */,
+				41F7432D13A74B740080EC19 /* MKMapView+ZoomLevel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

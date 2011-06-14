@@ -9,13 +9,20 @@
 #import "FoundStore.h"
 #import "StoreLocationView.h"
 
+#import "MKMapView+ZoomLevel.h"
+
+#define GEORGIA_TECH_LATITUDE 37.448737
+#define GEORGIA_TECH_LONGITUDE 126.9652507
+
+#define ZOOM_LEVEL 26
+
 @implementation FoundStore
 
 @synthesize myMapView;
 
 - (void)dealloc
 {
-    [myMapView release];
+    //[myMapView release];
     [super dealloc];
 }
 
@@ -35,9 +42,9 @@
 {
     
     [super viewDidLoad];
-    myMapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
+    //myMapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
     
-    [NSThread detachNewThreadSelector:@selector(displayMYMap) toTarget:self withObject:nil];
+    //[NSThread detachNewThreadSelector:@selector(displayMYMap) toTarget:self withObject:nil];
     /*myMapView.showsUserLocation = FALSE;
     
     MKCoordinateRegion region;
@@ -110,6 +117,9 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    
+    CLLocationCoordinate2D centerCoord = { GEORGIA_TECH_LATITUDE, GEORGIA_TECH_LONGITUDE };
+    [myMapView setCenterCoordinate:centerCoord zoomLevel:ZOOM_LEVEL animated:NO];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
