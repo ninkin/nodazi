@@ -196,7 +196,7 @@
     
     NSUInteger row = [indexPath row];
     [cell.textLabel setText:
-                              ([[[self.listExpenses objectAtIndex:row] objectForKey:@"Name"] substringToIndex:15])
+                              ([[self.listExpenses objectAtIndex:row] objectForKey:@"Name"])
     ];
     [cell.textLabel setFont:[UIFont fontWithName:@"Helvetica" size:14]];
     NSString *price = [[self.listExpenses objectAtIndex:row] objectForKey:@"Price"];
