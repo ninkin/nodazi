@@ -37,6 +37,7 @@ NSLock *myLock = nil;
 		self.imageView = nil;
 		//self.prevLayer = nil;
 		self.customLayer = nil;
+        bShowScreen = false;
 	}
 	return self;
 }
@@ -185,7 +186,12 @@ NSLock *myLock = nil;
 }
 
 - (void) viewDidAppear:(BOOL)animated {
-    
+    bShowScreen = true;
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    bShowScreen = false;
 }
 
 - (IBAction) receiptClick {
@@ -479,6 +485,9 @@ NSLock *myLock = nil;
 didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer 
 	   fromConnection:(AVCaptureConnection *)connection 
 { 
+    if (bShowScreen == false)
+        return;
+    
 	/*We create an autorelease pool because as we are not in the main_queue our code is
 	 not executed in the main thread. So we have to create an autorelease pool for the thread we are in*/
 	
