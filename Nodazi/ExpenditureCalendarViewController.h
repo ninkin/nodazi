@@ -14,6 +14,7 @@
     int startingDayOffset;
     int selectedDay;
     UIButton *buttonSelectedDay;
+    NSMutableDictionary *dailyExpenditure;
     
     UIButton *buttonYearMonth;
     NSArray *calendarDays;
