@@ -8,9 +8,13 @@
 
 #import "StoreLocationView.h"
 #import <MapKit/MapKit.h>
+#import "PlaceMarker.h"
 
 @implementation StoreLocationView
 @synthesize mapView;
+@synthesize gsmart;
+@synthesize building302;
+@synthesize storePlace;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -23,6 +27,7 @@
 - (void)dealloc
 {
     [mapView release];
+    [storePlace release];
     [super dealloc];
 }
 
@@ -46,34 +51,38 @@
 - (void)viewDidLoad
 {
     
+        
     [super viewDidLoad];
     mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
     
-    
     MKCoordinateRegion region;
     MKCoordinateSpan span;
-    span.latitudeDelta = 0.2;
-    span.longitudeDelta = 0.2;
+    
+    //CLLocationCoordinate2D building302 = mapView.userLocation.coordinate;
+    //CLLocationCoordinate2D gsmart;
+    CLLocationCoordinate2D middle;
     
     
+    span.latitudeDelta = 2*fabs(gsmart.latitude - building302.latitude);
+    span.longitudeDelta = 2*fabs(gsmart.longitude - building302.longitude);
     
-    CLLocationCoordinate2D location = mapView.userLocation.coordinate;
-    
-    location.latitude=37.514849;
-    location.longitude = 126.954063;
+    middle.latitude = (building302.latitude+gsmart.latitude)/2;
+    middle.longitude = (building302.longitude+gsmart.longitude)/2;
     
     region.span = span;
-    region.center = location;
+    region.center = middle;
     
+    //PlaceMarker *storePlace = [[PlaceMarker alloc] init];
     
-    mapView.showsUserLocation = YES;
     [mapView setRegion:region animated:YES];
     [mapView regionThatFits:region];
 
+    
+    [mapView addAnnotation:storePlace];
+    mapView.showsUserLocation = YES;
     [self.view addSubview:mapView];
     
 }
-
 - (void)viewDidUnload
 {
     [super viewDidUnload];

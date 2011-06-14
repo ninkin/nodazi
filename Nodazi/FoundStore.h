@@ -8,12 +8,23 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "PlaceMarker.h"
+#import <CoreLocation/CoreLocation.h>
+
 
 @interface FoundStore : UIViewController <MKMapViewDelegate> {
     IBOutlet MKMapView *myMapView;
+    CLLocationCoordinate2D building302;
+    CLLocationCoordinate2D gsmart;
+    IBOutlet UILabel *distance;
+    PlaceMarker *storePlace;
 }
 
 @property (nonatomic, retain) IBOutlet MKMapView *myMapView;
+@property (nonatomic) CLLocationCoordinate2D building302;
+@property (nonatomic) CLLocationCoordinate2D gsmart;
+@property (nonatomic, retain) PlaceMarker *storePlace;
+@property (nonatomic, retain) IBOutlet UILabel *distance;
 - (void)displayMYMap;
 - (IBAction)onClickMap:(id)sender;
 @end
