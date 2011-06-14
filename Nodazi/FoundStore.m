@@ -19,6 +19,7 @@
 @synthesize building302;
 @synthesize storePlace;
 @synthesize distance;
+@synthesize shoppingitems;
 - (void)dealloc
 {
     [storePlace release];
@@ -64,6 +65,11 @@
  
      
     myMapView.delegate = self;
+    
+    
+    //최저가 정보들 저장
+    quiznositems = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithFloat:7.7], @"baga-chickin",[NSNumber numberWithFloat:1.2], @"cola", [NSNumber numberWithFloat:3.0], @"today's soup", nil];
+    gsmartitems = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithFloat:3.9], @"choco-pie", [NSNumber numberWithFloat:2.1], @"day milk" , nil];
     
 }
 
