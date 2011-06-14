@@ -22,6 +22,7 @@
 @synthesize shoppingitems;
 - (void)dealloc
 {
+    [shoppingitems release];
     [storePlace release];
     [super dealloc];
 }
@@ -40,6 +41,8 @@
 
 - (void)viewDidLoad
 {
+    
+    shoppingitems;
     
     [super viewDidLoad];
 

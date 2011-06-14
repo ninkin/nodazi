@@ -25,7 +25,7 @@
 @property (nonatomic, retain) IBOutlet UITextField *numberField;
 @property (nonatomic, retain) IBOutlet NSMutableArray *listToBuy;
 @property (nonatomic, retain) IBOutlet UITableView *tableToBuy;
-@property (nonatomic, retain) NSDictionary *shoppingitems;
+@property (nonatomic, retain) NSMutableDictionary *shoppingitems;
 - (IBAction)backgoundTouched:(id)sender;
 - (IBAction)productFieldDoneEditing:(id)sender;
 - (IBAction)findStorePushed:(id)sender;

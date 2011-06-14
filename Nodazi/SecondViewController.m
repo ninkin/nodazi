@@ -23,12 +23,14 @@
     NSDictionary *item = [NSDictionary dictionaryWithObjectsAndKeys:@"Banana Pancake", @"Name", @"2", @"Qty", nil];
     NSMutableArray *marray = [NSMutableArray arrayWithObjects:item, nil];
     self.listToBuy = marray;
-    
+    shoppingitems = [[NSMutableArray alloc] init];
+    [shoppingitems setObject:[NSNumber numberWithInt:2] forKey:@"banana pancake"];
 }
 
 - (IBAction)findStorePushed:(id)sender{
     FoundStore *foundstore = [[FoundStore alloc  ]init];
     foundstore.title = @"Result";
+    foundstore.shoppingitems = shoppingitems;
     [self.navigationController pushViewController:foundstore animated:YES];
     
 }
@@ -51,6 +53,7 @@
                           nil];
     [self.listToBuy addObject:item];
     [self.tableToBuy reloadData];
+    [shoppingitems setObject:[NSNumber numberWithInt:(int)([numberField text])] forKey:[productField text]];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -80,6 +83,7 @@
 
 - (void)dealloc
 {
+    [shoppingitems release];
     [productField release];
     [numberField release];
     [super dealloc];

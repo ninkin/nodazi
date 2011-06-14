@@ -17,7 +17,7 @@
 		<string>goldicon.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
-	<string>com.kkc.nodazi</string>
+	<string>com.dumplab.nodazi</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>

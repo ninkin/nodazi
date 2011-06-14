@@ -20,7 +20,7 @@
     PlaceMarker *storePlace;
     NSDictionary *quiznositems;
     NSDictionary *gsmartitems;
-    NSDictionary *shoppingitems;
+    NSMutableDictionary *shoppingitems;
 }
 
 @property (nonatomic, retain) IBOutlet MKMapView *myMapView;
@@ -28,7 +28,7 @@
 @property (nonatomic) CLLocationCoordinate2D gsmart;
 @property (nonatomic, retain) PlaceMarker *storePlace;
 @property (nonatomic, retain) IBOutlet UILabel *distance;
-@property (nonatomic, retain) NSDictionary *shoppingitems;
+@property (nonatomic, retain) NSMutableDictionary *shoppingitems;
 - (void)displayMYMap;
 - (IBAction)onClickMap:(id)sender;
 @end
