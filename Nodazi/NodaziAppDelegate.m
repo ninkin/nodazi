@@ -26,7 +26,7 @@
     //[self.window addSubview:_expenseNavCtrlr.view];
     [self.window makeKeyAndVisible];
     
-    [self.tabBarController setSelectedIndex:2];
+    [self.tabBarController setSelectedIndex:1];
     
     // Set basic date to today
     basicDate = [[NSDate date] retain];
