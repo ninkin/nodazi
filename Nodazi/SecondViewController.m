@@ -23,7 +23,7 @@
     NSDictionary *item = [NSDictionary dictionaryWithObjectsAndKeys:@"Banana Pancake", @"Name", @"2", @"Qty", nil];
     NSMutableArray *marray = [NSMutableArray arrayWithObjects:item, nil];
     self.listToBuy = marray;
-    shoppingitems = [[NSMutableArray alloc] init];
+    shoppingitems = [[NSMutableDictionary alloc] init];
     [shoppingitems setObject:[NSNumber numberWithInt:2] forKey:@"banana pancake"];
 }
 

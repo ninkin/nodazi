@@ -20,6 +20,7 @@
 @synthesize storePlace;
 @synthesize distance;
 @synthesize shoppingitems;
+@synthesize result;
 - (void)dealloc
 {
     [shoppingitems release];
@@ -42,10 +43,18 @@
 - (void)viewDidLoad
 {
     
-    shoppingitems;
+    NSArray *shoppingkeys = [shoppingitems allKeys];
     
+    NSString *itemnamesprices = [[NSString alloc] initWithFormat:@"Go to GS Mart. For "];
+    
+    
+    for(int i = 0; i < [shoppingkeys count]; i++){
+        
+        itemnamesprices = [[NSString alloc] initWithFormat:@"%@, %@",itemnamesprices, [shoppingkeys objectAtIndex:i]];
+    }    
     [super viewDidLoad];
 
+    [result setText:itemnamesprices];
     storePlace = [[PlaceMarker alloc] init];
     
     

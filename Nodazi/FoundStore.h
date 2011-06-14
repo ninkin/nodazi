@@ -21,6 +21,7 @@
     NSDictionary *quiznositems;
     NSDictionary *gsmartitems;
     NSMutableDictionary *shoppingitems;
+    IBOutlet UITextView *result;
 }
 
 @property (nonatomic, retain) IBOutlet MKMapView *myMapView;
@@ -29,6 +30,7 @@
 @property (nonatomic, retain) PlaceMarker *storePlace;
 @property (nonatomic, retain) IBOutlet UILabel *distance;
 @property (nonatomic, retain) NSMutableDictionary *shoppingitems;
+@property (nonatomic , retain) IBOutlet UITextView *result;
 - (void)displayMYMap;
 - (IBAction)onClickMap:(id)sender;
 @end
