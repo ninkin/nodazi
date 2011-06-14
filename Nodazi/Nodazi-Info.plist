@@ -17,11 +17,7 @@
 		<string>goldicon.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
-<<<<<<< HEAD
 	<string>com.dumplab.nodazi</string>
-=======
-	<string>KKC.${PRODUCT_NAME:rfc1034identifier}</string>
->>>>>>> 5e13b4644506151046e961e119bef04daa4e0284
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
