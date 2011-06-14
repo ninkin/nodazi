@@ -25,6 +25,7 @@
 @synthesize datePicker;
 @synthesize tableItems;
 @synthesize listItems;
+@synthesize labelTotalPrice;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -292,6 +293,10 @@
     NSString *itemQty = [textItemQty text];
     NSString *itemPrice = [textItemPrice text];
     
+    if ([itemPrice length] == 0) {
+        return;
+    }
+    
     char *error = NULL;
     
     /* 사용자가 입력한 값을 DB에 추가한다 */
@@ -323,6 +328,14 @@
 - (NSInteger)tableView:(UITableView *)tableView 
  numberOfRowsInSection:(NSInteger)section
 {
+    // Calculate total price
+    float total = 0.0;
+    for (NSDictionary *item in listItems) {
+        total += [[item objectForKey:@"Qty"] intValue] * [[item objectForKey:@"Price"] floatValue];
+    }
+    NSString *strTotal = [NSString stringWithFormat:@"$%.2f", total];
+    [labelTotalPrice setText:strTotal];
+    
     return [listItems count];
 }
 

@@ -246,7 +246,6 @@
 						<string key="NSFrame">{{61, 333}, {239, 26}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -995,6 +994,14 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 					</object>
 					<int key="connectionID">94</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">labelTotalPrice</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="106503740"/>
+					</object>
+					<int key="connectionID">95</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -1275,7 +1282,7 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">94</int>
+			<int key="maxID">95</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1375,6 +1382,7 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 							<string>buttonStar4</string>
 							<string>buttonStar5</string>
 							<string>datePicker</string>
+							<string>labelTotalPrice</string>
 							<string>tableItems</string>
 							<string>textItemName</string>
 							<string>textItemPrice</string>
@@ -1390,6 +1398,7 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 							<string>UIButton</string>
 							<string>UIButton</string>
 							<string>UIDatePicker</string>
+							<string>UILabel</string>
 							<string>UITableView</string>
 							<string>UITextField</string>
 							<string>UITextField</string>
@@ -1408,6 +1417,7 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 							<string>buttonStar4</string>
 							<string>buttonStar5</string>
 							<string>datePicker</string>
+							<string>labelTotalPrice</string>
 							<string>tableItems</string>
 							<string>textItemName</string>
 							<string>textItemPrice</string>
@@ -1443,6 +1453,10 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 							<object class="IBToOneOutletInfo">
 								<string key="name">datePicker</string>
 								<string key="candidateClassName">UIDatePicker</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">labelTotalPrice</string>
+								<string key="candidateClassName">UILabel</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">tableItems</string>

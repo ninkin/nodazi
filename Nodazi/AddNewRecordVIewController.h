@@ -30,6 +30,8 @@
     UIDatePicker *datePicker;
     int starRating;
     
+    UILabel *labelTotalPrice;
+    
     // for the table of item bought
     NSMutableArray *listItems;
     UITableView *tableItems;
@@ -48,6 +50,7 @@
 @property (nonatomic, retain) IBOutlet UIDatePicker *datePicker;
 @property (nonatomic, retain) IBOutlet UITableView *tableItems;
 @property (nonatomic, retain) NSMutableArray *listItems;
+@property (nonatomic, retain) IBOutlet UILabel *labelTotalPrice;
 
 - (IBAction)textPlaceReturn:(id)sender;
 - (IBAction)backgroundTouched:(id)sender;

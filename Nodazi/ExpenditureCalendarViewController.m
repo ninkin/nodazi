@@ -196,6 +196,10 @@
 
 - (IBAction)buttonDayTouched:(id)sender
 {
+    if (sender == buttonSelectedDay) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    
     // remove color of previous selected day
     buttonSelectedDay.layer.borderWidth = 0.0;
     int redAlpha = [[dailyExpenditure objectForKey:[NSNumber numberWithInt:(buttonSelectedDay.tag - startingDayOffset + 1)]] intValue];
