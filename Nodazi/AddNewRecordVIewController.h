@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 
 
-@interface AddNewRecordVIewController : UIViewController {
+@interface AddNewRecordVIewController : UIViewController
+<UITableViewDelegate, UITableViewDataSource>
+{
     NSString *strDate;
     IBOutlet UIButton *buttonDate;
     NSInteger day, month, year;
@@ -27,6 +29,10 @@
     UIButton *buttonStar5;
     UIDatePicker *datePicker;
     int starRating;
+    
+    // for the table of item bought
+    NSMutableArray *listItems;
+    UITableView *tableItems;
 }
 
 @property (nonatomic, retain) IBOutlet UIButton *buttonDate;
@@ -40,6 +46,8 @@
 @property (nonatomic, retain) IBOutlet UITextField *textItemQty;
 @property (nonatomic, retain) IBOutlet UITextField *textItemPrice;
 @property (nonatomic, retain) IBOutlet UIDatePicker *datePicker;
+@property (nonatomic, retain) IBOutlet UITableView *tableItems;
+
 - (IBAction)textPlaceReturn:(id)sender;
 - (IBAction)backgroundTouched:(id)sender;
 - (IBAction)star1Touched:(id)sender;

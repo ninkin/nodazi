@@ -414,9 +414,9 @@ NSLock *myLock = nil;
         if (range.length != 0 && bCaptureReceipt == true)
             outCaptureReceipt = 2;
         
-        /*
+        
         if (bCaptureReceipt == true)
-            outCaptureReceipt = 1;*/
+            outCaptureReceipt = 1;
     }
     
     
