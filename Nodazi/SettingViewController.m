@@ -42,7 +42,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.listSettings = [[[NSArray alloc] initWithObjects:@"Show Tooltip Table Cell", @"Start-up Screen", @"Monthly Start Date", @"Enable Password", @"Reset All Data", nil] autorelease];
+    self.listSettings = [[[NSArray alloc] initWithObjects:@"Show Tooltip", @"Start-up Screen", @"Monthly Start Date", @"Enable Password", @"Reset All Data", nil] autorelease];
 }
 
 - (void)viewDidUnload

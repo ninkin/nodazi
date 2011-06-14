@@ -65,6 +65,8 @@
 		41E1F65213A0E95A00DBB98E /* tessdata-svn in Resources */ = {isa = PBXBuildFile; fileRef = 41E1F65113A0E95A00DBB98E /* tessdata-svn */; };
 		AC1960BA139E5EA5009536FC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC1960B9139E5EA5009536FC /* MapKit.framework */; };
 		AC3E81A213A77073006D01AB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3E81A113A77073006D01AB /* CoreLocation.framework */; };
+		AC3E81A913A78EED006D01AB /* Gold-Goins-64.png in Resources */ = {isa = PBXBuildFile; fileRef = AC3E81A813A78EED006D01AB /* Gold-Goins-64.png */; };
+		AC3E81AC13A78F7F006D01AB /* goldicon.png in Resources */ = {isa = PBXBuildFile; fileRef = AC3E81AB13A78F7F006D01AB /* goldicon.png */; };
 		AC44C69F1392A2200078E586 /* Add-32.png in Resources */ = {isa = PBXBuildFile; fileRef = AC44C69E1392A2200078E586 /* Add-32.png */; };
 		AC6A4B1013A74B4E00EB6421 /* PlaceMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = AC6A4B0F13A74B4E00EB6421 /* PlaceMarker.m */; };
 		AC889DEE139FB2D80072DFC5 /* star-0.png in Resources */ = {isa = PBXBuildFile; fileRef = AC889DED139FB2D80072DFC5 /* star-0.png */; };
@@ -160,6 +162,8 @@
 		41E1F65113A0E95A00DBB98E /* tessdata-svn */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "tessdata-svn"; path = "tesseract/tessdata-svn"; sourceTree = "<group>"; };
 		AC1960B9139E5EA5009536FC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		AC3E81A113A77073006D01AB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		AC3E81A813A78EED006D01AB /* Gold-Goins-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Gold-Goins-64.png"; sourceTree = "<group>"; };
+		AC3E81AB13A78F7F006D01AB /* goldicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goldicon.png; sourceTree = "<group>"; };
 		AC44C69E1392A2200078E586 /* Add-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Add-32.png"; sourceTree = "<group>"; };
 		AC6A4B0E13A74B4E00EB6421 /* PlaceMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceMarker.h; sourceTree = "<group>"; };
 		AC6A4B0F13A74B4E00EB6421 /* PlaceMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceMarker.m; sourceTree = "<group>"; };
@@ -221,6 +225,7 @@
 		2F24A6E3138E54BF00B34B3D = {
 			isa = PBXGroup;
 			children = (
+				AC3E81AB13A78F7F006D01AB /* goldicon.png */,
 				AC3E81A113A77073006D01AB /* CoreLocation.framework */,
 				2F5B1C9313A644470001D898 /* libsqlite3.dylib */,
 				2F24A6F8138E54BF00B34B3D /* Nodazi */,
@@ -342,6 +347,7 @@
 		2F24A721138E5DC300B34B3D /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				AC3E81A813A78EED006D01AB /* Gold-Goins-64.png */,
 				AC889DED139FB2D80072DFC5 /* star-0.png */,
 				AC889DF0139FB2E20072DFC5 /* star-4.png */,
 				AC44C69E1392A2200078E586 /* Add-32.png */,
@@ -453,6 +459,8 @@
 				AC889DF1139FB2E20072DFC5 /* star-4.png in Resources */,
 				41E1F65213A0E95A00DBB98E /* tessdata-svn in Resources */,
 				ACB5CB8913A7329800A93A83 /* SettingStartup.xib in Resources */,
+				AC3E81A913A78EED006D01AB /* Gold-Goins-64.png in Resources */,
+				AC3E81AC13A78F7F006D01AB /* goldicon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -559,7 +567,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: SOUNG WON LEE (M74HH26UQS)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -585,7 +593,7 @@
 					"-lz",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "B8588473-22B7-47C9-8BB4-C83D8B6FA4DE";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -594,7 +602,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: SOUNG WON LEE (M74HH26UQS)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Nodazi/Nodazi-Prefix.pch";
@@ -619,7 +627,7 @@
 					"-lz",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "B8588473-22B7-47C9-8BB4-C83D8B6FA4DE";
+				PROVISIONING_PROFILE = "";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};

@@ -22,7 +22,7 @@
 @synthesize textItemName;
 @synthesize textItemQty;
 @synthesize textItemPrice;
-
+@synthesize datePicker;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -70,14 +70,17 @@
     day = [date day];
     month = [date month];
     year = [date year];
-    
+    NSDate *mydate = [[NSDate alloc] initWithTimeIntervalSinceNow:0];
+    [datePicker setDate:mydate];
     
     starRating = 3; // default
     [buttonStar1 setImage:[UIImage imageNamed:@"star-4.png"] forState:UIControlStateNormal];
     [buttonStar2 setImage:[UIImage imageNamed:@"star-4.png"] forState:UIControlStateNormal];
     [buttonStar3 setImage:[UIImage imageNamed:@"star-4.png"] forState:UIControlStateNormal];
 }
-
+- (void)whenFieldTouched:(id)sender{
+    [datePicker setHidden:FALSE];
+}
 - (void)viewDidUnload
 {
     [super viewDidUnload];
@@ -121,7 +124,22 @@
 - (IBAction)backgroundTouched:(id)sender
 {
 #pragma mark - it doesn't work!
+    [datePicker resignFirstResponder];
+    [textItemName resignFirstResponder];
+    [textItemPrice resignFirstResponder];
+    [textItemQty resignFirstResponder];
+    [datePicker setHidden:TRUE];
     [self.textPlace resignFirstResponder];
+    
+    NSDate *theday = [datePicker date];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"YYYY-MM-dd"];
+    strDate = [dateFormatter stringFromDate:theday];
+    
+    [buttonDate setTitle:strDate forState:UIControlStateNormal];
+
+    
 }
 
 - (IBAction)star1Touched:(id)sender

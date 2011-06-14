@@ -15,6 +15,7 @@
 
 @synthesize buttonYearMonth;
 @synthesize calendarDays;
+@synthesize selectedDay;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -52,21 +53,21 @@
 {
     [super viewDidLoad];
     
-    basicDate = [NSDate date];
-    
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"YYYY MMMM"];
+    
+    NSDate *basicDate = [((NodaziAppDelegate *)[[UIApplication sharedApplication] delegate]) basicDate];
     NSString *strYearMonth = [dateFormatter stringFromDate:basicDate];
     [buttonYearMonth setTitle:strYearMonth forState:UIControlStateNormal];
     
     NSCalendar *calendarCurrent = [NSCalendar currentCalendar];
-    NSDateComponents *date = [calendarCurrent components: (NSMonthCalendarUnit | NSDayCalendarUnit | NSYearCalendarUnit | NSWeekdayCalendarUnit) fromDate:basicDate];
+    NSDateComponents *date = [calendarCurrent components: (NSMonthCalendarUnit | NSDayCalendarUnit | NSYearCalendarUnit | NSWeekdayCalendarUnit) fromDate:[((NodaziAppDelegate *)[[UIApplication sharedApplication] delegate]) basicDate]];
     [date setDay:1];
     NSDate *firstDay = [calendarCurrent dateFromComponents:date];
     NSDateComponents *firstDayComponents = [calendarCurrent components:NSWeekdayCalendarUnit fromDate:firstDay];
     startingDayOffset = [firstDayComponents weekday];
     
-    NSRange daysInMonth = [calendarCurrent rangeOfUnit:NSDayCalendarUnit inUnit:NSMonthCalendarUnit forDate:basicDate];
+    NSRange daysInMonth = [calendarCurrent rangeOfUnit:NSDayCalendarUnit inUnit:NSMonthCalendarUnit forDate:[((NodaziAppDelegate *)[[UIApplication sharedApplication] delegate]) basicDate]];
     
     NSMutableDictionary *daily = [[NSMutableDictionary alloc] init];
     
@@ -97,7 +98,7 @@
             sqlite3_finalize(statement);
             
             button.backgroundColor = [UIColor colorWithRed:1.0f green:0.0f blue:0.0f 
-                                                     alpha:([itemPrice doubleValue]/300.0*0.85f/100.0f)];
+                                                     alpha:([itemPrice doubleValue]/100.0*0.85f/100.0f)];
             
             [daily setObject:itemPrice forKey:[NSNumber numberWithInt:(button.tag - startingDayOffset + 1)]];
         }
@@ -136,7 +137,7 @@
     // remove color of previous selected day
     buttonSelectedDay.layer.borderWidth = 0.0;
     buttonSelectedDay.backgroundColor = [UIColor colorWithRed:1.0f green:0.0f blue:0.0f 
-                                                        alpha:([[dailyExpenditure objectForKey:[NSNumber numberWithInt:(buttonSelectedDay.tag - startingDayOffset + 1)]] floatValue]/300.0*0.85f/100.0f)];;
+                                                        alpha:([[dailyExpenditure objectForKey:[NSNumber numberWithInt:(buttonSelectedDay.tag - startingDayOffset + 1)]] floatValue]/100.0*0.85f/100.0f)];;
     
     buttonSelectedDay = (UIButton *)sender;
     buttonSelectedDay.layer.borderColor = [UIColor blueColor].CGColor;
@@ -144,7 +145,11 @@
     buttonSelectedDay.layer.cornerRadius = 0.0f;
     buttonSelectedDay.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:1.0 alpha:0.5];
     
-    selectedDay = [sender tag] - startingDayOffset + 1;
+    NSCalendar *calendarCurrent = [NSCalendar currentCalendar];
+    NSDateComponents *component = [calendarCurrent components: (NSMonthCalendarUnit | NSDayCalendarUnit | NSYearCalendarUnit | NSWeekdayCalendarUnit) fromDate:[((NodaziAppDelegate *)[[UIApplication sharedApplication] delegate]) basicDate]];
+    int newDay = [sender tag] - startingDayOffset + 1;
+    [component setDay:newDay];
+    [((NodaziAppDelegate *)[[UIApplication sharedApplication] delegate]) setBasicDate:[calendarCurrent dateFromComponents:component]];
 }
 
 @end

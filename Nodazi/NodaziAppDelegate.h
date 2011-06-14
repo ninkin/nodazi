@@ -16,6 +16,8 @@
     
     sqlite3 *db;
     int nReceiptType;
+    
+    NSDate *basicDate;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
@@ -23,6 +25,7 @@
 @property (nonatomic, retain) IBOutlet UINavigationController *_expenseNavCtrlr;
 @property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
 @property (nonatomic) int nReceiptType;
+@property (nonatomic, retain) NSDate *basicDate;
 
 - (sqlite3 *)getDB;
 

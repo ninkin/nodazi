@@ -20,7 +20,6 @@
 @synthesize listTotal;
 @synthesize tableBuyRecord;
 @synthesize addNew;
-@synthesize expCal;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -55,12 +54,12 @@
     // Do any additional setup after loading the view from its nib.
     
     NSCalendar *calendarCurrent = [NSCalendar currentCalendar];
-    basicDate = [NSDate date];
-    date = [calendarCurrent components: (NSMonthCalendarUnit | NSDayCalendarUnit | NSYearCalendarUnit) fromDate:basicDate];
+    today = [NSDate date];
+    date = [calendarCurrent components: (NSMonthCalendarUnit | NSDayCalendarUnit | NSYearCalendarUnit) fromDate:today];
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"MMMM"];
-    NSString *strMonth = [dateFormatter stringFromDate:basicDate];
+    NSString *strMonth = [dateFormatter stringFromDate:today];
     
     NSString *strDay = [NSString stringWithFormat:@"%ld", [date day]]; 
 
@@ -131,7 +130,30 @@
     
 }
 
-- (void) viewDidAppear:(BOOL)animated {
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    if (expCal) {
+        if ([((NodaziAppDelegate *)[[UIApplication sharedApplication] delegate]) basicDate] != today) {
+            // reset calendar icon
+            today = [((NodaziAppDelegate *)[[UIApplication sharedApplication] delegate]) basicDate];
+            
+            NSCalendar *calendarCurrent = [NSCalendar currentCalendar];
+            
+            date = [calendarCurrent components: (NSMonthCalendarUnit | NSDayCalendarUnit | NSYearCalendarUnit) fromDate:today];
+            
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"MMMM"];
+            NSString *strMonth = [dateFormatter stringFromDate:today];
+            
+            NSString *strDay = [NSString stringWithFormat:@"%ld", [date day]]; 
+            
+            [labelMonth setText:strMonth];
+            [labelDay setText:strDay];
+        }
+    }
+    
     int receipttype = (((NodaziAppDelegate *)[[UIApplication sharedApplication] delegate])).nReceiptType;
     
     if (receipttype > 0)
@@ -144,6 +166,7 @@
         
         [self.navigationController pushViewController:addNew animated:YES];
     }
+
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -197,12 +220,13 @@
 
 - (IBAction)buttonCalendarPressed:(id)sender
 {
-    if (self.expCal == nil) {
+    if (expCal == nil) {
         ExpenditureCalendarViewController *newCtrlr = [[ExpenditureCalendarViewController alloc] initWithNibName:@"ExpenditureCalendarView" bundle:[NSBundle mainBundle]];
         newCtrlr.title = @"Calendar";
-        self.expCal = newCtrlr;
+        
+        expCal = newCtrlr;
     }
-    
+
     [self.navigationController pushViewController:expCal animated:YES];
 }
 

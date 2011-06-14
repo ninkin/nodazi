@@ -25,6 +25,7 @@
     UIButton *buttonStar3;
     UIButton *buttonStar4;
     UIButton *buttonStar5;
+    UIDatePicker *datePicker;
     int starRating;
 }
 
@@ -38,7 +39,7 @@
 @property (nonatomic, retain) IBOutlet UITextField *textItemName;
 @property (nonatomic, retain) IBOutlet UITextField *textItemQty;
 @property (nonatomic, retain) IBOutlet UITextField *textItemPrice;
-
+@property (nonatomic, retain) IBOutlet UIDatePicker *datePicker;
 - (IBAction)textPlaceReturn:(id)sender;
 - (IBAction)backgroundTouched:(id)sender;
 - (IBAction)star1Touched:(id)sender;
@@ -47,5 +48,6 @@
 - (IBAction)star4Touched:(id)sender;
 - (IBAction)star5Touched:(id)sender;
 - (IBAction)buttonAddTouched:(id)sender;
+- (IBAction)whenFieldTouched:(id)sender;
 
 @end
