@@ -445,18 +445,32 @@ NSLock *myLock = nil;
     [scanButton addTarget:self action:@selector(takereceipt) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:scanButton];
     
-    tagLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 100, 480, 150)];
-    [tagLabel setFrame:CGRectMake(35, 100, 240, 100)];
-    [tagLabel setText:@"20,000\nThe nearby market\nin 1 Km"];
+    tagLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 160, 480, 150)];
+    [tagLabel setFrame:CGRectMake(35, 180, 240, 100)];
+    [tagLabel setText:@"The nearby market\nin 1 Km"];
     [tagLabel setOpaque:TRUE];
     [tagLabel setAlpha:0.0];
     tagLabel.backgroundColor = [UIColor clearColor];
     tagLabel.font = [UIFont fontWithName:@"Courier" size: 20.0];
-    [tagLabel setTextColor:[UIColor redColor]];
+    [tagLabel setTextColor:[UIColor magentaColor]];
     tagLabel.lineBreakMode = UILineBreakModeWordWrap;
     tagLabel.textAlignment = UITextAlignmentCenter;
     tagLabel.numberOfLines = 3;
     [self.view addSubview:tagLabel];
+    
+    tagLabel2 = [[UILabel alloc] initWithFrame:CGRectMake(0, 80, 480, 150)];
+    [tagLabel2 setFrame:CGRectMake(35, 100, 240, 100)];
+    [tagLabel2 setText:@"20,000"];
+    [tagLabel2 setOpaque:TRUE];
+    [tagLabel2 setAlpha:0.0];
+    tagLabel2.backgroundColor = [UIColor clearColor];
+    tagLabel2.font = [UIFont fontWithName:@"Courier" size: 50.0];
+    [tagLabel2 setTextColor:[UIColor redColor]];
+    tagLabel2.lineBreakMode = UILineBreakModeWordWrap;
+    tagLabel2.textAlignment = UITextAlignmentCenter;
+    tagLabel2.numberOfLines = 3;
+    [self.view addSubview:tagLabel2];
+    
 }
 
 #pragma mark -
@@ -482,7 +496,20 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     /*Create a CGImageRef from the CVImageBufferRef*/
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB(); 
     CGContextRef newContext = CGBitmapContextCreate(baseAddress, width, height, 8, bytesPerRow, colorSpace, kCGBitmapByteOrder32Little | kCGImageAlphaPremultipliedFirst);
-    CGImageRef newImage = CGBitmapContextCreateImage(newContext); 
+    
+    CGContextSetRGBFillColor(newContext, (CGFloat)0.0, (CGFloat)0.0, (CGFloat)0.0, (CGFloat)1.0 );
+    
+    /*
+    CGContextSetStrokeColorWithColor(newContext, [UIColor redColor].CGColor);
+    CGContextMoveToPoint(newContext, 0, 0); 
+    CGContextAddLineToPoint(newContext, 500, 400); 
+   // CGContextMoveToPoint(newContext, 700, 0); 
+   // CGContextAddLineToPoint(newContext, 0, 500); 
+    CGContextStrokePath(newContext);
+    */
+    
+    CGImageRef newImage = CGBitmapContextCreateImage(newContext);
+
 	
     /*We release some components*/
     CGContextRelease(newContext); 
@@ -581,11 +608,13 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     {
         [scanButton setAlpha:0];
         [tagLabel setAlpha:0.8];
+        [tagLabel2 setAlpha:0.8];
     }
     else
     {
         [scanButton setAlpha:0.4];
         [tagLabel setAlpha:0.0];
+        [tagLabel2 setAlpha:0.0];
     }
 }
 
