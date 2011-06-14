@@ -99,9 +99,9 @@ NSLock *myLock = nil;
     bViewTag = false;
     
     [self initCapture];
-    
+    /*
     timer = [NSTimer scheduledTimerWithTimeInterval: 1.0 target: self selector: @selector(handleTimer:)
-                                           userInfo: nil repeats: YES];
+                                           userInfo: nil repeats: YES];*/
 }
 
 - (NSString *)applicationDocumentsDirectory 
@@ -185,17 +185,29 @@ NSLock *myLock = nil;
 }
 
 - (void) viewDidAppear:(BOOL)animated {
+    [myLock lock];
     [activityView stopAnimating];
     bCaptureReceipt = false;
     outCaptureReceipt = 0;
     bShowScreen = true;
+    bCapture = false;
+    
+    timer = [NSTimer scheduledTimerWithTimeInterval: 1.0 target: self selector: @selector(handleTimer:)
+                                           userInfo: nil repeats: YES];
+    [myLock unlock];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+    [myLock lock];
     bCaptureReceipt = false;
     outCaptureReceipt = 0;
     bShowScreen = false;
+    bCapture = true;
+    
+    [timer invalidate];
+    timer = nil;
+    [myLock unlock];
 }
 
 - (IBAction) receiptClick {
@@ -393,6 +405,9 @@ NSLock *myLock = nil;
         range = [string rangeOfString:@"aga"];
         if (range.length != 0 && bCaptureReceipt == true)
             outCaptureReceipt = 2;
+        
+        if (bCaptureReceipt == true)
+            outCaptureReceipt = 1;
     }
     
     
@@ -402,8 +417,10 @@ NSLock *myLock = nil;
     [pool release];
     
     [myLock lock];
+    if (outCaptureReceipt == 0)
+        bCapture = false;
     bThreadRun = false;
-    bCapture = false;
+    //bCapture = false;
     [myLock unlock];
 }
 
