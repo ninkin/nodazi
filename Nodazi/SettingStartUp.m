@@ -1,18 +1,16 @@
 //
-//  SettingViewController.m
+//  SettingStartUp.m
 //  Nodazi
 //
-//  Created by 항준 on 11. 5. 26..
+//  Created by STCube1 on 11. 6. 14..
 //  Copyright 2011 서울대학교. All rights reserved.
 //
 
-#import "SettingViewController.h"
+#import "SettingStartUp.h"
 #import "SettingCell.h"
-#import "SettingStartup.h"
 
-@implementation SettingViewController
-@synthesize listSettings;
-
+@implementation SettingStartUp
+@synthesize listStartup;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -24,7 +22,6 @@
 
 - (void)dealloc
 {
-    listSettings = nil;
     [super dealloc];
 }
 
@@ -38,11 +35,18 @@
 
 #pragma mark - View lifecycle
 
+/*
+// Implement loadView to create a view hierarchy programmatically, without using a nib.
+- (void)loadView
+{
+}
+*/
+
+// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    self.listSettings = [[[NSArray alloc] initWithObjects:@"Show Tooltip Table Cell", @"Start-up Screen", @"Monthly Start Date", @"Enable Password", @"Reset All Data", nil] autorelease];
+    self.listStartup = [[[NSArray alloc] initWithObjects:@"Cemera", @"Planner", @"Expenditure", @"Settings", nil] autorelease];
 }
 
 - (void)viewDidUnload
@@ -57,11 +61,10 @@
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
-
 - (NSInteger)tableView:(UITableView *)tableView 
  numberOfRowsInSection:(NSInteger)section
 {
-    return [self.listSettings count];
+    return [self.listStartup count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView 
@@ -72,21 +75,16 @@
     SettingCell *cell = (SettingCell *)[tableView
                                         dequeueReusableCellWithIdentifier:SettingCellIdentifier];
     if (cell == nil) {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:[self.listSettings objectAtIndex:indexPath.row]
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:[self.listStartup objectAtIndex:indexPath.row]
                                                      owner:self options:nil];
         for (id oneObject in nib) {
             if ([oneObject isKindOfClass: [SettingCell class]])
                 cell = (SettingCell *) oneObject;
         }
     }
-
+    
     return cell;
 }
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    SettingStartUp *startup = [[SettingStartUp alloc  ]init];
-    startup.title = @"Startup Screen";
-    [self.navigationController pushViewController:startup animated:YES];
 
-}
+
 @end

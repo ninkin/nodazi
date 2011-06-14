@@ -37,6 +37,9 @@ NSLock *myLock = nil;
 		self.imageView = nil;
 		//self.prevLayer = nil;
 		self.customLayer = nil;
+        bShowScreen = false;
+        bCaptureReceipt = false;
+        outCaptureReceipt = 0;
 	}
 	return self;
 }
@@ -48,10 +51,7 @@ NSLock *myLock = nil;
     
     myLock = [[NSLock alloc] init];
     
-    activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-    activityView.center = self.view.center;
-    activityView.hidesWhenStopped = YES;
-    [self.view addSubview:activityView];
+    
     
     // Set up the tessdata path. This is included in the application bundle
     // but is copied to the Documents directory on the first run.
@@ -185,7 +185,17 @@ NSLock *myLock = nil;
 }
 
 - (void) viewDidAppear:(BOOL)animated {
-    
+    [activityView stopAnimating];
+    bCaptureReceipt = false;
+    outCaptureReceipt = 0;
+    bShowScreen = true;
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    bCaptureReceipt = false;
+    outCaptureReceipt = 0;
+    bShowScreen = false;
 }
 
 - (IBAction) receiptClick {
@@ -246,7 +256,11 @@ NSLock *myLock = nil;
 - (void) takereceipt
 {
     //[self.captureSession release];
-    self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:2];
+    /*
+    self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:2];*/
+    outCaptureReceipt = 0;
+    bCaptureReceipt = true;
+    [activityView startAnimating];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
@@ -349,12 +363,36 @@ NSLock *myLock = nil;
     for (NSString *string in prices)
     {
         string = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-        NSRange range = [string rangeOfString:@"30,000"];
+        NSRange range = [string rangeOfString:@"4.20"];
         
         if (range.length != 0)
             bViewTag = true;
         
         //NSLog(@"out data by line:%@", string);
+        
+        range = [string rangeOfString:@"hoco"];
+        if (range.length != 0 && bCaptureReceipt == true)
+            outCaptureReceipt = 1;
+        
+        range = [string rangeOfString:@"8"];
+        if (range.length != 0 && bCaptureReceipt == true)
+            outCaptureReceipt = 1;
+        
+        range = [string rangeOfString:@"ilk"];
+        if (range.length != 0 && bCaptureReceipt == true)
+            outCaptureReceipt = 1;
+        
+        range = [string rangeOfString:@"10"];
+        if (range.length != 0 && bCaptureReceipt == true)
+            outCaptureReceipt = 2;
+        
+        range = [string rangeOfString:@"oup"];
+        if (range.length != 0 && bCaptureReceipt == true)
+            outCaptureReceipt = 2;
+        
+        range = [string rangeOfString:@"aga"];
+        if (range.length != 0 && bCaptureReceipt == true)
+            outCaptureReceipt = 2;
     }
     
     
@@ -445,18 +483,36 @@ NSLock *myLock = nil;
     [scanButton addTarget:self action:@selector(takereceipt) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:scanButton];
     
-    tagLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 100, 480, 150)];
-    [tagLabel setFrame:CGRectMake(35, 100, 240, 100)];
-    [tagLabel setText:@"20,000\nThe nearby market\nin 1 Km"];
+    tagLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 160, 480, 150)];
+    [tagLabel setFrame:CGRectMake(35, 180, 240, 100)];
+    [tagLabel setText:@"The nearby market\nin 1 Km"];
     [tagLabel setOpaque:TRUE];
     [tagLabel setAlpha:0.0];
     tagLabel.backgroundColor = [UIColor clearColor];
     tagLabel.font = [UIFont fontWithName:@"Courier" size: 20.0];
-    [tagLabel setTextColor:[UIColor redColor]];
+    [tagLabel setTextColor:[UIColor magentaColor]];
     tagLabel.lineBreakMode = UILineBreakModeWordWrap;
     tagLabel.textAlignment = UITextAlignmentCenter;
     tagLabel.numberOfLines = 3;
     [self.view addSubview:tagLabel];
+    
+    tagLabel2 = [[UILabel alloc] initWithFrame:CGRectMake(0, 80, 480, 150)];
+    [tagLabel2 setFrame:CGRectMake(50, 100, 240, 100)];
+    [tagLabel2 setText:@"$ 3.99"];
+    [tagLabel2 setOpaque:TRUE];
+    [tagLabel2 setAlpha:0.0];
+    tagLabel2.backgroundColor = [UIColor clearColor];
+    tagLabel2.font = [UIFont fontWithName:@"Courier" size: 50.0];
+    [tagLabel2 setTextColor:[UIColor redColor]];
+    tagLabel2.lineBreakMode = UILineBreakModeWordWrap;
+    tagLabel2.textAlignment = UITextAlignmentCenter;
+    tagLabel2.numberOfLines = 3;
+    [self.view addSubview:tagLabel2];
+    
+    activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    activityView.center = self.view.center;
+    activityView.hidesWhenStopped = YES;
+    [self.view addSubview:activityView];
 }
 
 #pragma mark -
@@ -465,6 +521,9 @@ NSLock *myLock = nil;
 didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer 
 	   fromConnection:(AVCaptureConnection *)connection 
 { 
+    if (bShowScreen == false)
+        return;
+    
 	/*We create an autorelease pool because as we are not in the main_queue our code is
 	 not executed in the main thread. So we have to create an autorelease pool for the thread we are in*/
 	
@@ -482,7 +541,19 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     /*Create a CGImageRef from the CVImageBufferRef*/
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB(); 
     CGContextRef newContext = CGBitmapContextCreate(baseAddress, width, height, 8, bytesPerRow, colorSpace, kCGBitmapByteOrder32Little | kCGImageAlphaPremultipliedFirst);
-    CGImageRef newImage = CGBitmapContextCreateImage(newContext); 
+    
+    if (bViewTag)
+    {
+        CGContextSetStrokeColorWithColor(newContext, [UIColor redColor].CGColor);
+        CGContextMoveToPoint(newContext, 0, 0); 
+        CGContextAddLineToPoint(newContext, width, height); 
+        CGContextMoveToPoint(newContext, width, 0); 
+        CGContextAddLineToPoint(newContext, 0, height); 
+        CGContextStrokePath(newContext);
+    }
+    
+    CGImageRef newImage = CGBitmapContextCreateImage(newContext);
+
 	
     /*We release some components*/
     CGContextRelease(newContext); 
@@ -507,6 +578,14 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     {
         bCapture = true;
         
+        int threshold = 64;
+        int imagesize = 250;
+        if (bCaptureReceipt == true)
+        {
+            threshold = 140;
+            imagesize = 1200;
+        }
+        
         UIImage *croppedImage = imageSrc;
         
         // crop, but maintain original size:
@@ -519,7 +598,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
         // resize, so as to not choke tesseract:
         // scaling up a low resolution image (eg. screenshots) seems to help the recognition.
         // 1200 pixels is an arbitrary value, but seems to work well.
-        CGFloat newWidth = 250; //(1000 < croppedImage.size.width) ? 1000 : croppedImage.size.width;
+        CGFloat newWidth = imagesize; //(1000 < croppedImage.size.width) ? 1000 : croppedImage.size.width;
         CGSize newSize = CGSizeMake(newWidth,newWidth);
         
         croppedImage = [croppedImage resizedImage:newSize interpolationQuality:kCGInterpolationHigh];
@@ -538,7 +617,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
         
 		// Apply Threshold
 		IplImage *img2 = cvCreateImage(cvGetSize(img), IPL_DEPTH_8U, 1);
-        cvThreshold(img, img2, 64, 255, CV_THRESH_BINARY);
+        cvThreshold(img, img2, threshold, 255, CV_THRESH_BINARY);
         
         //cvCanny(img, img2, 64, 128, 3);
 		cvReleaseImage(&img);
@@ -577,15 +656,29 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     [myLock unlock];
     */
     
-    if (bViewTag)
+    if (bCaptureReceipt == true)
     {
         [scanButton setAlpha:0];
-        [tagLabel setAlpha:0.8];
     }
     else
     {
-        [scanButton setAlpha:0.4];
-        [tagLabel setAlpha:0.0];
+        if (bViewTag)
+        {
+            [scanButton setAlpha:0];
+            [tagLabel setAlpha:0.8];
+            [tagLabel2 setAlpha:0.8];
+        }
+        else
+        {
+            [scanButton setAlpha:0.4];
+            [tagLabel setAlpha:0.0];
+            [tagLabel2 setAlpha:0.0];
+        }
+    }
+    
+    if (outCaptureReceipt == 1 || outCaptureReceipt == 2)
+    {
+        self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:2];
     }
 }
 

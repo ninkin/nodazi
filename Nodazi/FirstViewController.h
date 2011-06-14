@@ -54,6 +54,11 @@ using namespace tesseract;
     UIButton * scanButton;
     UIButton * tagButton;
     UILabel * tagLabel;
+    UILabel * tagLabel2;
+    
+    bool bShowScreen;
+    bool bCaptureReceipt;
+    int outCaptureReceipt;
 }
 
 @property(nonatomic,retain)IBOutlet UITextView *outputView;
