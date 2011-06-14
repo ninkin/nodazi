@@ -50,9 +50,9 @@
     
     for(int i = 0; i < [shoppingkeys count]; i++){
         
-        itemnamesprices = [[NSString alloc] initWithFormat:@"%@, %@",itemnamesprices, [shoppingkeys objectAtIndex:i]];
+        itemnamesprices = [[NSString alloc] initWithFormat:@"%@ %@",itemnamesprices, [shoppingkeys objectAtIndex:i]];
     }
-    itemnamesprices = [[NSString alloc] initWithFormat:@"%@. In Total: @d $.",itemnamesprices, rand()%50 ];
+    itemnamesprices = [[NSString alloc] initWithFormat:@"%@.\n In Total: %d $.",itemnamesprices, rand()%50 ];
     [super viewDidLoad];
 
     [result setText:itemnamesprices];
