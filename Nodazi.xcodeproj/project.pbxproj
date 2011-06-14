@@ -66,8 +66,11 @@
 		AC44C69F1392A2200078E586 /* Add-32.png in Resources */ = {isa = PBXBuildFile; fileRef = AC44C69E1392A2200078E586 /* Add-32.png */; };
 		AC889DEE139FB2D80072DFC5 /* star-0.png in Resources */ = {isa = PBXBuildFile; fileRef = AC889DED139FB2D80072DFC5 /* star-0.png */; };
 		AC889DF1139FB2E20072DFC5 /* star-4.png in Resources */ = {isa = PBXBuildFile; fileRef = AC889DF0139FB2E20072DFC5 /* star-4.png */; };
-		ACEC1C4513933F74009DD4EA /* PlannerMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACEC1C4313933F74009DD4EA /* PlannerMainView.m */; };
-		ACEC1C4613933F74009DD4EA /* PlannerMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACEC1C4413933F74009DD4EA /* PlannerMainView.xib */; };
+		ACB5CB8313A5C8C600A93A83 /* StoreLocationView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB5CB8213A5C8C600A93A83 /* StoreLocationView.m */; };
+		ACB5CB8713A7327900A93A83 /* SettingStartUp.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB5CB8613A7327900A93A83 /* SettingStartUp.m */; };
+		ACB5CB8913A7329800A93A83 /* SettingStartup.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACB5CB8813A7329800A93A83 /* SettingStartup.xib */; };
+		ACEC1C4513933F74009DD4EA /* FoundStore.m in Sources */ = {isa = PBXBuildFile; fileRef = ACEC1C4313933F74009DD4EA /* FoundStore.m */; };
+		ACEC1C4613933F74009DD4EA /* FoundStore.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACEC1C4413933F74009DD4EA /* FoundStore.xib */; };
 		BC9416EE139DF63F0022DEE2 /* Start-up Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC9416ED139DF63F0022DEE2 /* Start-up Screen.xib */; };
 		BC9416F8139DFDFE0022DEE2 /* Reset All Data.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC9416F5139DFDFE0022DEE2 /* Reset All Data.xib */; };
 		BC9416F9139DFDFE0022DEE2 /* Monthly Start Date.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC9416F6139DFDFE0022DEE2 /* Monthly Start Date.xib */; };
@@ -155,9 +158,14 @@
 		AC44C69E1392A2200078E586 /* Add-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Add-32.png"; sourceTree = "<group>"; };
 		AC889DED139FB2D80072DFC5 /* star-0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-0.png"; sourceTree = "<group>"; };
 		AC889DF0139FB2E20072DFC5 /* star-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-4.png"; sourceTree = "<group>"; };
-		ACEC1C4213933F74009DD4EA /* PlannerMainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlannerMainView.h; sourceTree = "<group>"; };
-		ACEC1C4313933F74009DD4EA /* PlannerMainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlannerMainView.m; sourceTree = "<group>"; };
-		ACEC1C4413933F74009DD4EA /* PlannerMainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlannerMainView.xib; sourceTree = "<group>"; };
+		ACB5CB8113A5C8C500A93A83 /* StoreLocationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreLocationView.h; sourceTree = "<group>"; };
+		ACB5CB8213A5C8C600A93A83 /* StoreLocationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreLocationView.m; sourceTree = "<group>"; };
+		ACB5CB8513A7327900A93A83 /* SettingStartUp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingStartUp.h; sourceTree = "<group>"; };
+		ACB5CB8613A7327900A93A83 /* SettingStartUp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingStartUp.m; sourceTree = "<group>"; };
+		ACB5CB8813A7329800A93A83 /* SettingStartup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingStartup.xib; sourceTree = "<group>"; };
+		ACEC1C4213933F74009DD4EA /* FoundStore.h */ = {isa = PBXFileReference; fileEncoding = 4; path = FoundStore.h; sourceTree = "<group>"; };
+		ACEC1C4313933F74009DD4EA /* FoundStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundStore.m; sourceTree = "<group>"; };
+		ACEC1C4413933F74009DD4EA /* FoundStore.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoundStore.xib; sourceTree = "<group>"; };
 		BC9416ED139DF63F0022DEE2 /* Start-up Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "Start-up Screen.xib"; path = "Nodazi/Start-up Screen.xib"; sourceTree = "<group>"; };
 		BC9416F5139DFDFE0022DEE2 /* Reset All Data.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "Reset All Data.xib"; path = "Nodazi/Reset All Data.xib"; sourceTree = "<group>"; };
 		BC9416F6139DFDFE0022DEE2 /* Monthly Start Date.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "Monthly Start Date.xib"; path = "Nodazi/Monthly Start Date.xib"; sourceTree = "<group>"; };
@@ -274,15 +282,20 @@
 				2F24A701138E54BF00B34B3D /* NodaziAppDelegate.h */,
 				2F24A702138E54BF00B34B3D /* NodaziAppDelegate.m */,
 				2F24A704138E54C000B34B3D /* MainWindow.xib */,
-				ACEC1C4213933F74009DD4EA /* PlannerMainView.h */,
-				ACEC1C4313933F74009DD4EA /* PlannerMainView.m */,
-				ACEC1C4413933F74009DD4EA /* PlannerMainView.xib */,
+				ACEC1C4213933F74009DD4EA /* FoundStore.h */,
+				ACEC1C4313933F74009DD4EA /* FoundStore.m */,
+				ACEC1C4413933F74009DD4EA /* FoundStore.xib */,
+				ACB5CB8113A5C8C500A93A83 /* StoreLocationView.h */,
+				ACB5CB8213A5C8C600A93A83 /* StoreLocationView.m */,
 				2F24A707138E54C000B34B3D /* FirstViewController.h */,
 				2F24A708138E54C000B34B3D /* FirstViewController.mm */,
 				2F24A70A138E54C000B34B3D /* SecondViewController.h */,
 				2F24A70B138E54C000B34B3D /* SecondViewController.m */,
 				2FA0E225138E6E24006D7714 /* SettingViewController.h */,
 				2FA0E226138E6E24006D7714 /* SettingViewController.m */,
+				ACB5CB8513A7327900A93A83 /* SettingStartUp.h */,
+				ACB5CB8813A7329800A93A83 /* SettingStartup.xib */,
+				ACB5CB8613A7327900A93A83 /* SettingStartUp.m */,
 				2FA0E22C138E7D90006D7714 /* SettingCell.h */,
 				2FA0E22D138E7D90006D7714 /* SettingCell.m */,
 				2FA0E227138E6E24006D7714 /* SettingView.xib */,
@@ -414,7 +427,7 @@
 				2FA0E229138E6E24006D7714 /* SettingView.xib in Resources */,
 				2FE34FD9139288420035D58E /* calendar_blank.png in Resources */,
 				AC44C69F1392A2200078E586 /* Add-32.png in Resources */,
-				ACEC1C4613933F74009DD4EA /* PlannerMainView.xib in Resources */,
+				ACEC1C4613933F74009DD4EA /* FoundStore.xib in Resources */,
 				2FDC144A1398BA51007B1723 /* AddNewRecordView.xib in Resources */,
 				BCE024511399ECAC00ED7003 /* Show Tooltip.xib in Resources */,
 				BC9416EE139DF63F0022DEE2 /* Start-up Screen.xib in Resources */,
@@ -426,6 +439,7 @@
 				AC889DEE139FB2D80072DFC5 /* star-0.png in Resources */,
 				AC889DF1139FB2E20072DFC5 /* star-4.png in Resources */,
 				41E1F65213A0E95A00DBB98E /* tessdata-svn in Resources */,
+				ACB5CB8913A7329800A93A83 /* SettingStartup.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,7 +457,7 @@
 				2F24A72B138E60C300B34B3D /* ExpenseViewController.m in Sources */,
 				2FA0E228138E6E24006D7714 /* SettingViewController.m in Sources */,
 				2FA0E22E138E7D90006D7714 /* SettingCell.m in Sources */,
-				ACEC1C4513933F74009DD4EA /* PlannerMainView.m in Sources */,
+				ACEC1C4513933F74009DD4EA /* FoundStore.m in Sources */,
 				2F120437139CD3CB00C9096B /* AddNewRecordVIewController.m in Sources */,
 				2FEA03D9139F8A4700B76391 /* ExpenditureCalendarViewController.m in Sources */,
 				41241A4E139FBDD400CF38F3 /* UIImage+Alpha.m in Sources */,
@@ -452,6 +466,8 @@
 				41241A57139FBDE800CF38F3 /* OverlayView.m in Sources */,
 				41241A58139FBDE800CF38F3 /* ScanButton.m in Sources */,
 				41241A59139FBDE800CF38F3 /* ZoomableImage.m in Sources */,
+				ACB5CB8313A5C8C600A93A83 /* StoreLocationView.m in Sources */,
+				ACB5CB8713A7327900A93A83 /* SettingStartUp.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

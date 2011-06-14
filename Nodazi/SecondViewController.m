@@ -7,7 +7,7 @@
 //
 
 #import "SecondViewController.h"
-#import "PlannerMainView.h"
+#import "FoundStore.h"
 
 @implementation SecondViewController
 @synthesize numberField;
@@ -26,9 +26,9 @@
 }
 
 - (IBAction)findStorePushed:(id)sender{
-    PlannerMainView *plannerMain = [[PlannerMainView alloc  ]init];
-    plannerMain.title = @"Result";
-    [self.navigationController pushViewController:plannerMain animated:YES];
+    FoundStore *foundstore = [[FoundStore alloc  ]init];
+    foundstore.title = @"Result";
+    [self.navigationController pushViewController:foundstore animated:YES];
     
 }
 - (IBAction)productFieldDoneEditing:(id)sender{
