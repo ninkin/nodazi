@@ -109,6 +109,15 @@
         [textItemName setText:@"Choco-pie"];
         [textItemQty setText:@"1"];
         [textItemPrice setText:@"3.9"];
+        [self buttonAddTouched:NULL];
+        
+        [textPlace setText:@"GS Mart"];
+        [textItemName setText:@"Day Milk"];
+        [textItemQty setText:@"2"];
+        [textItemPrice setText:@"2.1"];
+        [self buttonAddTouched:NULL];
+        
+        
     }
     else if (receipttype == 2)
     {
@@ -116,6 +125,19 @@
         [textItemName setText:@"Baga-chickin"];
         [textItemQty setText:@"10"];
         [textItemPrice setText:@"7.7"];
+        [self buttonAddTouched:NULL];
+        
+        [textPlace setText:@"Quiznos"];
+        [textItemName setText:@"Cola"];
+        [textItemQty setText:@"10"];
+        [textItemPrice setText:@"1.2"];
+        [self buttonAddTouched:NULL];
+        
+        [textPlace setText:@"Quiznos"];
+        [textItemName setText:@"Todays Soup"];
+        [textItemQty setText:@"10"];
+        [textItemPrice setText:@"3.0"];
+        [self buttonAddTouched:NULL];
     }
 }
 
@@ -299,7 +321,7 @@
     [tableItems reloadData];
     
     [textItemName setText:@""];
-    [textItemQty setText:@""];
+    [textItemQty setText:@"1"];
     [textItemPrice setText:@""];
 }
 
