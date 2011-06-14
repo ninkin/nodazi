@@ -18,6 +18,10 @@
     CLLocationCoordinate2D gsmart;
     IBOutlet UILabel *distance;
     PlaceMarker *storePlace;
+    NSDictionary *quiznositems;
+    NSDictionary *gsmartitems;
+    NSMutableDictionary *shoppingitems;
+    IBOutlet UITextView *result;
 }
 
 @property (nonatomic, retain) IBOutlet MKMapView *myMapView;
@@ -25,6 +29,8 @@
 @property (nonatomic) CLLocationCoordinate2D gsmart;
 @property (nonatomic, retain) PlaceMarker *storePlace;
 @property (nonatomic, retain) IBOutlet UILabel *distance;
+@property (nonatomic, retain) NSMutableDictionary *shoppingitems;
+@property (nonatomic , retain) IBOutlet UITextView *result;
 - (void)displayMYMap;
 - (IBAction)onClickMap:(id)sender;
 @end

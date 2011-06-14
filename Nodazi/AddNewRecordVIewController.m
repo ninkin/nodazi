@@ -23,6 +23,8 @@
 @synthesize textItemQty;
 @synthesize textItemPrice;
 @synthesize datePicker;
+@synthesize tableItems;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -272,6 +274,49 @@
     if (err != 0) {
         NSLog(@"sqlite3_exec error(%d).", err);
     }
+    else
+    {
+        // success!
+        NSDictionary *item = [NSDictionary dictionaryWithObjectsAndKeys:
+                              itemName, @"Name",
+                              [NSString stringWithFormat:@"%i", [itemQty intValue]], @"Qty", 
+                              [NSString stringWithFormat:@"%.2f", [itemPrice floatValue]], @"Price", 
+                              nil];
+        
+        [listItems addObject:item];
+    }
+    
+    [tableItems reloadData];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView 
+ numberOfRowsInSection:(NSInteger)section
+{
+    return [listItems count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView 
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *cellIdentifier = @"CellIdentifier";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1
+                                       reuseIdentifier:cellIdentifier]
+                autorelease];
+    }
+    
+    NSUInteger row = [indexPath row];
+    [cell.textLabel setText:([[listItems objectAtIndex:row] objectForKey:@"Name"])];
+    [cell.textLabel setFont:[UIFont fontWithName:@"Helvetica" size:14]];
+    NSString *price = [[listItems objectAtIndex:row] objectForKey:@"Price"];
+    NSString *qty = [[listItems objectAtIndex:row] objectForKey:@"Qty"];
+    NSString *total = [NSString stringWithFormat:@"%@*%@", qty, price];
+    [cell.detailTextLabel setText:total];
+    
+    return cell;
 }
 
 @end

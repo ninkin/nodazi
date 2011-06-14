@@ -771,7 +771,8 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 
 - (void) setTabBarIndex:(NSNumber *)index
 {
-    self.tabBarController.selectedIndex = index.intValue;
+    //self.tabBarController.selectedIndex = index.intValue;
+    [self.tabBarController setSelectedIndex:index.intValue];
 }
 
 -(void)CheckCompleted
