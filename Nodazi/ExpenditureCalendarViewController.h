@@ -9,10 +9,14 @@
 #import <UIKit/UIKit.h>
 
 
-@interface ExpenditureCalendarViewController : UIViewController {
+@interface ExpenditureCalendarViewController : UIViewController {    
+    NSDate *basicDate;  // 달력을 불러오는 기준이 되는 날짜
+    
+    UIButton *buttonYearMonth;
     NSArray *calendarDays;
 }
 
+@property (nonatomic, retain) IBOutlet UIButton *buttonYearMonth;
 @property (nonatomic, retain) IBOutletCollection(UIButton) NSArray *calendarDays;
 
 @end

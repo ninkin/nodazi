@@ -16,7 +16,9 @@
     UILabel *labelMonth;
     UILabel *labelDay;
     UILabel *labelTotalExpense;
+    UILabel *labelTotalDay;
     
+    NSDate *basicDate;
     NSDateComponents *date;
     
     // for list of expenses
@@ -34,6 +36,7 @@
 @property (nonatomic, retain) IBOutlet UILabel *labelMonth;
 @property (nonatomic, retain) IBOutlet UILabel *labelDay;
 @property (nonatomic, retain) IBOutlet UILabel *labelTotalExpense;
+@property (nonatomic, retain) IBOutlet UILabel *labelTotalDay;
 @property (nonatomic, retain) NSMutableArray *listExpenses;
 @property (nonatomic, retain) NSArray *listTotal;
 @property (nonatomic, retain) IBOutlet UITableView *tableBuyRecord;
