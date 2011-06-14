@@ -38,6 +38,8 @@ NSLock *myLock = nil;
 		//self.prevLayer = nil;
 		self.customLayer = nil;
         bShowScreen = false;
+        bCaptureReceipt = false;
+        outCaptureReceipt = 0;
 	}
 	return self;
 }
@@ -49,10 +51,7 @@ NSLock *myLock = nil;
     
     myLock = [[NSLock alloc] init];
     
-    activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-    activityView.center = self.view.center;
-    activityView.hidesWhenStopped = YES;
-    [self.view addSubview:activityView];
+    
     
     // Set up the tessdata path. This is included in the application bundle
     // but is copied to the Documents directory on the first run.
@@ -186,11 +185,16 @@ NSLock *myLock = nil;
 }
 
 - (void) viewDidAppear:(BOOL)animated {
+    [activityView stopAnimating];
+    bCaptureReceipt = false;
+    outCaptureReceipt = 0;
     bShowScreen = true;
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+    bCaptureReceipt = false;
+    outCaptureReceipt = 0;
     bShowScreen = false;
 }
 
@@ -252,7 +256,11 @@ NSLock *myLock = nil;
 - (void) takereceipt
 {
     //[self.captureSession release];
-    self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:2];
+    /*
+    self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:2];*/
+    outCaptureReceipt = 0;
+    bCaptureReceipt = true;
+    [activityView startAnimating];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
@@ -361,6 +369,30 @@ NSLock *myLock = nil;
             bViewTag = true;
         
         //NSLog(@"out data by line:%@", string);
+        
+        range = [string rangeOfString:@"hoco"];
+        if (range.length != 0 && bCaptureReceipt == true)
+            outCaptureReceipt = 1;
+        
+        range = [string rangeOfString:@"8"];
+        if (range.length != 0 && bCaptureReceipt == true)
+            outCaptureReceipt = 1;
+        
+        range = [string rangeOfString:@"ilk"];
+        if (range.length != 0 && bCaptureReceipt == true)
+            outCaptureReceipt = 1;
+        
+        range = [string rangeOfString:@"10"];
+        if (range.length != 0 && bCaptureReceipt == true)
+            outCaptureReceipt = 2;
+        
+        range = [string rangeOfString:@"oup"];
+        if (range.length != 0 && bCaptureReceipt == true)
+            outCaptureReceipt = 2;
+        
+        range = [string rangeOfString:@"aga"];
+        if (range.length != 0 && bCaptureReceipt == true)
+            outCaptureReceipt = 2;
     }
     
     
@@ -477,6 +509,10 @@ NSLock *myLock = nil;
     tagLabel2.numberOfLines = 3;
     [self.view addSubview:tagLabel2];
     
+    activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    activityView.center = self.view.center;
+    activityView.hidesWhenStopped = YES;
+    [self.view addSubview:activityView];
 }
 
 #pragma mark -
@@ -542,6 +578,14 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     {
         bCapture = true;
         
+        int threshold = 64;
+        int imagesize = 250;
+        if (bCaptureReceipt == true)
+        {
+            threshold = 140;
+            imagesize = 1200;
+        }
+        
         UIImage *croppedImage = imageSrc;
         
         // crop, but maintain original size:
@@ -554,7 +598,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
         // resize, so as to not choke tesseract:
         // scaling up a low resolution image (eg. screenshots) seems to help the recognition.
         // 1200 pixels is an arbitrary value, but seems to work well.
-        CGFloat newWidth = 250; //(1000 < croppedImage.size.width) ? 1000 : croppedImage.size.width;
+        CGFloat newWidth = imagesize; //(1000 < croppedImage.size.width) ? 1000 : croppedImage.size.width;
         CGSize newSize = CGSizeMake(newWidth,newWidth);
         
         croppedImage = [croppedImage resizedImage:newSize interpolationQuality:kCGInterpolationHigh];
@@ -573,7 +617,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
         
 		// Apply Threshold
 		IplImage *img2 = cvCreateImage(cvGetSize(img), IPL_DEPTH_8U, 1);
-        cvThreshold(img, img2, 64, 255, CV_THRESH_BINARY);
+        cvThreshold(img, img2, threshold, 255, CV_THRESH_BINARY);
         
         //cvCanny(img, img2, 64, 128, 3);
 		cvReleaseImage(&img);
@@ -612,17 +656,29 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     [myLock unlock];
     */
     
-    if (bViewTag)
+    if (bCaptureReceipt == true)
     {
         [scanButton setAlpha:0];
-        [tagLabel setAlpha:0.8];
-        [tagLabel2 setAlpha:0.8];
     }
     else
     {
-        [scanButton setAlpha:0.4];
-        [tagLabel setAlpha:0.0];
-        [tagLabel2 setAlpha:0.0];
+        if (bViewTag)
+        {
+            [scanButton setAlpha:0];
+            [tagLabel setAlpha:0.8];
+            [tagLabel2 setAlpha:0.8];
+        }
+        else
+        {
+            [scanButton setAlpha:0.4];
+            [tagLabel setAlpha:0.0];
+            [tagLabel2 setAlpha:0.0];
+        }
+    }
+    
+    if (outCaptureReceipt == 1 || outCaptureReceipt == 2)
+    {
+        self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:2];
     }
 }
 
