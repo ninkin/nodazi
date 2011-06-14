@@ -19,8 +19,11 @@
 @synthesize building302;
 @synthesize storePlace;
 @synthesize distance;
+@synthesize shoppingitems;
+@synthesize result;
 - (void)dealloc
 {
+    [shoppingitems release];
     [storePlace release];
     [super dealloc];
 }
@@ -40,8 +43,19 @@
 - (void)viewDidLoad
 {
     
+    NSArray *shoppingkeys = [shoppingitems allKeys];
+    
+    NSString *itemnamesprices = [[NSString alloc] initWithFormat:@"Go to GS Mart. For "];
+    
+    
+    for(int i = 0; i < [shoppingkeys count]; i++){
+        
+        itemnamesprices = [[NSString alloc] initWithFormat:@"%@, %@",itemnamesprices, [shoppingkeys objectAtIndex:i]];
+    }
+    itemnamesprices = [[NSString alloc] initWithFormat:@"%@. In Total: @d $.",itemnamesprices, rand()%50 ];
     [super viewDidLoad];
 
+    [result setText:itemnamesprices];
     storePlace = [[PlaceMarker alloc] init];
     
     
@@ -64,6 +78,11 @@
  
      
     myMapView.delegate = self;
+    
+    
+    //최저가 정보들 저장
+    quiznositems = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithFloat:7.7], @"baga-chickin",[NSNumber numberWithFloat:1.2], @"cola", [NSNumber numberWithFloat:3.0], @"today's soup", nil];
+    gsmartitems = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithFloat:3.9], @"choco-pie", [NSNumber numberWithFloat:2.1], @"day milk" , nil];
     
 }
 
