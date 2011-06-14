@@ -57,21 +57,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSDate *today = [NSDate date];
-    
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"YYYY-MM-dd"];
-    strDate = [dateFormatter stringFromDate:today];
-    
-    [buttonDate setTitle:strDate forState:UIControlStateNormal];
-    
-    NSCalendar *calendarCurrent = [NSCalendar currentCalendar];
-    NSDateComponents *date = [calendarCurrent components: (NSMonthCalendarUnit | NSDayCalendarUnit | NSYearCalendarUnit) fromDate:today];
-    day = [date day];
-    month = [date month];
-    year = [date year];
-    NSDate *mydate = [[NSDate alloc] initWithTimeIntervalSinceNow:0];
-    [datePicker setDate:mydate];
     
     starRating = 3; // default
     [buttonStar1 setImage:[UIImage imageNamed:@"star-4.png"] forState:UIControlStateNormal];
@@ -91,6 +76,22 @@
 
 - (void) viewDidAppear:(BOOL)animated
 {
+    NSDate *today = [(NodaziAppDelegate *)[[UIApplication sharedApplication] delegate] basicDate];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"YYYY-MM-dd"];
+    strDate = [dateFormatter stringFromDate:today];
+    
+    [buttonDate setTitle:strDate forState:UIControlStateNormal];
+    
+    NSCalendar *calendarCurrent = [NSCalendar currentCalendar];
+    NSDateComponents *date = [calendarCurrent components: (NSMonthCalendarUnit | NSDayCalendarUnit | NSYearCalendarUnit) fromDate:today];
+    day = [date day];
+    month = [date month];
+    year = [date year];
+    NSDate *mydate = [[NSDate alloc] initWithTimeIntervalSinceNow:0];
+    [datePicker setDate:mydate];
+    
     int receipttype = (((NodaziAppDelegate *)[[UIApplication sharedApplication] delegate])).nReceiptType;
     (((NodaziAppDelegate *)[[UIApplication sharedApplication] delegate])).nReceiptType = 0;
     
