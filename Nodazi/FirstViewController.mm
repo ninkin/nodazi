@@ -355,7 +355,7 @@ NSLock *myLock = nil;
     for (NSString *string in prices)
     {
         string = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-        NSRange range = [string rangeOfString:@"30,000"];
+        NSRange range = [string rangeOfString:@"4.20"];
         
         if (range.length != 0)
             bViewTag = true;
@@ -465,8 +465,8 @@ NSLock *myLock = nil;
     [self.view addSubview:tagLabel];
     
     tagLabel2 = [[UILabel alloc] initWithFrame:CGRectMake(0, 80, 480, 150)];
-    [tagLabel2 setFrame:CGRectMake(35, 100, 240, 100)];
-    [tagLabel2 setText:@"20,000"];
+    [tagLabel2 setFrame:CGRectMake(50, 100, 240, 100)];
+    [tagLabel2 setText:@"$ 3.99"];
     [tagLabel2 setOpaque:TRUE];
     [tagLabel2 setAlpha:0.0];
     tagLabel2.backgroundColor = [UIColor clearColor];
@@ -508,12 +508,12 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     
     if (bViewTag)
     {
-    CGContextSetStrokeColorWithColor(newContext, [UIColor redColor].CGColor);
-    CGContextMoveToPoint(newContext, 0, 0); 
-    CGContextAddLineToPoint(newContext, width, height); 
-    CGContextMoveToPoint(newContext, width, 0); 
-    CGContextAddLineToPoint(newContext, 0, height); 
-    CGContextStrokePath(newContext);
+        CGContextSetStrokeColorWithColor(newContext, [UIColor redColor].CGColor);
+        CGContextMoveToPoint(newContext, 0, 0); 
+        CGContextAddLineToPoint(newContext, width, height); 
+        CGContextMoveToPoint(newContext, width, 0); 
+        CGContextAddLineToPoint(newContext, 0, height); 
+        CGContextStrokePath(newContext);
     }
     
     CGImageRef newImage = CGBitmapContextCreateImage(newContext);
