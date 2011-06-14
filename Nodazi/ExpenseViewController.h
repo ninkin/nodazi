@@ -18,7 +18,7 @@
     UILabel *labelTotalExpense;
     UILabel *labelTotalDay;
     
-    NSDate *basicDate;
+    NSDate *today;
     NSDateComponents *date;
     
     // for list of expenses
@@ -41,7 +41,6 @@
 @property (nonatomic, retain) NSArray *listTotal;
 @property (nonatomic, retain) IBOutlet UITableView *tableBuyRecord;
 @property (nonatomic, retain) AddNewRecordVIewController *addNew;
-@property (nonatomic, retain) ExpenditureCalendarViewController *expCal;
 
 - (IBAction)buttonAddNewPressed:(id)sender;
 - (IBAction)buttonCalendarPressed:(id)sender;
