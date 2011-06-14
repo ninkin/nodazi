@@ -53,8 +53,25 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    self.listExpenses = [[NSMutableArray alloc]initWithCapacity:10];
+}
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
+    [[labelMonth text] release];
+    [[labelDay text] release];
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
     NSCalendar *calendarCurrent = [NSCalendar currentCalendar];
-    today = [NSDate date];
+    today = [((NodaziAppDelegate *)[[UIApplication sharedApplication] delegate]) basicDate];
     date = [calendarCurrent components: (NSMonthCalendarUnit | NSDayCalendarUnit | NSYearCalendarUnit) fromDate:today];
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -62,7 +79,7 @@
     NSString *strMonth = [dateFormatter stringFromDate:today];
     
     NSString *strDay = [NSString stringWithFormat:@"%ld", [date day]]; 
-
+    
     [labelMonth setText:strMonth];
     [labelDay setText:strDay];
     
@@ -85,7 +102,7 @@
     labelTotalExpense.text = monthly;
     
     // Buy record
-    self.listExpenses = [[NSMutableArray alloc]initWithCapacity:10];
+    [self.listExpenses removeAllObjects];
     
     NSString *query2 = [NSString stringWithFormat:@"SELECT name, qty, price FROM mytable WHERE year = %d AND month = %d AND day = %d", [date year], [date month], [date day]];
     sqlite3_stmt *statement2;
@@ -114,45 +131,10 @@
     }
     sqlite3_finalize(statement2);
     
+    [tableBuyRecord reloadData];
+    
     NSString *totalDay = [NSString stringWithFormat:@"Today's expenditure: $%.2f", dTotalDay];
     labelTotalDay.text = totalDay;
-    [totalDay release];
-    
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-    [[labelMonth text] release];
-    [[labelDay text] release];
-    
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    
-    if (expCal) {
-        if ([((NodaziAppDelegate *)[[UIApplication sharedApplication] delegate]) basicDate] != today) {
-            // reset calendar icon
-            today = [((NodaziAppDelegate *)[[UIApplication sharedApplication] delegate]) basicDate];
-            
-            NSCalendar *calendarCurrent = [NSCalendar currentCalendar];
-            
-            date = [calendarCurrent components: (NSMonthCalendarUnit | NSDayCalendarUnit | NSYearCalendarUnit) fromDate:today];
-            
-            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-            [dateFormatter setDateFormat:@"MMMM"];
-            NSString *strMonth = [dateFormatter stringFromDate:today];
-            
-            NSString *strDay = [NSString stringWithFormat:@"%ld", [date day]]; 
-            
-            [labelMonth setText:strMonth];
-            [labelDay setText:strDay];
-        }
-    }
     
     int receipttype = (((NodaziAppDelegate *)[[UIApplication sharedApplication] delegate])).nReceiptType;
     

@@ -102,7 +102,7 @@
         [textItemQty setText:@"1"];
         [textItemPrice setText:@"3.9"];
     }
-    else
+    else if (receipttype == 2)
     {
         [textPlace setText:@"Quiznos"];
         [textItemName setText:@"Baga-chickin"];
