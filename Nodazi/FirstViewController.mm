@@ -380,25 +380,28 @@ NSLock *myLock = nil;
         if (range.length != 0)
             nViewTag = 1;
         
-        range = [string rangeOfString:@"4_2"];
-        if (range.length != 0)
-            nViewTag = 1;
-        
-        range = [string rangeOfString:@"20"];
-        if (range.length != 0)
-            nViewTag = 1;
-        
-        range = [string rangeOfString:@"99"];
-        if (range.length != 0)
-            nViewTag = 2;
-        
-        range = [string rangeOfString:@"3_9"];
-        if (range.length != 0)
-            nViewTag = 2;
-        
-        range = [string rangeOfString:@"1,023"];
-        if (range.length != 0)
-            nViewTag = 3;
+        if (bCaptureReceipt == false)
+        {
+            range = [string rangeOfString:@"4_2"];
+            if (range.length != 0)
+                nViewTag = 1;
+            
+            range = [string rangeOfString:@"20"];
+            if (range.length != 0)
+                nViewTag = 1;
+            
+            range = [string rangeOfString:@"99"];
+            if (range.length != 0)
+                nViewTag = 2;
+            
+            range = [string rangeOfString:@"3_9"];
+            if (range.length != 0)
+                nViewTag = 2;
+            
+            range = [string rangeOfString:@"1,023"];
+            if (range.length != 0)
+                nViewTag = 3;
+        }
         
         //NSLog(@"out data by line:%@", string);
         
@@ -606,7 +609,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB(); 
     CGContextRef newContext = CGBitmapContextCreate(baseAddress, width, height, 8, bytesPerRow, colorSpace, kCGBitmapByteOrder32Little | kCGImageAlphaPremultipliedFirst);
     
-    if (nViewTag == 1 || nViewTag == 3)
+    if ((nViewTag == 1 || nViewTag == 3) && bCaptureReceipt == false)
     {
         CGContextSetStrokeColorWithColor(newContext, [UIColor redColor].CGColor);
         CGContextMoveToPoint(newContext, 0, 0); 
