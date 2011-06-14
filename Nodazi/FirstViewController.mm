@@ -695,6 +695,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     
     if (outCaptureReceipt == 1 || outCaptureReceipt == 2)
     {
+        (((NodaziAppDelegate *)[[UIApplication sharedApplication] delegate])).nReceiptType = outCaptureReceipt;
         self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:2];
     }
 }

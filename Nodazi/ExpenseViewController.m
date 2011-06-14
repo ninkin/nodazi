@@ -131,6 +131,21 @@
     
 }
 
+- (void) viewDidAppear:(BOOL)animated {
+    int receipttype = (((NodaziAppDelegate *)[[UIApplication sharedApplication] delegate])).nReceiptType;
+    
+    if (receipttype > 0)
+    {
+        if (self.addNew == nil) {
+            AddNewRecordVIewController *newCtrlr = [[AddNewRecordVIewController alloc] initWithNibName:@"AddNewRecordView" bundle:[NSBundle mainBundle]];
+            newCtrlr.title = @"Add New Record";
+            self.addNew = newCtrlr;
+        }
+        
+        [self.navigationController pushViewController:addNew animated:YES];
+    }
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
