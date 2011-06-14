@@ -93,12 +93,14 @@
     
     if (receipttype == 1)
     {
+        [textPlace setText:@"GS Mart"];
         [textItemName setText:@"Choco-pie"];
         [textItemQty setText:@"1"];
         [textItemPrice setText:@"3.9"];
     }
     else
     {
+        [textPlace setText:@"Quiznos"];
         [textItemName setText:@"Baga-chickin"];
         [textItemQty setText:@"10"];
         [textItemPrice setText:@"7.7"];
