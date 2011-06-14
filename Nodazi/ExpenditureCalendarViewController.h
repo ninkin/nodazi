@@ -10,7 +10,7 @@
 
 
 @interface ExpenditureCalendarViewController : UIViewController {    
-    NSDate *basicDate;  // 달력을 불러오는 기준이 되는 날짜
+    NSDateComponents *basicDateComponents;
     int startingDayOffset;
     int selectedDay;
     UIButton *buttonSelectedDay;
@@ -22,6 +22,7 @@
 
 @property (nonatomic, retain) IBOutlet UIButton *buttonYearMonth;
 @property (nonatomic, retain) IBOutletCollection(UIButton) NSArray *calendarDays;
+@property (nonatomic, assign) int selectedDay;
 
 - (IBAction)buttonDayTouched:(id)sender;
 

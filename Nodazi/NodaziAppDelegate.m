@@ -11,11 +11,11 @@
 
 @implementation NodaziAppDelegate
 
-
 @synthesize window=_window;
 @synthesize navController;
 @synthesize _expenseNavCtrlr = expenseNavCtrlr;
 @synthesize tabBarController=_tabBarController;
+@synthesize basicDate;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -26,6 +26,9 @@
     [self.window makeKeyAndVisible];
     
     [self.tabBarController setSelectedIndex:2];
+    
+    // Set basic date to today
+    basicDate = [[NSDate date] retain];
     
     // SQLite3
     // 어플리케이션 패스를 구한다
