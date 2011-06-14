@@ -94,13 +94,13 @@ NSLock *myLock = nil;
                "eng"); 
 
     
-    bCapture = true;
+    bCapture = false;
     bThreadRun = false;
     bViewTag = false;
     
     [self initCapture];
     
-    timer = [NSTimer scheduledTimerWithTimeInterval: 3.0 target: self selector: @selector(handleTimer:)
+    timer = [NSTimer scheduledTimerWithTimeInterval: 1.0 target: self selector: @selector(handleTimer:)
                                            userInfo: nil repeats: YES];
 }
 
@@ -132,7 +132,8 @@ NSLock *myLock = nil;
 }
 
 - (UIImage *)UIImageFromIplImage:(IplImage *)image {
-	NSLog(@"IplImage (%d, %d) %d bits by %d channels, %d bytes/row %s", image->width, image->height, image->depth, image->nChannels, image->widthStep, image->channelSeq);
+    /*
+	NSLog(@"IplImage (%d, %d) %d bits by %d channels, %d bytes/row %s", image->width, image->height, image->depth, image->nChannels, image->widthStep, image->channelSeq);*/
     
 	CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
 	NSData *data = [NSData dataWithBytes:image->imageData length:image->imageSize];
@@ -147,46 +148,6 @@ NSLock *myLock = nil;
 	CGColorSpaceRelease(colorSpace);
 	return ret;
 }
-
-- (void)opencvEdgeDetect :(UIImage *)uiImage 
-{
-	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-    
-	if(uiImage) {
-		cvSetErrMode(CV_ErrModeParent);
-        
-        
-		// Create grayscale IplImage from UIImage
-		IplImage *img_color = [self CreateIplImageFromUIImage: uiImage];
-		IplImage *img = cvCreateImage(cvGetSize(img_color), IPL_DEPTH_8U, 1);
-		cvCvtColor(img_color, img, CV_BGR2GRAY);
-		cvReleaseImage(&img_color);
-		
-		// Detect edge
-		IplImage *img2 = cvCreateImage(cvGetSize(img), IPL_DEPTH_8U, 1);
-		cvCanny(img, img2, 64, 128, 3);
-		cvReleaseImage(&img);
-		
-		// Convert black and whilte to 24bit image then convert to UIImage to show
-		IplImage *image = cvCreateImage(cvGetSize(img2), IPL_DEPTH_8U, 3);
-		for(int y=0; y<img2->height; y++) {
-			for(int x=0; x<img2->width; x++) {
-				char *p = image->imageData + y * image->widthStep + x * 3;
-				*p = *(p+1) = *(p+2) = img2->imageData[y * img2->widthStep + x];
-			}
-		}
-		cvReleaseImage(&img2);
-		uiImage = [self UIImageFromIplImage:image];
-		cvReleaseImage(&image);
-        
-        
-        [self.imageView performSelectorOnMainThread:@selector(setImage:) withObject:uiImage waitUntilDone:YES];
-		//[self hideProgressIndicator];
-	}
-    
-	[pool release];
-}
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
@@ -220,7 +181,6 @@ NSLock *myLock = nil;
     [super dealloc];
     tess->End();
     [thumbImageView release];
-    [self.captureSession release];
     [super dealloc];
 }
 
@@ -285,6 +245,7 @@ NSLock *myLock = nil;
 
 - (void) takereceipt
 {
+    //[self.captureSession release];
     self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:2];
 }
 
@@ -353,7 +314,9 @@ NSLock *myLock = nil;
 {
     NSLog(@"tesseract start");
     
+    [myLock lock];
     bThreadRun = true;
+    [myLock unlock];
     
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
     
@@ -400,8 +363,10 @@ NSLock *myLock = nil;
     
     [pool release];
     
+    [myLock lock];
     bThreadRun = false;
     bCapture = false;
+    [myLock unlock];
 }
 
 -(void)updateTextDisplay;
@@ -530,23 +495,23 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 	
 	/*We display the result on the image view (We need to change the orientation of the image so that the video is displayed correctly).
 	 Same thing as for the CALayer we are not in the main thread so ...*/
-	UIImage *image= [UIImage imageWithCGImage:newImage scale:1.0 orientation:UIImageOrientationRight];
+	UIImage *imageSrc = [UIImage imageWithCGImage:newImage scale:1.0 orientation:UIImageOrientationRight];
    
 	/*We relase the CGImageRef*/
 	CGImageRelease(newImage);
 	
 	//[self.imageView performSelectorOnMainThread:@selector(setImage:) withObject:image waitUntilDone:YES];
     
-    //[myLock lock];
+    [myLock lock];
     if (bCapture == false && bThreadRun == false)
     {
         bCapture = true;
         
-        UIImage *croppedImage = image;
+        UIImage *croppedImage = imageSrc;
         
         // crop, but maintain original size:
         //croppedImage = [croppedImage croppedImage:rect];
-        NSLog(@"cropped image size: %@", [[NSValue valueWithCGSize:croppedImage.size] description]);
+        //NSLog(@"cropped image size: %@", [[NSValue valueWithCGSize:croppedImage.size] description]);
         
         // for testing.
         //[self.view addSubview:[[UIImageView alloc] initWithImage:image]];
@@ -554,13 +519,13 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
         // resize, so as to not choke tesseract:
         // scaling up a low resolution image (eg. screenshots) seems to help the recognition.
         // 1200 pixels is an arbitrary value, but seems to work well.
-        CGFloat newWidth = 500; //(1000 < croppedImage.size.width) ? 1000 : croppedImage.size.width;
+        CGFloat newWidth = 250; //(1000 < croppedImage.size.width) ? 1000 : croppedImage.size.width;
         CGSize newSize = CGSizeMake(newWidth,newWidth);
         
         croppedImage = [croppedImage resizedImage:newSize interpolationQuality:kCGInterpolationHigh];
-        NSLog(@"resized image size: %@", [[NSValue valueWithCGSize:croppedImage.size] description]);
+        //NSLog(@"resized image size: %@", [[NSValue valueWithCGSize:croppedImage.size] description]);
         
-        /*
+        
         cvSetErrMode(CV_ErrModeParent);
         
         UIImage * uiImage = croppedImage;
@@ -570,10 +535,12 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 		IplImage *img = cvCreateImage(cvGetSize(img_color), IPL_DEPTH_8U, 1);
 		cvCvtColor(img_color, img, CV_BGR2GRAY);
 		cvReleaseImage(&img_color);
-		
-		// Detect edge
+        
+		// Apply Threshold
 		IplImage *img2 = cvCreateImage(cvGetSize(img), IPL_DEPTH_8U, 1);
-		cvCanny(img, img2, 64, 128, 3);
+        cvThreshold(img, img2, 64, 255, CV_THRESH_BINARY);
+        
+        //cvCanny(img, img2, 64, 128, 3);
 		cvReleaseImage(&img);
 		
 		// Convert black and whilte to 24bit image then convert to UIImage to show
@@ -586,17 +553,15 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 		}
 		cvReleaseImage(&img2);
 		uiImage = [self UIImageFromIplImage:image];
-		cvReleaseImage(&image);
-         */
-        
+		cvReleaseImage(&image);        
         
         //[self.imageView performSelectorOnMainThread:@selector(setImage:) withObject:uiImage waitUntilDone:YES];
         
         //[self performSelectorOnMainThread:@selector(threadedReadAndProcessImage:) withObject:croppedImage waitUntilDone:NO];
         //[self performSelector:@selector(threadedReadAndProcessImage:) withObject:croppedImage afterDelay:0.01];
-        [NSThread detachNewThreadSelector:@selector(threadedReadAndProcessImage:) toTarget:self withObject:croppedImage];
+        [NSThread detachNewThreadSelector:@selector(threadedReadAndProcessImage:) toTarget:self withObject:uiImage];
 	}
-    //[myLock unlock];
+    [myLock unlock];
 	
 	/*We unlock the  image buffer*/
 	CVPixelBufferUnlockBaseAddress(imageBuffer,0);
@@ -606,10 +571,11 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 
 - (void) handleTimer: (NSTimer *) timer
 {
-    // 수행 작업 
+    /*
     [myLock lock];
     bCapture = false;
     [myLock unlock];
+    */
     
     if (bViewTag)
     {
