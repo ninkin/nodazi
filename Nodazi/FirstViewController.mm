@@ -414,8 +414,9 @@ NSLock *myLock = nil;
         if (range.length != 0 && bCaptureReceipt == true)
             outCaptureReceipt = 2;
         
+        /*
         if (bCaptureReceipt == true)
-            outCaptureReceipt = 1;
+            outCaptureReceipt = 1;*/
     }
     
     
@@ -749,9 +750,10 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     
     if (outCaptureReceipt == 1 || outCaptureReceipt == 2)
     {
+        NSLog(@"asdf");
         (((NodaziAppDelegate *)[[UIApplication sharedApplication] delegate])).nReceiptType = outCaptureReceipt;
-        //[NSThread detachNewThreadSelector:@selector(CheckCompleted) toTarget:self withObject:nil];
-        self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:2];
+        [NSThread detachNewThreadSelector:@selector(CheckCompleted) toTarget:self withObject:nil];
+        //self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:2];
     }
 }
 
@@ -762,7 +764,11 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 
 -(void)CheckCompleted
 {
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    
     [self performSelectorOnMainThread:@selector(setTabBarIndex:) withObject:[NSNumber numberWithInt:2] waitUntilDone:YES];
+    
+    [pool release];
 }
 
 @end
