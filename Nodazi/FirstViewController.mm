@@ -497,16 +497,15 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB(); 
     CGContextRef newContext = CGBitmapContextCreate(baseAddress, width, height, 8, bytesPerRow, colorSpace, kCGBitmapByteOrder32Little | kCGImageAlphaPremultipliedFirst);
     
-    CGContextSetRGBFillColor(newContext, (CGFloat)0.0, (CGFloat)0.0, (CGFloat)0.0, (CGFloat)1.0 );
-    
-    /*
+    if (bViewTag)
+    {
     CGContextSetStrokeColorWithColor(newContext, [UIColor redColor].CGColor);
     CGContextMoveToPoint(newContext, 0, 0); 
-    CGContextAddLineToPoint(newContext, 500, 400); 
-   // CGContextMoveToPoint(newContext, 700, 0); 
-   // CGContextAddLineToPoint(newContext, 0, 500); 
+    CGContextAddLineToPoint(newContext, width, height); 
+    CGContextMoveToPoint(newContext, width, 0); 
+    CGContextAddLineToPoint(newContext, 0, height); 
     CGContextStrokePath(newContext);
-    */
+    }
     
     CGImageRef newImage = CGBitmapContextCreateImage(newContext);
 
