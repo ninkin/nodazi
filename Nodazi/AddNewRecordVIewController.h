@@ -47,6 +47,7 @@
 @property (nonatomic, retain) IBOutlet UITextField *textItemPrice;
 @property (nonatomic, retain) IBOutlet UIDatePicker *datePicker;
 @property (nonatomic, retain) IBOutlet UITableView *tableItems;
+@property (nonatomic, retain) NSMutableArray *listItems;
 
 - (IBAction)textPlaceReturn:(id)sender;
 - (IBAction)backgroundTouched:(id)sender;

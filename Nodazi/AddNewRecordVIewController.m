@@ -24,6 +24,7 @@
 @synthesize textItemPrice;
 @synthesize datePicker;
 @synthesize tableItems;
+@synthesize listItems;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -60,6 +61,8 @@
 {
     [super viewDidLoad];
     
+    self.listItems = [[NSMutableArray alloc] initWithCapacity:10];
+    
     starRating = 3; // default
     [buttonStar1 setImage:[UIImage imageNamed:@"star-4.png"] forState:UIControlStateNormal];
     [buttonStar2 setImage:[UIImage imageNamed:@"star-4.png"] forState:UIControlStateNormal];
@@ -78,6 +81,8 @@
 
 - (void) viewDidAppear:(BOOL)animated
 {
+    [self.listItems removeAllObjects];
+    
     NSDate *today = [(NodaziAppDelegate *)[[UIApplication sharedApplication] delegate] basicDate];
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -287,6 +292,10 @@
     }
     
     [tableItems reloadData];
+    
+    [textItemName setText:@""];
+    [textItemQty setText:@""];
+    [textItemPrice setText:@""];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView 
