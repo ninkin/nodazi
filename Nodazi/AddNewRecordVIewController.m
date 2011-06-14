@@ -83,6 +83,7 @@
 - (void) viewDidAppear:(BOOL)animated
 {
     [self.listItems removeAllObjects];
+    [tableItems reloadData];
     
     NSDate *today = [(NodaziAppDelegate *)[[UIApplication sharedApplication] delegate] basicDate];
     
