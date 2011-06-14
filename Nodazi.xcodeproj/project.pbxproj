@@ -26,6 +26,7 @@
 		2F24A723138E5F4900B34B3D /* Book-48.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F24A722138E5F4900B34B3D /* Book-48.png */; };
 		2F24A72B138E60C300B34B3D /* ExpenseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F24A729138E60C300B34B3D /* ExpenseViewController.m */; };
 		2F24A72C138E60C300B34B3D /* ExpenseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F24A72A138E60C300B34B3D /* ExpenseView.xib */; };
+		2F5B1C9413A644470001D898 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F5B1C9313A644470001D898 /* libsqlite3.dylib */; };
 		2F85DE54139F9AD10038A86B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F85DE53139F9AD10038A86B /* QuartzCore.framework */; };
 		2F85DE59139FA23C0038A86B /* blank_postit.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F85DE58139FA23C0038A86B /* blank_postit.png */; };
 		2FA0E228138E6E24006D7714 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FA0E226138E6E24006D7714 /* SettingViewController.m */; };
@@ -106,6 +107,7 @@
 		2F24A728138E60C300B34B3D /* ExpenseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpenseViewController.h; sourceTree = "<group>"; };
 		2F24A729138E60C300B34B3D /* ExpenseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenseViewController.m; sourceTree = "<group>"; };
 		2F24A72A138E60C300B34B3D /* ExpenseView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpenseView.xib; sourceTree = "<group>"; };
+		2F5B1C9313A644470001D898 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		2F85DE53139F9AD10038A86B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		2F85DE58139FA23C0038A86B /* blank_postit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank_postit.png; sourceTree = "<group>"; };
 		2FA0E225138E6E24006D7714 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F5B1C9413A644470001D898 /* libsqlite3.dylib in Frameworks */,
 				41E1F62713A0E64D00DBB98E /* Accelerate.framework in Frameworks */,
 				2F85DE54139F9AD10038A86B /* QuartzCore.framework in Frameworks */,
 				41241A61139FBE1900CF38F3 /* CoreVideo.framework in Frameworks */,
@@ -212,6 +215,7 @@
 		2F24A6E3138E54BF00B34B3D = {
 			isa = PBXGroup;
 			children = (
+				2F5B1C9313A644470001D898 /* libsqlite3.dylib */,
 				2F24A6F8138E54BF00B34B3D /* Nodazi */,
 				2F24A6F1138E54BF00B34B3D /* Frameworks */,
 				2F24A6EF138E54BF00B34B3D /* Products */,

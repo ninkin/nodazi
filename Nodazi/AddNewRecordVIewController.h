@@ -10,8 +10,15 @@
 
 
 @interface AddNewRecordVIewController : UIViewController {
+    NSString *strDate;
     IBOutlet UIButton *buttonDate;
+    NSInteger day, month, year;
+    
     UITextField *textPlace;
+    
+    UITextField *textItemName;
+    UITextField *textItemQty;
+    UITextField *textItemPrice;
     
     UIButton *buttonStar1;
     UIButton *buttonStar2;
@@ -22,12 +29,15 @@
 }
 
 @property (nonatomic, retain) IBOutlet UIButton *buttonDate;
-@property (nonatomic, retain) UITextField *textPlace;
+@property (nonatomic, retain) IBOutlet UITextField *textPlace;
 @property (nonatomic, retain) IBOutlet UIButton *buttonStar1;
 @property (nonatomic, retain) IBOutlet UIButton *buttonStar2;
 @property (nonatomic, retain) IBOutlet UIButton *buttonStar3;
 @property (nonatomic, retain) IBOutlet UIButton *buttonStar4;
 @property (nonatomic, retain) IBOutlet UIButton *buttonStar5;
+@property (nonatomic, retain) IBOutlet UITextField *textItemName;
+@property (nonatomic, retain) IBOutlet UITextField *textItemQty;
+@property (nonatomic, retain) IBOutlet UITextField *textItemPrice;
 
 - (IBAction)textPlaceReturn:(id)sender;
 - (IBAction)backgroundTouched:(id)sender;
@@ -36,5 +46,6 @@
 - (IBAction)star3Touched:(id)sender;
 - (IBAction)star4Touched:(id)sender;
 - (IBAction)star5Touched:(id)sender;
+- (IBAction)buttonAddTouched:(id)sender;
 
 @end
