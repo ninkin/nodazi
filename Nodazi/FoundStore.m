@@ -11,18 +11,17 @@
 
 #import "MKMapView+ZoomLevel.h"
 
-#define GEORGIA_TECH_LATITUDE 37.448737
-#define GEORGIA_TECH_LONGITUDE 126.9652507
-
-#define ZOOM_LEVEL 26
 
 @implementation FoundStore
 
 @synthesize myMapView;
-
+@synthesize gsmart;
+@synthesize building302;
+@synthesize storePlace;
+@synthesize distance;
 - (void)dealloc
 {
-    //[myMapView release];
+    [storePlace release];
     [super dealloc];
 }
 
@@ -42,64 +41,61 @@
 {
     
     [super viewDidLoad];
-    //myMapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
-    
-    //[NSThread detachNewThreadSelector:@selector(displayMYMap) toTarget:self withObject:nil];
-    /*myMapView.showsUserLocation = FALSE;
-    
-    MKCoordinateRegion region;
-    MKCoordinateSpan span;
-    span.latitudeDelta = 0.2;
-    span.longitudeDelta = 0.2;
-    
-    CLLocationCoordinate2D location = myMapView.userLocation.coordinate;
-    
-    location.latitude=37.514849;
-    location.longitude = 126.954063;
-    
-    region.span = span;
-    region.center = location;
-    
-    [myMapView setRegion:region animated:TRUE];
-    [myMapView regionThatFits:region];
-    */
+
+    storePlace = [[PlaceMarker alloc] init];
     
     
+    building302.latitude = 37.448671;
+    building302.longitude = 126.952445;
+    gsmart.latitude = 37.477395;
+    gsmart.longitude = 126.959553;
+        
+    
+    CLLocationDistance dist = [[[CLLocation alloc] initWithLatitude:building302.latitude longitude:building302.longitude] distanceFromLocation:[[CLLocation alloc] initWithLatitude:gsmart.latitude longitude:gsmart.longitude]];
+    [distance setText:[NSString stringWithFormat:@"Distance : %dkm", (int)(dist/1000)]];
+    
+    
+    storePlace.title = @"GS Mart";
+    storePlace.subtitle = @"02)2039-8215";
+    storePlace.coordinate = gsmart;
+    
+    
+    [NSThread detachNewThreadSelector:@selector(displayMYMap) toTarget:self withObject:nil];
+ 
      
     myMapView.delegate = self;
     
-    //[self.view addSubview:myMapView];
-    //[NSThread detachNewThreadSelector:@selector(displayMYMap) toTarget:self withObject:nil];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)displayMYMap{
     MKCoordinateRegion region;
     MKCoordinateSpan span;
-    span.latitudeDelta = 0.005;
-    span.longitudeDelta = 0.005;
-    
-    
+    span.latitudeDelta = 0.06;
+    span.longitudeDelta = 0.06;
     
     CLLocationCoordinate2D location = myMapView.userLocation.coordinate;
     
-    location.latitude=37.477395;
-    location.longitude = 126.959553;
+    location.latitude= (building302.latitude + gsmart.latitude)/2;
+    location.longitude = (building302.longitude + gsmart.longitude)/2;
     
     region.span = span;
     region.center = location;
     
+    
+    [myMapView addAnnotation:storePlace];
     [myMapView setRegion:region animated:YES];
     [myMapView regionThatFits:region];
 }
 
 - (void)onClickMap:(id)sender{
+    
     StoreLocationView *storeLocation = [[StoreLocationView alloc  ]init];
     storeLocation.title = @"Location";
+    
+    storeLocation.gsmart = gsmart;
+    storeLocation.building302 = building302;
+    storeLocation.storePlace = storePlace;
+    
     [self.navigationController pushViewController:storeLocation animated:YES];
 }
 - (void)viewDidUnload
@@ -118,8 +114,8 @@
 {
     [super viewDidAppear:animated];
     
-    CLLocationCoordinate2D centerCoord = { GEORGIA_TECH_LATITUDE, GEORGIA_TECH_LONGITUDE };
-    [myMapView setCenterCoordinate:centerCoord zoomLevel:ZOOM_LEVEL animated:NO];
+    //CLLocationCoordinate2D centerCoord = { GEORGIA_TECH_LATITUDE, GEORGIA_TECH_LONGITUDE };
+    //[myMapView setCenterCoordinate:centerCoord zoomLevel:ZOOM_LEVEL animated:NO];
 }
 
 - (void)viewWillDisappear:(BOOL)animated

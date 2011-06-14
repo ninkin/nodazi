@@ -12,6 +12,9 @@
 
 @implementation StoreLocationView
 @synthesize mapView;
+@synthesize gsmart;
+@synthesize building302;
+@synthesize storePlace;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -24,6 +27,7 @@
 - (void)dealloc
 {
     [mapView release];
+    [storePlace release];
     [super dealloc];
 }
 
@@ -47,56 +51,37 @@
 - (void)viewDidLoad
 {
     
+        
     [super viewDidLoad];
     mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
     
-    [self.mapView.userLocation addObserver:self forKeyPath:@"location" options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld) context:NULL];
-    
     MKCoordinateRegion region;
     MKCoordinateSpan span;
-    span.latitudeDelta = 0.005;
-    span.longitudeDelta = 0.005;
+    
+    //CLLocationCoordinate2D building302 = mapView.userLocation.coordinate;
+    //CLLocationCoordinate2D gsmart;
+    CLLocationCoordinate2D middle;
     
     
+    span.latitudeDelta = 2*fabs(gsmart.latitude - building302.latitude);
+    span.longitudeDelta = 2*fabs(gsmart.longitude - building302.longitude);
     
-    CLLocationCoordinate2D location = mapView.userLocation.coordinate;
-    
-    location.latitude=37.477395;
-    location.longitude = 126.959553;
+    middle.latitude = (building302.latitude+gsmart.latitude)/2;
+    middle.longitude = (building302.longitude+gsmart.longitude)/2;
     
     region.span = span;
-    region.center = location;
+    region.center = middle;
     
+    //PlaceMarker *storePlace = [[PlaceMarker alloc] init];
     
     [mapView setRegion:region animated:YES];
     [mapView regionThatFits:region];
 
-    PlaceMarker *storePlace = [[PlaceMarker alloc] init];
-    
-    storePlace.title = @"GS Mart";
-    storePlace.subtitle = @"02)2039-8215";
-    CLLocationCoordinate2D coordi;
-    coordi.latitude = 37.477006;
-    coordi.longitude = 126.961366;
-    storePlace.coordinate = coordi;
     
     [mapView addAnnotation:storePlace];
     mapView.showsUserLocation = YES;
     [self.view addSubview:mapView];
     
-}
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
-    MKCoordinateRegion region;
-    MKCoordinateSpan span;
-    
-    region.center = self.mapView.userLocation.coordinate;
-    
-    span.latitudeDelta = 1;
-    span.longitudeDelta =1;
-    region.span = span;
-    
-    [self.mapView setRegion:region animated:YES];
-
 }
 - (void)viewDidUnload
 {

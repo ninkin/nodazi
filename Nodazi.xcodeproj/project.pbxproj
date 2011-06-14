@@ -63,8 +63,8 @@
 		41E1F62513A0E52600DBB98E /* libopencv_objdetect.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41E1F62213A0E52600DBB98E /* libopencv_objdetect.a */; };
 		41E1F62713A0E64D00DBB98E /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41E1F62613A0E64D00DBB98E /* Accelerate.framework */; };
 		41E1F65213A0E95A00DBB98E /* tessdata-svn in Resources */ = {isa = PBXBuildFile; fileRef = 41E1F65113A0E95A00DBB98E /* tessdata-svn */; };
-		41F7432D13A74B740080EC19 /* MKMapView+ZoomLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F7432C13A74B740080EC19 /* MKMapView+ZoomLevel.m */; };
 		AC1960BA139E5EA5009536FC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC1960B9139E5EA5009536FC /* MapKit.framework */; };
+		AC3E81A213A77073006D01AB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3E81A113A77073006D01AB /* CoreLocation.framework */; };
 		AC44C69F1392A2200078E586 /* Add-32.png in Resources */ = {isa = PBXBuildFile; fileRef = AC44C69E1392A2200078E586 /* Add-32.png */; };
 		AC6A4B1013A74B4E00EB6421 /* PlaceMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = AC6A4B0F13A74B4E00EB6421 /* PlaceMarker.m */; };
 		AC889DEE139FB2D80072DFC5 /* star-0.png in Resources */ = {isa = PBXBuildFile; fileRef = AC889DED139FB2D80072DFC5 /* star-0.png */; };
@@ -158,9 +158,8 @@
 		41E1F62213A0E52600DBB98E /* libopencv_objdetect.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_objdetect.a; path = opencv_device/lib/libopencv_objdetect.a; sourceTree = "<group>"; };
 		41E1F62613A0E64D00DBB98E /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		41E1F65113A0E95A00DBB98E /* tessdata-svn */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "tessdata-svn"; path = "tesseract/tessdata-svn"; sourceTree = "<group>"; };
-		41F7432B13A74B740080EC19 /* MKMapView+ZoomLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKMapView+ZoomLevel.h"; sourceTree = "<group>"; };
-		41F7432C13A74B740080EC19 /* MKMapView+ZoomLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKMapView+ZoomLevel.m"; sourceTree = "<group>"; };
 		AC1960B9139E5EA5009536FC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		AC3E81A113A77073006D01AB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		AC44C69E1392A2200078E586 /* Add-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Add-32.png"; sourceTree = "<group>"; };
 		AC6A4B0E13A74B4E00EB6421 /* PlaceMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceMarker.h; sourceTree = "<group>"; };
 		AC6A4B0F13A74B4E00EB6421 /* PlaceMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceMarker.m; sourceTree = "<group>"; };
@@ -186,6 +185,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC3E81A213A77073006D01AB /* CoreLocation.framework in Frameworks */,
 				2F5B1C9413A644470001D898 /* libsqlite3.dylib in Frameworks */,
 				41E1F62713A0E64D00DBB98E /* Accelerate.framework in Frameworks */,
 				2F85DE54139F9AD10038A86B /* QuartzCore.framework in Frameworks */,
@@ -221,6 +221,7 @@
 		2F24A6E3138E54BF00B34B3D = {
 			isa = PBXGroup;
 			children = (
+				AC3E81A113A77073006D01AB /* CoreLocation.framework */,
 				2F5B1C9313A644470001D898 /* libsqlite3.dylib */,
 				2F24A6F8138E54BF00B34B3D /* Nodazi */,
 				2F24A6F1138E54BF00B34B3D /* Frameworks */,
