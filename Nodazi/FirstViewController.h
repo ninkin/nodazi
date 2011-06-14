@@ -50,11 +50,13 @@ using namespace tesseract;
     bool bThreadRun;
     NSTimer *timer; 
     
-    bool bViewTag;
+    int nViewTag;
     UIButton * scanButton;
     UIButton * tagButton;
     UILabel * tagLabel;
     UILabel * tagLabel2;
+    UILabel * tagLabel3;
+    UILabel * tagLabel4;
     
     bool bShowScreen;
     bool bCaptureReceipt;

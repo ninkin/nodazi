@@ -15,6 +15,7 @@
 @synthesize navController;
 @synthesize _expenseNavCtrlr = expenseNavCtrlr;
 @synthesize tabBarController=_tabBarController;
+@synthesize nReceiptType;
 @synthesize basicDate;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -68,6 +69,8 @@
         
         NSLog(@"DB OPEN ERROR: '%s'", sqlite3_errmsg(db));    
     }
+    
+    nReceiptType = 0;
 
     return YES;
 }

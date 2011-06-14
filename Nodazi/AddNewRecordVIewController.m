@@ -88,6 +88,28 @@
     // e.g. self.myOutlet = nil;
 }
 
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    int receipttype = (((NodaziAppDelegate *)[[UIApplication sharedApplication] delegate])).nReceiptType;
+    (((NodaziAppDelegate *)[[UIApplication sharedApplication] delegate])).nReceiptType = 0;
+    
+    if (receipttype == 1)
+    {
+        [textPlace setText:@"GS Mart"];
+        [textItemName setText:@"Choco-pie"];
+        [textItemQty setText:@"1"];
+        [textItemPrice setText:@"3.9"];
+    }
+    else
+    {
+        [textPlace setText:@"Quiznos"];
+        [textItemName setText:@"Baga-chickin"];
+        [textItemQty setText:@"10"];
+        [textItemPrice setText:@"7.7"];
+    }
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations

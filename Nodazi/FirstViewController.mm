@@ -96,12 +96,12 @@ NSLock *myLock = nil;
     
     bCapture = false;
     bThreadRun = false;
-    bViewTag = false;
+    nViewTag = 0;
     
     [self initCapture];
-    
+    /*
     timer = [NSTimer scheduledTimerWithTimeInterval: 1.0 target: self selector: @selector(handleTimer:)
-                                           userInfo: nil repeats: YES];
+                                           userInfo: nil repeats: YES];*/
 }
 
 - (NSString *)applicationDocumentsDirectory 
@@ -185,17 +185,29 @@ NSLock *myLock = nil;
 }
 
 - (void) viewDidAppear:(BOOL)animated {
+    [myLock lock];
     [activityView stopAnimating];
     bCaptureReceipt = false;
     outCaptureReceipt = 0;
     bShowScreen = true;
+    bCapture = false;
+    
+    timer = [NSTimer scheduledTimerWithTimeInterval: 1.0 target: self selector: @selector(handleTimer:)
+                                           userInfo: nil repeats: YES];
+    [myLock unlock];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+    [myLock lock];
     bCaptureReceipt = false;
     outCaptureReceipt = 0;
     bShowScreen = false;
+    bCapture = true;
+    
+    [timer invalidate];
+    timer = nil;
+    [myLock unlock];
 }
 
 - (IBAction) receiptClick {
@@ -359,14 +371,22 @@ NSLock *myLock = nil;
     // Check to Price
     NSArray * prices = [outputText componentsSeparatedByString:@"\n"];
     
-    bViewTag = false;
+    nViewTag = 0;
     for (NSString *string in prices)
     {
         string = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-        NSRange range = [string rangeOfString:@"4.20"];
         
+        NSRange range = [string rangeOfString:@"4.20"];
         if (range.length != 0)
-            bViewTag = true;
+            nViewTag = 1;
+        
+        range = [string rangeOfString:@"3.99"];
+        if (range.length != 0)
+            nViewTag = 2;
+        
+        range = [string rangeOfString:@"1,023"];
+        if (range.length != 0)
+            nViewTag = 3;
         
         //NSLog(@"out data by line:%@", string);
         
@@ -393,6 +413,10 @@ NSLock *myLock = nil;
         range = [string rangeOfString:@"aga"];
         if (range.length != 0 && bCaptureReceipt == true)
             outCaptureReceipt = 2;
+        
+        /*
+        if (bCaptureReceipt == true)
+            outCaptureReceipt = 1;*/
     }
     
     
@@ -402,8 +426,10 @@ NSLock *myLock = nil;
     [pool release];
     
     [myLock lock];
+    if (outCaptureReceipt == 0)
+        bCapture = false;
     bThreadRun = false;
-    bCapture = false;
+    //bCapture = false;
     [myLock unlock];
 }
 
@@ -509,6 +535,32 @@ NSLock *myLock = nil;
     tagLabel2.numberOfLines = 3;
     [self.view addSubview:tagLabel2];
     
+    tagLabel4 = [[UILabel alloc] initWithFrame:CGRectMake(0, 80, 480, 150)];
+    [tagLabel4 setFrame:CGRectMake(45, 100, 250, 100)];
+    [tagLabel4 setText:@"$ 1,000"];
+    [tagLabel4 setOpaque:TRUE];
+    [tagLabel4 setAlpha:0.0];
+    tagLabel4.backgroundColor = [UIColor clearColor];
+    tagLabel4.font = [UIFont fontWithName:@"Courier" size: 50.0];
+    [tagLabel4 setTextColor:[UIColor redColor]];
+    tagLabel4.lineBreakMode = UILineBreakModeWordWrap;
+    tagLabel4.textAlignment = UITextAlignmentCenter;
+    tagLabel4.numberOfLines = 3;
+    [self.view addSubview:tagLabel4];
+    
+    tagLabel3 = [[UILabel alloc] initWithFrame:CGRectMake(0, 80, 480, 150)];
+    [tagLabel3 setFrame:CGRectMake(35, 170, 250, 100)];
+    [tagLabel3 setText:@"OK! It is the lowest price!"];
+    [tagLabel3 setOpaque:TRUE];
+    [tagLabel3 setAlpha:0.0];
+    tagLabel3.backgroundColor = [UIColor clearColor];
+    tagLabel3.font = [UIFont fontWithName:@"Courier" size: 20.0];
+    [tagLabel3 setTextColor:[UIColor blueColor]];
+    tagLabel3.lineBreakMode = UILineBreakModeWordWrap;
+    tagLabel3.textAlignment = UITextAlignmentCenter;
+    tagLabel3.numberOfLines = 3;
+    [self.view addSubview:tagLabel3];
+    
     activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
     activityView.center = self.view.center;
     activityView.hidesWhenStopped = YES;
@@ -542,7 +594,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB(); 
     CGContextRef newContext = CGBitmapContextCreate(baseAddress, width, height, 8, bytesPerRow, colorSpace, kCGBitmapByteOrder32Little | kCGImageAlphaPremultipliedFirst);
     
-    if (bViewTag)
+    if (nViewTag == 1 || nViewTag == 3)
     {
         CGContextSetStrokeColorWithColor(newContext, [UIColor redColor].CGColor);
         CGContextMoveToPoint(newContext, 0, 0); 
@@ -662,22 +714,43 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     }
     else
     {
-        if (bViewTag)
+        if (nViewTag == 1)
         {
             [scanButton setAlpha:0];
             [tagLabel setAlpha:0.8];
             [tagLabel2 setAlpha:0.8];
+            [tagLabel3 setAlpha:0];
+            [tagLabel4 setAlpha:0];
         }
-        else
+        else if (nViewTag == 2)
+        {
+            [scanButton setAlpha:0.0];
+            [tagLabel setAlpha:0.0];
+            [tagLabel2 setAlpha:0.0];
+            [tagLabel3 setAlpha:0.8];
+            [tagLabel4 setAlpha:0];
+        }
+        else if (nViewTag == 3)
+        {
+            [scanButton setAlpha:0.0];
+            [tagLabel setAlpha:0.8];
+            [tagLabel2 setAlpha:0.0];
+            [tagLabel3 setAlpha:0.0];
+            [tagLabel4 setAlpha:0.8];
+        }
+        else if (nViewTag == 0)
         {
             [scanButton setAlpha:0.4];
             [tagLabel setAlpha:0.0];
             [tagLabel2 setAlpha:0.0];
+            [tagLabel3 setAlpha:0];
+            [tagLabel4 setAlpha:0];
         }
     }
     
     if (outCaptureReceipt == 1 || outCaptureReceipt == 2)
     {
+        (((NodaziAppDelegate *)[[UIApplication sharedApplication] delegate])).nReceiptType = outCaptureReceipt;
         self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:2];
     }
 }
