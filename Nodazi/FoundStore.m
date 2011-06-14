@@ -73,15 +73,15 @@
 - (void)displayMYMap{
     MKCoordinateRegion region;
     MKCoordinateSpan span;
-    span.latitudeDelta = 0.2;
-    span.longitudeDelta = 0.2;
+    span.latitudeDelta = 0.005;
+    span.longitudeDelta = 0.005;
     
     
     
     CLLocationCoordinate2D location = myMapView.userLocation.coordinate;
     
-    location.latitude=37.514849;
-    location.longitude = 126.954063;
+    location.latitude=37.477395;
+    location.longitude = 126.959553;
     
     region.span = span;
     region.center = location;

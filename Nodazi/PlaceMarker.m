@@ -7,23 +7,26 @@
 //
 
 #import "PlaceMarker.h"
-
+#import <MapKit/MapKit.h>
 
 @implementation PlaceMarker
-
-- (id)init
+@synthesize coordinate;
+@synthesize title;
+@synthesize subtitle;
+- (CLLocationCoordinate2D)coordinate;
 {
-    self = [super init];
-    if (self) {
-        // Initialization code here.
-    }
-    
-    return self;
+    return coordinate;
 }
-
-- (void)dealloc
-{
+- (void)dealloc{
     [super dealloc];
+    
 }
-
+- (NSString *)title
+{
+    return title;
+}
+- (NSString *)subtitle
+{
+    return subtitle;
+}
 @end

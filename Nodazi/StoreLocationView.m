@@ -8,6 +8,7 @@
 
 #import "StoreLocationView.h"
 #import <MapKit/MapKit.h>
+#import "PlaceMarker.h"
 
 @implementation StoreLocationView
 @synthesize mapView;
@@ -49,31 +50,54 @@
     [super viewDidLoad];
     mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
     
+    [self.mapView.userLocation addObserver:self forKeyPath:@"location" options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld) context:NULL];
     
     MKCoordinateRegion region;
     MKCoordinateSpan span;
-    span.latitudeDelta = 0.2;
-    span.longitudeDelta = 0.2;
+    span.latitudeDelta = 0.005;
+    span.longitudeDelta = 0.005;
     
     
     
     CLLocationCoordinate2D location = mapView.userLocation.coordinate;
     
-    location.latitude=37.514849;
-    location.longitude = 126.954063;
+    location.latitude=37.477395;
+    location.longitude = 126.959553;
     
     region.span = span;
     region.center = location;
     
     
-    mapView.showsUserLocation = YES;
     [mapView setRegion:region animated:YES];
     [mapView regionThatFits:region];
 
+    PlaceMarker *storePlace = [[PlaceMarker alloc] init];
+    
+    storePlace.title = @"GS Mart";
+    storePlace.subtitle = @"02)2039-8215";
+    CLLocationCoordinate2D coordi;
+    coordi.latitude = 37.477006;
+    coordi.longitude = 126.961366;
+    storePlace.coordinate = coordi;
+    
+    [mapView addAnnotation:storePlace];
+    mapView.showsUserLocation = YES;
     [self.view addSubview:mapView];
     
 }
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    MKCoordinateRegion region;
+    MKCoordinateSpan span;
+    
+    region.center = self.mapView.userLocation.coordinate;
+    
+    span.latitudeDelta = 1;
+    span.longitudeDelta =1;
+    region.span = span;
+    
+    [self.mapView setRegion:region animated:YES];
 
+}
 - (void)viewDidUnload
 {
     [super viewDidUnload];
